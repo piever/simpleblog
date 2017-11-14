@@ -1,9 +1,13 @@
 ---
-title: "Programming in Julia for beginners"
+title: "Programming in Julia for beginners, chapter I"
 date: 2017-11-14T00:17:19Z
 draft: false
 ---
-# Functions and objects ("Hello, World!")
+# Learning how to code
+
+This is the first of a series of posts aimed about the [Julia](https://julialang.org/) programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some beginners to programming are curious enough to give Julia a try, I'll make a series of tutorials about it starting from the very beginning.
+
+## Functions and objects ("Hello, World!")
 
 
 Applying a function to one or more objects (its arguments) is the basic building block of programming. If we consider a command as a sentence, the function has to be thought of as the verb (the action), whereas the objects form the rest of the sentence. The subject is generally (but not always) Julia. This is best understood with an example and displaying the string "Hello, World!" is probably the single most known example of programming. In the following section, we will learn two things:
