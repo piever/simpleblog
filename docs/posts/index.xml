@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Thoughts and things</title>
-    <link>https://piever.github.io/simpleblog/</link>
-    <description>Recent content on Thoughts and things</description>
+    <title>Articles on Thoughts and things</title>
+    <link>https://piever.github.io/simpleblog/posts/</link>
+    <description>Recent content in Articles on Thoughts and things</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Nov 2017 00:17:19 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Mar 2017 12:00:00 -0500</lastBuildDate>
     
-	<atom:link href="https://piever.github.io/simpleblog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://piever.github.io/simpleblog/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
