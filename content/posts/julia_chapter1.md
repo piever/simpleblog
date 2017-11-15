@@ -5,10 +5,13 @@ draft: false
 ---
 # Learning how to code
 
-This is the first of a series of posts aimed about the [Julia](https://julialang.org/) programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some beginners to programming are curious enough to give Julia a try, I'll make a series of tutorials about it starting from the very beginning.
+This is the first of a series of posts aimed about the [Julia](https://julialang.org/) programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I'm making a series of tutorials about it, starting from the very beginning.
+
+## Basic setup: downloading and installing Julia
+
+Julia (command line version) can be downloaded [here](https://julialang.org/downloads/). Choose the correct distribution for your OS and follow the instruction to install it (double-clicking will probably be enough). You have now access to the Julia app in its command line version (we will explore more sophisticated setups later on). Let's open it and get stared.
 
 ## Functions and objects ("Hello, World!")
-
 
 Applying a function to one or more objects (its arguments) is the basic building block of programming. If we consider a command as a sentence, the function has to be thought of as the verb (the action), whereas the objects form the rest of the sentence. The subject is generally (but not always) Julia. This is best understood with an example and displaying the string "Hello, World!" is probably the single most known example of programming. In the following section, we will learn two things:
 
@@ -17,7 +20,7 @@ Applying a function to one or more objects (its arguments) is the basic building
 
 ## The first program
 
-Type the following in the Julia REPL:
+Type the following in the Julia console and press `Enter`:
 
 ```julia
 julia> print("Hello, World!")
@@ -25,7 +28,7 @@ julia> print("Hello, World!")
 
 You will see that, perhaps unsurprisingly, the string "Hello, World!" gets displayed on the screen. How did that happen? As this simple program has only two components: `print` and `"Hello, World!"`,  we can analyze them one by one. Let's start with `print`.
 
-Julia is very helpful and often answers our questions. Let's type a `?` in the REPL to switch to *help* mode. Then, we can type `print`, press `Enter` and see what Julia has to tell us about `print`:
+Julia is very helpful and often answers our questions. Let's type a `?` in the console to switch to *help* mode. Then, we can type `print`, press `Enter` and see what Julia has to tell us about `print`:
 
 ```julia
 help?> print
@@ -70,7 +73,29 @@ The first thing that comes to mind is concatenation or, in simpler terms, given 
 julia> "Hello, " * "World!"
 ```
 
-Note that we don't need to print the output, as the REPL automatically displays the output of a command.
+Note that we don't need to print the output, as the console automatically displays the output of a command. For this reason, some people refer to it as the REPL (Read Evaluate Print Loop): it reads your command, evaluates it, prints the answer and is ready for another command.
+ <div style="background-color:rgba(0, 0, 0, 0.0470588); vertical-align: middle; padding:40px 0; outline: black solid 5px; border: 2px solid black; padding: 50px; outline-offset: 5px;">
+
+**Importand remark**
+
+Some functions are a bit special, in that they can be written *between* their arguments (but the normal function form is also possible). For example we could have said:
+
+```julia
+julia> *("Hello, ", "World!")
+```
+
+but that would not read very well. This "in-between" syntax (also called operator syntax) is especially useful for writing mathematics. Compare the normal looking:
+
+```julia
+julia> (2*3+5)/7
+```
+
+with the monstrous:
+
+```julia
+julia> /(+(*(2, 3), 5), 7)
+```
+</div>
 
 Next, we could try repeating a string several times. Just like `^` is repeated multiplication (`*` in mathematics), `^` is also repeated concatenation (`*` in Julia).
 

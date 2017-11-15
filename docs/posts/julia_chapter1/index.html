@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Thoughts and things  | Programming in Julia for beginners, chapter I</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.30.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    <link href='https://piever.github.io/simpleblog/dist/main.css' rel='stylesheet' type="text/css" />
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="Programming in Julia for beginners, chapter I" />
+<meta property="og:description" content="Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&rsquo;m making a series of tutorials about it, starting from the very beginning." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://piever.github.io/simpleblog/posts/julia_chapter1/" />
+
+
+
+<meta property="article:published_time" content="2017-11-14T00:17:19&#43;00:00"/>
+
+<meta property="article:modified_time" content="2017-11-14T00:17:19&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Programming in Julia for beginners, chapter I">
+<meta itemprop="description" content="Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&rsquo;m making a series of tutorials about it, starting from the very beginning.">
+
+
+<meta itemprop="datePublished" content="2017-11-14T00:17:19&#43;00:00" />
+<meta itemprop="dateModified" content="2017-11-14T00:17:19&#43;00:00" />
+<meta itemprop="wordCount" content="853">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Programming in Julia for beginners, chapter I"/>
+<meta name="twitter:description" content="Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&rsquo;m making a series of tutorials about it, starting from the very beginning."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://piever.github.io/simpleblog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Thoughts and things
+    </a>
+    <div class="flex-l items-center">
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/simpleblog/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/simpleblog/posts/" title="Articles page">
+              Articles
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <header>
+        <p class="f6 b helvetica tracked">
+          POSTS
+        </p>
+        <h1 class="f1">
+          Programming in Julia for beginners, chapter I
+        </h1>
+      </header>
+      <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
+        
+
+<h1 id="learning-how-to-code">Learning how to code</h1>
+
+<p>This is the first of a series of posts aimed about the <a href="https://julialang.org/">Julia</a> programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&rsquo;m making a series of tutorials about it, starting from the very beginning.</p>
+
+<h2 id="basic-setup-downloading-and-installing-julia">Basic setup: downloading and installing Julia</h2>
+
+<p>Julia (command line version) can be downloaded <a href="https://julialang.org/downloads/">here</a>. Choose the correct distribution for your OS and follow the instruction to install it (double-clicking will probably be enough). You have now access to the Julia app in its command line version (we will explore more sophisticated setups later on). Let&rsquo;s open it and get stared.</p>
+
+<h2 id="functions-and-objects-hello-world">Functions and objects (&ldquo;Hello, World!&rdquo;)</h2>
+
+<p>Applying a function to one or more objects (its arguments) is the basic building block of programming. If we consider a command as a sentence, the function has to be thought of as the verb (the action), whereas the objects form the rest of the sentence. The subject is generally (but not always) Julia. This is best understood with an example and displaying the string &ldquo;Hello, World!&rdquo; is probably the single most known example of programming. In the following section, we will learn two things:</p>
+
+<ul>
+<li><code>&quot;Hello, World!&quot;</code> is a <code>String</code></li>
+<li><code>print</code> is a function that displays things</li>
+</ul>
+
+<h2 id="the-first-program">The first program</h2>
+
+<p>Type the following in the Julia console and press <code>Enter</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> print(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>)</code></pre></div>
+<p>You will see that, perhaps unsurprisingly, the string &ldquo;Hello, World!&rdquo; gets displayed on the screen. How did that happen? As this simple program has only two components: <code>print</code> and <code>&quot;Hello, World!&quot;</code>,  we can analyze them one by one. Let&rsquo;s start with <code>print</code>.</p>
+
+<p>Julia is very helpful and often answers our questions. Let&rsquo;s type a <code>?</code> in the console to switch to <em>help</em> mode. Then, we can type <code>print</code>, press <code>Enter</code> and see what Julia has to tell us about <code>print</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">help<span style="color:#f92672">?&gt;</span> print
+search<span style="color:#f92672">:</span> print println print_shortest print_with_color sprint <span style="color:#a6e22e">@printf</span> isprint
+
+  print(io<span style="color:#f92672">::</span><span style="color:#66d9ef">IO</span>, x)
+
+  Write to io (or to the default output stream STDOUT <span style="color:#66d9ef">if</span> io is not given) a
+  canonical (un<span style="color:#f92672">-</span>decorated) text representation of a value <span style="color:#66d9ef">if</span> there is one,
+  otherwise call show<span style="color:#f92672">.</span> The representation used by print includes minimal
+  formatting and tries to avoid Julia<span style="color:#f92672">-</span>specific details<span style="color:#f92672">.</span>
+
+  julia<span style="color:#f92672">&gt;</span> print(<span style="color:#e6db74">&#34;Hello World!&#34;</span>)
+  Hello World!
+  julia<span style="color:#f92672">&gt;</span> io <span style="color:#f92672">=</span> <span style="color:#66d9ef">IOBuffer</span>();
+
+  julia<span style="color:#f92672">&gt;</span> print(io, <span style="color:#e6db74">&#34;Hello World!&#34;</span>)
+
+  julia<span style="color:#f92672">&gt;</span> String(take!(io))
+  <span style="color:#e6db74">&#34;Hello World!&#34;</span></code></pre></div>
+<p>Wow, that was a lot of information! We&rsquo;ll take it to mean that <code>print</code> is a function that displays to screen whatever we feed to it.</p>
+
+<p>As <code>&quot;Hello, World!&quot;</code> is something we came up with, we can&rsquo;t ask Julia about it in the <em>help</em> console, but we can see what type of thing it is:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> typeof(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>)</code></pre></div>
+<p>What does it mean to be a string? What things can we do with strings?</p>
+
+<h2 id="doing-things-with-strings">Doing things with strings</h2>
+
+<p>Printing things gets boring very quickly: what else can we do?</p>
+
+<p>The first thing that comes to mind is concatenation or, in simpler terms, given two strings, we can put them one after the other. This operation is represented by <code>*</code> in Julia:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">*</span> <span style="color:#e6db74">&#34;World!&#34;</span></code></pre></div>
+<p>Note that we don&rsquo;t need to print the output, as the console automatically displays the output of a command. For this reason, some people refer to it as the REPL (Read Evaluate Print Loop): it reads your command, evaluates it, prints the answer and is ready for another command.
+ <div style="background-color:rgba(0, 0, 0, 0.0470588); vertical-align: middle; padding:40px 0; outline: black solid 5px; border: 2px solid black; padding: 50px; outline-offset: 5px;"></p>
+
+<p><strong>Importand remark</strong></p>
+
+<p>Some functions are a bit special, in that they can be written <em>between</em> their arguments (but the normal function form is also possible). For example we could have said:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#f92672">*</span>(<span style="color:#e6db74">&#34;Hello, &#34;</span>, <span style="color:#e6db74">&#34;World!&#34;</span>)</code></pre></div>
+<p>but that would not read very well. This &ldquo;in-between&rdquo; syntax (also called operator syntax) is especially useful for writing mathematics. Compare the normal looking:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> (<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">3</span><span style="color:#f92672">+</span><span style="color:#ae81ff">5</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">7</span></code></pre></div>
+<p>with the monstrous:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#f92672">/</span>(<span style="color:#f92672">+</span>(<span style="color:#f92672">*</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">5</span>), <span style="color:#ae81ff">7</span>)</code></pre></div>
+<p></div></p>
+
+<p>Next, we could try repeating a string several times. Just like <code>^</code> is repeated multiplication (<code>*</code> in mathematics), <code>^</code> is also repeated concatenation (<code>*</code> in Julia).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#34;Hello, World!&#34;</span><span style="color:#f92672">^</span><span style="color:#ae81ff">3</span></code></pre></div>
+<p>We already now three functions that can be applied to strings: <code>print</code>, <code>*</code> and <code>^</code> (or, in English, print, concatenate and repeat, three <em>verbs</em>). We can combine them to create even more complex strings:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> (<span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">*</span> <span style="color:#e6db74">&#34;World!&#34;</span>)<span style="color:#f92672">^</span><span style="color:#ae81ff">10</span> <span style="color:#f92672">*</span> <span style="color:#e6db74">&#34;It&#39;s enough!&#34;</span></code></pre></div>
+<p>Important: use parenthesis to specify the order of operations! Here we want to first concatenate and then repeat. Can you figure out what would happen with:</p>
+
+<p><code>&quot;Hello, &quot; * &quot;World!&quot;^10 * &quot;It's enough!&quot;</code> ?</p>
+
+<p>However we are still very limited in what we can do, as we can only write commands that fit in one line in the REPL. We will see how to solve this problem in the next chapter. First, however, try the following exercises. Play with all the possible ways of composing strings: you&rsquo;ll make many silly syntax mistakes at first, but it&rsquo;s the way to go.</p>
+
+<h2 id="exercises">Exercises</h2>
+
+<ol>
+<li>Print <code>&quot;Goodbye, World!&quot;</code></li>
+<li>Print <code>&quot;------oooooo------oooooo&quot;</code></li>
+<li>What is the most concise command that prints <code>&quot;----oooo----oooo----oooo----oooo&quot;</code>?</li>
+</ol>
+
+      </div>
+    </article>
+    <aside class="ph3 mt2 mt6-ns">
+      
+
+
+
+
+
+
+
+
+    </aside>
+  </div>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
+    &copy; 2017 Thoughts and things
+  </a>
+  
+
+
+
+
+
+
+
+
+  </div>
+</footer>
+
+    <script src="https://piever.github.io/simpleblog/dist/app.bundle.js" async></script>
+
+  </body>
+</html>
