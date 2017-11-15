@@ -17,7 +17,8 @@
       <pubDate>Wed, 15 Nov 2017 00:17:23 +0000</pubDate>
       
       <guid>https://piever.github.io/simpleblog/posts/julia_chapter2/</guid>
-      <description>Numbers and math In the previous post we mainly played with strings, but Julia is</description>
+      <description>Numbers and math In the previous post we mainly played with strings, but Julia is also very good at math. In this post we will do some math in Julia.
+Integer and and non integer numbers Julia accept both integer numbers and non integer numbers (with a decimal point). All basic (and often non basic) mathematical functions are implemented in Julia. Here we will play a bit with the four basic operations (+, -, *, /), the exponentiation operator (^) and the comparison operators (&amp;gt;, ==, &amp;lt;).</description>
     </item>
     
     <item>

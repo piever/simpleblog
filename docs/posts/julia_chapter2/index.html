@@ -23,7 +23,8 @@
     
 
     <meta property="og:title" content="Programming in Julia for beginners, chapter II" />
-<meta property="og:description" content="Numbers and math In the previous post we mainly played with strings, but Julia is" />
+<meta property="og:description" content="Numbers and math In the previous post we mainly played with strings, but Julia is also very good at math. In this post we will do some math in Julia.
+Integer and and non integer numbers Julia accept both integer numbers and non integer numbers (with a decimal point). All basic (and often non basic) mathematical functions are implemented in Julia. Here we will play a bit with the four basic operations (&#43;, -, *, /), the exponentiation operator (^) and the comparison operators (&gt;, ==, &lt;)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://piever.github.io/simpleblog/posts/julia_chapter2/" />
 
@@ -44,18 +45,20 @@
 
 
 <meta itemprop="name" content="Programming in Julia for beginners, chapter II">
-<meta itemprop="description" content="Numbers and math In the previous post we mainly played with strings, but Julia is">
+<meta itemprop="description" content="Numbers and math In the previous post we mainly played with strings, but Julia is also very good at math. In this post we will do some math in Julia.
+Integer and and non integer numbers Julia accept both integer numbers and non integer numbers (with a decimal point). All basic (and often non basic) mathematical functions are implemented in Julia. Here we will play a bit with the four basic operations (&#43;, -, *, /), the exponentiation operator (^) and the comparison operators (&gt;, ==, &lt;).">
 
 
 <meta itemprop="datePublished" content="2017-11-15T00:17:23&#43;00:00" />
 <meta itemprop="dateModified" content="2017-11-15T00:17:23&#43;00:00" />
-<meta itemprop="wordCount" content="15">
+<meta itemprop="wordCount" content="321">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Programming in Julia for beginners, chapter II"/>
-<meta name="twitter:description" content="Numbers and math In the previous post we mainly played with strings, but Julia is"/>
+<meta name="twitter:description" content="Numbers and math In the previous post we mainly played with strings, but Julia is also very good at math. In this post we will do some math in Julia.
+Integer and and non integer numbers Julia accept both integer numbers and non integer numbers (with a decimal point). All basic (and often non basic) mathematical functions are implemented in Julia. Here we will play a bit with the four basic operations (&#43;, -, *, /), the exponentiation operator (^) and the comparison operators (&gt;, ==, &lt;)."/>
 
   </head>
 
@@ -120,11 +123,66 @@
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
         
 
-<p><link rel="stylesheet" href="static/styles/style.css"></p>
-
 <h1 id="numbers-and-math">Numbers and math</h1>
 
-<p>In the previous post we mainly played with strings, but Julia is</p>
+<p>In the previous post we mainly played with strings, but Julia is also very good at math. In this post we will do some math in Julia.</p>
+
+<h2 id="integer-and-and-non-integer-numbers">Integer and and non integer numbers</h2>
+
+<p>Julia accept both integer numbers and non integer numbers (with a decimal point). All basic (and often non basic) mathematical functions are implemented in Julia. Here we will play a bit with the four basic operations (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>), the exponentiation operator (<code>^</code>) and the comparison operators (<code>&gt;</code>, <code>==</code>, <code>&lt;</code>). As it is boring to type in random math expressions just for the sake of it, we will try to verify a mathematical fact linking the golden ratio and the Fibonacci numbers.</p>
+
+<h2 id="the-golden-ratio">The golden ratio</h2>
+
+<p>The golden ratio is a constant φ such as:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">φ<span style="color:#f92672">/</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(φ<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) </code></pre></div>
+<p>The above is actually valid Julia code (in many cases writing Julia is not much different from writing mathematics). Unicode characters (such as <code>φ</code>) are valid in Julia, and in this case they represent a built-in constant:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> φ
+φ <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.6180339887498</span><span style="color:#f92672">...</span></code></pre></div>
+<p>To type <code>φ</code> simply start typing <code>\varphi</code> and then press <code>Tab</code>. The REPL will autocomplete it for you. We can now run:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> φ<span style="color:#f92672">/</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(φ<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)</code></pre></div>
+<p>We want to prove that the twelfth Fibonacci number is very close to the twelfthe power of <code>φ</code> divided by the square root of 5</p>
+
+<h2 id="fibonacci-numbers">Fibonacci numbers</h2>
+
+<p>To test ourselves, let&rsquo;s try and compute the sequence of Fibonacci numbers. As an exercise, let&rsquo;s try and figure out what is the largest Fibonacci number between 0 and 100.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Julia" data-lang="Julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+<span style="color:#ae81ff">2</span>
+
+julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>
+<span style="color:#ae81ff">3</span>
+
+julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>
+<span style="color:#ae81ff">5</span>
+
+julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">+</span><span style="color:#ae81ff">3</span>
+<span style="color:#ae81ff">8</span>
+
+julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">8</span><span style="color:#f92672">+</span><span style="color:#ae81ff">5</span>
+<span style="color:#ae81ff">13</span>
+
+julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">13</span><span style="color:#f92672">+</span><span style="color:#ae81ff">8</span>
+<span style="color:#ae81ff">21</span>
+
+julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">21</span><span style="color:#f92672">+</span><span style="color:#ae81ff">13</span>
+<span style="color:#ae81ff">34</span>
+
+julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">34</span><span style="color:#f92672">+</span><span style="color:#ae81ff">21</span>
+<span style="color:#ae81ff">55</span>
+
+julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">55</span><span style="color:#f92672">+</span><span style="color:#ae81ff">34</span>
+<span style="color:#ae81ff">89</span>
+
+julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">89</span><span style="color:#f92672">+</span><span style="color:#ae81ff">55</span>
+<span style="color:#ae81ff">144</span></code></pre></div>
+<p>But <code>144</code> is bigger than <code>100</code>, so the correct answer is 89.</p>
+
+<h2 id="exercises">Exercises</h2>
+
+<ol>
+<li>What is the largest Fibonacci smaller than <code>1000</code>?</li>
+<li>Print <code>&quot;------oooooo------oooooo&quot;</code></li>
+<li>What is the most concise command that prints <code>&quot;----oooo----oooo----oooo----oooo&quot;</code>?</li>
+</ol>
 
       </div>
     </article>
