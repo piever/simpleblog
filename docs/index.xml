@@ -6,19 +6,9 @@
     <description>Recent content on Thoughts and things</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 Nov 2017 00:17:19 +0000</lastBuildDate>
     
 	<atom:link href="https://piever.github.io/simpleblog/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Programming in Julia for beginners, chapter I</title>
-      <link>https://piever.github.io/simpleblog/posts/julia_chapter1/</link>
-      <pubDate>Tue, 14 Nov 2017 00:17:19 +0000</pubDate>
-      
-      <guid>https://piever.github.io/simpleblog/posts/julia_chapter1/</guid>
-      <description>Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&amp;rsquo;m making a series of tutorials about it, starting from the very beginning.</description>
-    </item>
     
   </channel>
 </rss>
