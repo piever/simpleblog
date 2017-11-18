@@ -16,95 +16,101 @@ Julia accept both integer numbers and non integer numbers (with a decimal point)
 
 The golden ratio is a constant $$\varphi$$ such as:
 
-```julia
-φ/1 == 1/(φ-1) 
-```
+$$\varphi = \frac{1}{\varphi-1}$$
 
-The above is actually valid Julia code (in many cases writing Julia is not much different from writing mathematics). Unicode characters (such as $$\varphi$$) are valid in Julia, and in this case they represent a built-in constant:
+The above is actually almost valid Julia code (in many cases writing Julia is not much different from writing mathematics). Unicode characters (such as $$\varphi$$) are valid in Julia, and in this case they represent a built-in constant:
 
 ```julia
 julia> φ
 φ = 1.6180339887498...
 ```
-````julia
-using Gadfly
-x = linspace(0, 2*pi)
-println(x)
-````
-```html
-<section id="main">
-  <div>
-    <h1 id="title">{{ .Title }}</h1>
-    {{ range .Data.Pages }}
-      {{ .Render "summary"}}
-    {{ end }}
-  </div>
-</section>
-```
 
-```python
-#!/usr/bin/python3
+To type $$\varphi$$ simply start typing `\varphi` and then press `Tab`. The REPL will autocomplete it for you.
 
-from engine import RunForrestRun
+ <div class="boxBorder">
 
-"""Test code for syntax highlighting!"""
+**Importand remark**
 
-class Foo:
-	def __init__(self, var):
-		self.var = var
-		self.run()
+There is one crucial difference between writing Julia and writing mathematics. In mathematics `=` is used to test equality, whereas in Julia you should use `==`. The operator `=` also exists but has a completely different meaning that we will discover in the next blog post.
+</div>
 
-	def run(self):
-		RunForrestRun()  # run along!
-```
-To type $$\varphi$$ simply start typing `\varphi` and then press `Tab`. The REPL will autocomplete it for you. We can now run:
+We can now run:
 
 ```julia
-julia> φ/1 == 1/(φ-1)
+julia> φ == 1/(φ-1)
 ```
 
-We want to prove that the twelfth Fibonacci number is very close to the twelfthe power of $$\varphi$$ divided by the square root of 5 or, in formulas:
+to see if the built-in Julia constant `φ` respects the property we mentioned above. Surprisingly enough, Julia says it's false! Let's look at how big is the difference:
 
-$$ F_n \approx \frac{\varphi ^ n}{\sqrt{5}} $$
+```julia
+julia> φ-1/(φ-1)
+2.220446049250313e-16
+```
+
+Meaning they differ by more or less $$2\cdot 10^{-16}$$ (so they differ by very very little). The reason is that when working with decimal point numbers, computers approximate the result, in this case a mathematical result comes out false. To remedy, we can ask whether they are approximately equal:
+
+```julia
+julia> φ ≈ 1/(φ-1)
+true
+```
 
 ## Fibonacci numbers
 
-To test ourselves, let's try and compute the sequence of Fibonacci numbers. As an exercise, let's try and figure out what is the largest Fibonacci number between 0 and 100.
+We want to prove that the twelfth Fibonacci number is very close to the twelfthe power of $$\varphi$$ divided by the square root of 5 or, in formulas:
+
+$$ F_{12} \approx \frac{\varphi ^ {12}}{\sqrt{5}} $$
+
+This is not only valid for twelve but for all sufficiently large numbers, still we will only test this case today.
+
+First, let's try and compute the sequence of Fibonacci numbers. It starts with $$F_1 = 1$$ and $$F_2=1$$ and continues with the recursive equation:
+
+$$F_n = F_{n-1}+F_{n-2}$$
+
+That is to say, to get the next Fibonacci number, you need to add together the previous two. Let's proceed till we get the twelfth:
 
 ```Julia
-julia> 1+1
+julia> 1+1 #gives the third Fibonacci
 2
 
-julia> 2+1
+julia> 2+1 #gives the fourth Fibonacci
 3
 
-julia> 3+2
+julia> 3+2 #gives the fifth Fibonacci
 5
 
-julia> 5+3
+julia> 5+3 #gives the sixth Fibonacci
 8
 
-julia> 8+5
+julia> 8+5 #gives the seventh Fibonacci
 13
 
-julia> 13+8
+julia> 13+8 #gives the eighth Fibonacci
 21
 
-julia> 21+13
+julia> 21+13 #gives the nineth Fibonacci
 34
 
-julia> 34+21
+julia> 34+21 #gives the tenth Fibonacci
 55
 
-julia> 55+34
+julia> 55+34 #gives the eleventh Fibonacci
 89
 
-julia> 89+55
+julia> 89+55 #gives the twelfth Fibonacci
 144
 ```
 
-But `144` is bigger than `100`, so the correct answer is 89.
+And now:
+
+```julia
+julia> φ^12/sqrt(5)
+144.0013888754932
+```
+
+Which is very close to 144.
 
 ## Exercises
 
-1. What is the largest Fibonacci smaller than `1000`?
+1. Test our approximation for numbers other than 12
+2. What is the largest Fibonacci smaller than `1000`?
+3. What is the ratio between one Fibonacci number and the previous, approximately? In formulas, what is the approximate value of $$\frac{F_n}{F_n-1}$$? Can you guess why?
