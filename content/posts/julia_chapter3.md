@@ -1,62 +1,103 @@
 ---
 title: "Programming in Julia for beginners, chapter III"
 date: 2017-11-15T00:18:23Z
-draft: true
+draft: false
 ---
 
 # Giving names to things
 
-More complex programs (composed of many lines of code) have to be created inside a text file. To do so, you will need a text editor. My personal recommendation is Atom. You can download it [here](https://atom.io/). After installing, open it, access the command palette with `Ctrl` + `,` (or `Cmd` + `,` on a Mac) and install the package language-julia. This package will help you understand the Julia code you write by highlighting different words depending on their role in the code.
+In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing `1+1` at the console, we looked at the result, which was `2`, we typed `2+1`, we got `3`, we typed `3+2` and so on and so forth. In this and the following post, we'll discover a less excruciatingly boring way of doing the same computation. In the process, we'll learn two key building blocks of programming: assigning values to variables and looping.
 
-## Using the Julia REPL as a terminal
+## Variable assignment
 
-In this section, we will learn about some Julia functions to create folders, navigate through them and run text files. First of all let's run the following code in the REPL (code after `#` is a comment, you don't need to type it: it is there to explain what is happening):
+In Julia (and in any reasonable programming language), you can assign a value to a variable. It works as follows:
 
-```julia
-julia> cd()                 # choose directory (home directory is the default)
-julia> mkdir("LearnJulia")  # make directory "LearnJulia"
-julia> cd("LearnJulia")     # choose directory "LearnJulia"
-```
-
-Once again, we find two functions that take strings as arguments. `cd` (or choose directory) navigates to the folder specified by the string, whereas `mkdir` (make directory) creates a directory with a name specified by the string.
-
-Important: `cd` has a *default* argument: if no argument is given, it assumes we are referring to the home directory. This is a very important technique that we'll look at more carefully in the "Functions" chapter.
-
-The english translation of our commands is:
-
-- Navigate to home directory
-- Make directory "LearnJulia"
-- Navigate to directory "LearnJulia"
-
-In order to test our setup, we need to create a Julia file. Create a file named "hello.jl" in the LearnJulia folder, containing the following line:
+- First you decide a name for your variable, for example `fib` (almost any sequence of characters will do, it's good to choose something that's easy to remember and that clarifies the purpose of that variable)
+- Choose a value to assign (for example `1`)
+- Execute the following code:
 
 ```julia
-print("Hello, World!")
+julia> fib = 1
 ```
 
-Now, you can execute the command from the REPL as follows:
+and you're all set! Now we can inquire Julia about the value of `fib`:
 
 ```julia
-julia> include("hello.jl")
+julia> fib
+1
 ```
 
-If everything went fine you'll see our familiar greeting "Hello, World!" displayed in the REPL.
-
-Important: for this to work, the REPL needs to be in the correct folder. You can test it by typing:
+Once you've assigned a variable, you can reassing it to something else, for example:
 
 ```julia
-julia> pwd() # A function with zero arguments, returning the present working directory
+julia> fib = 2
 ```
 
-If it's not the correct folder, we shouldn't panic but simply navigate there with:
+And now:
 
 ```julia
-julia> cd()                 # choose directory (home directory is the default)
-julia> cd("LearnJulia")     # choose directory "LearnJulia"
+julia> fib
+2
 ```
 
-Do not proceed further until you manage to run the example file!
+Also, you can assign several variables simultaneously, with the following syntax:
 
-## Writing more complicate scripts
+```julia
+julia> fib, next_fib = 1, 2
+```
 
-The
+And now `fib` is `1` and `next_fib` is `2`.
+
+## Back to Fibonacci
+
+`fib` and `next_fib` will be (as the names suggest) two consecutive Fibonacci numbers. How can we go from one pair of consecute Fibonacci numbers to the next? For example, starting with `(1, 2)`, we want to move to `(2, 3)`, then `(3, 5)`, `(5, 8)` and so on. It's actually quite simple, `fib` has to be transformed into `next_fib` and `next_fib` has to be transformed into `fib+next_fib` or, in Julia code:
+
+```julia
+julia> fib, next_fib = next_fib, fib+next_fib
+```
+
+We have a new way of computing the Fibonacci sequence:
+
+```julia
+julia> fib, next_fib = 1, 2
+(1, 2)
+
+julia> fib, next_fib = next_fib, fib+next_fib
+(2, 3)
+
+julia> fib, next_fib = next_fib, fib+next_fib
+(3, 5)
+
+julia> fib, next_fib = next_fib, fib+next_fib
+(5, 8)
+
+julia> fib, next_fib = next_fib, fib+next_fib
+(8, 13)
+
+julia> fib, next_fib = next_fib, fib+next_fib
+(13, 21)
+
+julia> fib, next_fib = next_fib, fib+next_fib
+(21, 34)
+
+julia> fib, next_fib = next_fib, fib+next_fib
+(34, 55)
+
+julia> fib, next_fib = next_fib, fib+next_fib
+(55, 89)
+
+julia> fib, next_fib = next_fib, fib+next_fib
+(89, 144)
+```
+
+ <div class="boxBorder">
+
+**Important remark**
+
+This way is actually much faster to type: if you want to repeat a previous command at the console, simply press `↑` (the UP arrow) and the previous command will reappear, ready for execution. You can press `↑` as many times as you want to recover an old command from your console history.
+</div>
+
+## Exercises
+
+1. What is the largest Fibonacci smaller than `10000`?
+2. `(1346269, 2178309)` is a Fibonacci pair. What is the previous Fibonacci pair? Can you find a smart way to go backward in the Fibonacci sequence?

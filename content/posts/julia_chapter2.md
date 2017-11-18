@@ -47,7 +47,7 @@ julia> φ-1/(φ-1)
 2.220446049250313e-16
 ```
 
-Meaning they differ by more or less $$2\cdot 10^{-16}$$ (so they differ by very very little). The reason is that when working with decimal point numbers, computers approximate the result, in this case a mathematical result comes out false. To remedy, we can ask whether they are approximately equal:
+Meaning they differ by more or less $$2\cdot 10^{-16}$$ (so they differ by very very little). The reason is that when working with decimal point numbers, computers approximate the result, in this case a mathematical result comes out false. To remedy, we can ask whether they are approximately equal (use `\approx`):
 
 ```julia
 julia> φ ≈ 1/(φ-1)

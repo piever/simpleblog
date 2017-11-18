@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Programming in Julia for beginners, chapter III</title>
+      <link>https://piever.github.io/simpleblog/posts/julia_chapter3/</link>
+      <pubDate>Wed, 15 Nov 2017 00:18:23 +0000</pubDate>
+      
+      <guid>https://piever.github.io/simpleblog/posts/julia_chapter3/</guid>
+      <description>Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1+1 at the console, we looked at the result, which was 2, we typed 2+1, we got 3, we typed 3+2 and so on and so forth. In this and the following post, we&amp;rsquo;ll discover a less excruciatingly boring way of doing the same computation.</description>
+    </item>
+    
+    <item>
       <title>Programming in Julia for beginners, chapter II</title>
       <link>https://piever.github.io/simpleblog/posts/julia_chapter2/</link>
       <pubDate>Wed, 15 Nov 2017 00:17:23 +0000</pubDate>
