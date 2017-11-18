@@ -1,6 +1,7 @@
 ---
 title: "Programming in Julia for beginners, chapter II"
 date: 2017-11-15T00:17:23Z
+markup: mmark
 draft: false
 ---
 # Numbers and math
@@ -13,30 +14,58 @@ Julia accept both integer numbers and non integer numbers (with a decimal point)
 
 ## The golden ratio
 
-The golden ratio is a constant φ such as:
+The golden ratio is a constant $$\varphi$$ such as:
 
 ```julia
 φ/1 == 1/(φ-1) 
 ```
 
-The above is actually valid Julia code (in many cases writing Julia is not much different from writing mathematics). Unicode characters (such as `φ`) are valid in Julia, and in this case they represent a built-in constant:
+The above is actually valid Julia code (in many cases writing Julia is not much different from writing mathematics). Unicode characters (such as $$\varphi$$) are valid in Julia, and in this case they represent a built-in constant:
 
 ```julia
 julia> φ
 φ = 1.6180339887498...
 ```
+````julia
+using Gadfly
+x = linspace(0, 2*pi)
+println(x)
+````
+```html
+<section id="main">
+  <div>
+    <h1 id="title">{{ .Title }}</h1>
+    {{ range .Data.Pages }}
+      {{ .Render "summary"}}
+    {{ end }}
+  </div>
+</section>
+```
 
-To type `φ` simply start typing `\varphi` and then press `Tab`. The REPL will autocomplete it for you. We can now run:
+```python
+#!/usr/bin/python3
+
+from engine import RunForrestRun
+
+"""Test code for syntax highlighting!"""
+
+class Foo:
+	def __init__(self, var):
+		self.var = var
+		self.run()
+
+	def run(self):
+		RunForrestRun()  # run along!
+```
+To type $$\varphi$$ simply start typing `\varphi` and then press `Tab`. The REPL will autocomplete it for you. We can now run:
 
 ```julia
 julia> φ/1 == 1/(φ-1)
 ```
 
-We want to prove that the twelfth Fibonacci number is very close to the twelfthe power of `φ` divided by the square root of 5
+We want to prove that the twelfth Fibonacci number is very close to the twelfthe power of $$\varphi$$ divided by the square root of 5 or, in formulas:
 
- <div class="boxBorder">
- Your text here...
- </div>
+$$ F_n \approx \frac{\varphi ^ n}{\sqrt{5}} $$
 
 ## Fibonacci numbers
 

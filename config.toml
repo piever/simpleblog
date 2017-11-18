@@ -3,7 +3,9 @@ languageCode = "en-us"
 title = "Thoughts and things"
 theme = "ananke"
 publishDir = "docs"
-pygmentscodefences= "true"
+pygmentsStyle = "monokai"
+pygmentsCodefences = true
+preserveTaxonomyNames = true
 SectionPagesMenu = "main"
 
 
