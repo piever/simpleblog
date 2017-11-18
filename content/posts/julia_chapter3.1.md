@@ -4,7 +4,7 @@ date: 2017-11-15T00:18:23Z
 draft: true
 ---
 
-# Giving names to things
+# Some more setup: running a file
 
 More complex programs (composed of many lines of code) have to be created inside a text file. To do so, you will need a text editor. My personal recommendation is Atom. You can download it [here](https://atom.io/). After installing, open it, access the command palette with `Ctrl` + `,` (or `Cmd` + `,` on a Mac) and install the package language-julia. This package will help you understand the Julia code you write by highlighting different words depending on their role in the code.
 
