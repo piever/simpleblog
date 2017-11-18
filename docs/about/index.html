@@ -124,7 +124,27 @@
 
     </main>
     <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
+    <link rel="stylesheet" type="text/css" href="/simpleblog/css/style.css">
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          
+          
+          processEscapes: true,
+          processEnvironments: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+          TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js"] }
+          },
+        CommonHTML: { linebreaks: { automatic: true } },
+        "HTML-CSS": { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+      });
+    </script>
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+    <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
     &copy; 2017 Thoughts and things
   </a>
@@ -138,26 +158,6 @@
 
 
   </div>
-  <link rel="stylesheet" type="text/css" href="/simpleblog/css/style.css">
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        
-        
-        processEscapes: true,
-        processEnvironments: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-        TeX: { equationNumbers: { autoNumber: "AMS" },
-        extensions: ["AMSmath.js", "AMSsymbols.js"] }
-        },
-      CommonHTML: { linebreaks: { automatic: true } },
-      "HTML-CSS": { linebreaks: { automatic: true } },
-      SVG: { linebreaks: { automatic: true } }
-    });
-  </script>
-  <script type="text/javascript" async
-          src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-  </script>
 </footer>
 
     <script src="https://piever.github.io/simpleblog/dist/app.bundle.js" async></script>
