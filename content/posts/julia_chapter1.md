@@ -74,7 +74,7 @@ julia> "Hello, " * "World!"
 ```
 
 Note that we don't need to print the output, as the console automatically displays the output of a command. For this reason, some people refer to it as the REPL (Read Evaluate Print Loop): it reads your command, evaluates it, prints the answer and is ready for another command.
- <div style="background-color:rgba(0, 0, 0, 0.0470588); vertical-align: middle; padding:40px 0; outline: black solid 5px; border: 2px solid black; padding: 50px; outline-offset: 5px;">
+ <div class="boxBorder">
 
 **Importand remark**
 

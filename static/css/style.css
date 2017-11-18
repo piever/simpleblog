@@ -1,0 +1,8 @@
+.boxBorder {
+    background-color:rgba(0, 0, 0, 0.0470588);
+    vertical-align: middle;
+    padding:40px 0; outline: black solid 5px;
+    border: 2px solid black;
+    padding: 50px;
+    outline-offset: 5px;
+}

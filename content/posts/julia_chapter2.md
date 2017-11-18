@@ -34,6 +34,9 @@ julia> φ/1 == 1/(φ-1)
 
 We want to prove that the twelfth Fibonacci number is very close to the twelfthe power of `φ` divided by the square root of 5
 
+ <div class="boxBorder">
+ Your text here...
+ </div>
 
 ## Fibonacci numbers
 
@@ -76,5 +79,3 @@ But `144` is bigger than `100`, so the correct answer is 89.
 ## Exercises
 
 1. What is the largest Fibonacci smaller than `1000`?
-2. Print `"------oooooo------oooooo"`
-3.  What is the most concise command that prints `"----oooo----oooo----oooo----oooo"`?
