@@ -50,7 +50,7 @@ And now `fib` is `1` and `next_fib` is `2`.
 
 ## Back to Fibonacci
 
-`fib` and `next_fib` will be (as the names suggest) two consecutive Fibonacci numbers. How can we go from one pair of consecute Fibonacci numbers to the next? For example, starting with `(1, 2)`, we want to move to `(2, 3)`, then `(3, 5)`, `(5, 8)` and so on. It's actually quite simple, `fib` has to be transformed into `next_fib` and `next_fib` has to be transformed into `fib+next_fib` or, in Julia code:
+`fib` and `next_fib` will be (as the names suggest) two consecutive Fibonacci numbers. How can we go from one pair of consecutive Fibonacci numbers to the next? For example, starting with `(1, 2)`, we want to move to `(2, 3)`, then `(3, 5)`, `(5, 8)` and so on. It's actually quite simple, `fib` has to be transformed into `next_fib` and `next_fib` has to be transformed into `fib+next_fib` or, in Julia code:
 
 ```julia
 julia> fib, next_fib = next_fib, fib+next_fib

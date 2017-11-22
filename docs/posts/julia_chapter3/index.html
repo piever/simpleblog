@@ -18,7 +18,7 @@
     <link href='https://piever.github.io/simpleblog/dist/main.css' rel='stylesheet' type="text/css" />
     
       
-<link rel="shortcut icon" href="https://piever.github.io/simpleblog/pandakrita.jpg" type="image/x-icon" />
+<link rel="shortcut icon" href="https://piever.github.io/simpleblog/favicon.ico" type="image/x-icon" />
 
     
 
@@ -157,7 +157,7 @@
 
 <h2 id="back-to-fibonacci">Back to Fibonacci</h2>
 
-<p><code>fib</code> and <code>next_fib</code> will be (as the names suggest) two consecutive Fibonacci numbers. How can we go from one pair of consecute Fibonacci numbers to the next? For example, starting with <code>(1, 2)</code>, we want to move to <code>(2, 3)</code>, then <code>(3, 5)</code>, <code>(5, 8)</code> and so on. It&rsquo;s actually quite simple, <code>fib</code> has to be transformed into <code>next_fib</code> and <code>next_fib</code> has to be transformed into <code>fib+next_fib</code> or, in Julia code:</p>
+<p><code>fib</code> and <code>next_fib</code> will be (as the names suggest) two consecutive Fibonacci numbers. How can we go from one pair of consecutive Fibonacci numbers to the next? For example, starting with <code>(1, 2)</code>, we want to move to <code>(2, 3)</code>, then <code>(3, 5)</code>, <code>(5, 8)</code> and so on. It&rsquo;s actually quite simple, <code>fib</code> has to be transformed into <code>next_fib</code> and <code>next_fib</code> has to be transformed into <code>fib+next_fib</code> or, in Julia code:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib</code></pre></div>
 <p>We have a new way of computing the Fibonacci sequence:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
