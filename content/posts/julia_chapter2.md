@@ -112,5 +112,5 @@ Which is very close to 144.
 ## Exercises
 
 1. Test our approximation for numbers other than 12
-2. What is the largest Fibonacci smaller than `1000`?
-3. What is the ratio between one Fibonacci number and the previous, approximately? In formulas, what is the approximate value of $$\frac{F_n}{F_n-1}$$? Can you guess why?
+1. What is the largest Fibonacci smaller than `1000`?
+1. What is the ratio between one Fibonacci number and the previous, approximately? In formulas, what is the approximate value of $$\frac{F_n}{F_n-1}$$? Can you guess why?

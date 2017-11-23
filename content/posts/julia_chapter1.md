@@ -118,5 +118,5 @@ However we are still very limited in what we can do, as we can only write comman
 ## Exercises
 
 1. Print `"Goodbye, World!"`
-2. Print `"------oooooo------oooooo"`
-3.  What is the most concise command that prints `"----oooo----oooo----oooo----oooo"`?
+1. Print `"------oooooo------oooooo"`
+1. What is the most concise command that prints `"----oooo----oooo----oooo----oooo"`?

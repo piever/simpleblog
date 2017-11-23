@@ -100,4 +100,4 @@ This way is actually much faster to type: if you want to repeat a previous comma
 ## Exercises
 
 1. What is the largest Fibonacci smaller than `10000`?
-2. `(1346269, 2178309)` is a Fibonacci pair. What is the previous Fibonacci pair? Can you find a smart way to go backward in the Fibonacci sequence?
+1. `(1346269, 2178309)` is a Fibonacci pair. What is the previous Fibonacci pair? Can you find a smart way to go backward in the Fibonacci sequence?
