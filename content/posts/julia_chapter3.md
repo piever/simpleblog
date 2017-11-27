@@ -3,7 +3,6 @@ title: "Programming in Julia for beginners, chapter III"
 date: 2017-11-15T00:18:23Z
 draft: false
 ---
-
 # Giving names to things
 
 In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing `1+1` at the console, we looked at the result, which was `2`, we typed `2+1`, we got `3`, we typed `3+2` and so on and so forth. In this and the following post, we'll discover a less excruciatingly boring way of doing the same computation. In the process, we'll learn two key building blocks of programming: assigning values to variables and looping.

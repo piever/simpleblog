@@ -76,7 +76,7 @@ julia> "Hello, " * "World!"
 Note that we don't need to print the output, as the console automatically displays the output of a command. For this reason, some people refer to it as the REPL (Read Evaluate Print Loop): it reads your command, evaluates it, prints the answer and is ready for another command.
  <div class="boxBorder">
 
-**Importand remark**
+**Important remark**
 
 Some functions are a bit special, in that they can be written *between* their arguments (but the normal function form is also possible). For example we could have said:
 
@@ -84,7 +84,7 @@ Some functions are a bit special, in that they can be written *between* their ar
 julia> *("Hello, ", "World!")
 ```
 
-but that would not read very well. This "in-between" syntax (also called operator syntax) is especially useful for writing mathematics. Compare the normal looking:
+but that would not read very well. This "in-between" syntax (also called operator syntax) is especially useful when writing mathematics. Compare the normal looking:
 
 ```julia
 julia> (2*3+5)/7
