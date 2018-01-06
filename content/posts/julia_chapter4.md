@@ -5,7 +5,7 @@ draft: false
 ---
 # Automatizing things
 
-Repeating a command many times can be extremely annoying. Luckily, Julia can help us automatize things using loops, which are a way to repeat the same command, or list of commands many times. Here we will continue on playing with Fibonacci numbers, without having to manually evaluate the same at the console many times.
+Repeating a command many times can be extremely annoying. Luckily, Julia can help us automatize things using loops, which are a way to repeat the same command, or list of commands many times. Here we will continue on playing with Fibonacci numbers, without having to manually evaluate the same command at the console many times.
 
 ## The while loop
 
@@ -25,14 +25,14 @@ julia> fib, next_fib
 
 This simple program gave us the pair of Fibonacci around `10000` without any need to painfully iterate the command at the console. How did this happen? Let's look in detail at this program.
 
-Julia first assinged the variables `fib = 1` and `next_fib = 2` and then checked the condition (a condition is a statement that returns either true or false, for example `3 < 4`). In this case `2 < 1000` is `true`, so Julia executed `fib, next_fib = next_fib, fib+next_fib`. Now `next_fib` is `3`, but still `3 < 10000`, so Julia kept going. At some point `next_fib` became `10946` (the twentieth Fibonacci) and `10946 < 10000`, so Julia stopped. How did I now it was the twentieth Fibonacci? I cheated a bit, and in my code I added a counter to keep track of Fibonacci. I started with:
+Julia first assinged the variables `fib = 1` and `next_fib = 2` and then checked the condition (a condition is a statement that returns either true or false, for example `3 < 4`). In this case `2 < 1000` is `true`, so Julia executed `fib, next_fib = next_fib, fib+next_fib`. Now `next_fib` is `3`, but still `3 < 10000`, so Julia kept going. At some point `next_fib` became `10946` (the twentieth Fibonacci) and `10946 < 10000`, so Julia stopped. How did I now it was the twentieth Fibonacci? I cheated a bit, and in my code I added a counter to track where I was in the Fibonacci sequence. I started with:
 
 ```julia
 julia> fib, next_fib = 1, 2
 (1, 2)
 ```
 
-and, as `next_fib == 2` is the second Fibonacci, I started my counter at `2`:
+As `next_fib == 2` is the second Fibonacci, I started my counter at `2`:
 
 ```julia
 julia> counter = 2
@@ -72,4 +72,6 @@ julia> counter += 1
 ```
 </div>
 
-## Checking if things are true
+## Exercises
+
+1. `(1346269, 2178309)` is a Fibonacci pair. Now that you know `while` loops, can you find a smart way to go backward in the Fibonacci sequence?

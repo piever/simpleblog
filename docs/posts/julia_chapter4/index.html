@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Thoughts and things  | Programming in Julia for beginners, chapter III</title>
+    <title>Thoughts and things  | Programming in Julia for beginners, chapter IV</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -18,14 +18,15 @@
     <link href='https://piever.github.io/simpleblog/dist/main.css' rel='stylesheet' type="text/css" />
     
       
-<link rel="shortcut icon" href="//favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://piever.github.io/simpleblog/favicon.ico" type="image/x-icon" />
 
     
 
     
 
-    <meta property="og:title" content="Programming in Julia for beginners, chapter III" />
-<meta property="og:description" content="" />
+    <meta property="og:title" content="Programming in Julia for beginners, chapter IV" />
+<meta property="og:description" content="Automatizing things Repeating a command many times can be extremely annoying. Luckily, Julia can help us automatize things using loops, which are a way to repeat the same command, or list of commands many times. Here we will continue on playing with Fibonacci numbers, without having to manually evaluate the same command at the console many times.
+The while loop The while loop executes a statement as long as a given condition is verified." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://piever.github.io/simpleblog/posts/julia_chapter4/" />
 
@@ -45,19 +46,21 @@
 
 
 
-<meta itemprop="name" content="Programming in Julia for beginners, chapter III">
-<meta itemprop="description" content="">
+<meta itemprop="name" content="Programming in Julia for beginners, chapter IV">
+<meta itemprop="description" content="Automatizing things Repeating a command many times can be extremely annoying. Luckily, Julia can help us automatize things using loops, which are a way to repeat the same command, or list of commands many times. Here we will continue on playing with Fibonacci numbers, without having to manually evaluate the same command at the console many times.
+The while loop The while loop executes a statement as long as a given condition is verified.">
 
 
 <meta itemprop="datePublished" content="2017-11-18T00:18:23&#43;00:00" />
 <meta itemprop="dateModified" content="2017-11-18T00:18:23&#43;00:00" />
-<meta itemprop="wordCount" content="0">
+<meta itemprop="wordCount" content="406">
 
 
 
 <meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Programming in Julia for beginners, chapter III"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Programming in Julia for beginners, chapter IV"/>
+<meta name="twitter:description" content="Automatizing things Repeating a command many times can be extremely annoying. Luckily, Julia can help us automatize things using loops, which are a way to repeat the same command, or list of commands many times. Here we will continue on playing with Fibonacci numbers, without having to manually evaluate the same command at the console many times.
+The while loop The while loop executes a statement as long as a given condition is verified."/>
 
   </head>
 
@@ -123,11 +126,60 @@
           POSTS
         </p>
         <h1 class="f1">
-          Programming in Julia for beginners, chapter III
+          Programming in Julia for beginners, chapter IV
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
         
+
+<h1 id="automatizing-things">Automatizing things</h1>
+
+<p>Repeating a command many times can be extremely annoying. Luckily, Julia can help us automatize things using loops, which are a way to repeat the same command, or list of commands many times. Here we will continue on playing with Fibonacci numbers, without having to manually evaluate the same command at the console many times.</p>
+
+<h2 id="the-while-loop">The while loop</h2>
+
+<p>The <code>while</code> loop executes a statement as long as a given condition is verified. Let&rsquo;s use it to solve the exercise from the previous chapter: what is the largest Fibonacci smaller than <code>10000</code>?</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
+(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+
+julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">while</span> next_fib <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10000</span>
+       fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
+       <span style="color:#66d9ef">end</span>
+
+julia<span style="color:#f92672">&gt;</span> fib, next_fib
+(<span style="color:#ae81ff">6765</span>, <span style="color:#ae81ff">10946</span>)</code></pre></div>
+<p>This simple program gave us the pair of Fibonacci around <code>10000</code> without any need to painfully iterate the command at the console. How did this happen? Let&rsquo;s look in detail at this program.</p>
+
+<p>Julia first assinged the variables <code>fib = 1</code> and <code>next_fib = 2</code> and then checked the condition (a condition is a statement that returns either true or false, for example <code>3 &lt; 4</code>). In this case <code>2 &lt; 1000</code> is <code>true</code>, so Julia executed <code>fib, next_fib = next_fib, fib+next_fib</code>. Now <code>next_fib</code> is <code>3</code>, but still <code>3 &lt; 10000</code>, so Julia kept going. At some point <code>next_fib</code> became <code>10946</code> (the twentieth Fibonacci) and <code>10946 &lt; 10000</code>, so Julia stopped. How did I now it was the twentieth Fibonacci? I cheated a bit, and in my code I added a counter to track where I was in the Fibonacci sequence. I started with:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
+(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)</code></pre></div>
+<p>As <code>next_fib == 2</code> is the second Fibonacci, I started my counter at <code>2</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> counter <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span></code></pre></div>
+<p>Then I added <code>1</code> to the counter at every iteration:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">while</span> next_fib <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10000</span>
+       fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
+       counter <span style="color:#f92672">=</span> counter <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+       <span style="color:#66d9ef">end</span></code></pre></div>
+<p>All that&rsquo;s left to do is inspecting the value of <code>counter</code> after the <code>while</code> loop has been executed:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> counter
+<span style="color:#ae81ff">20</span></code></pre></div>
+<p>which confirms that <code>next_fib == 10946</code> is the twentieth Fibonacci.
+<div class="boxBorder"></p>
+
+<p><strong>Important remark</strong></p>
+
+<p>In Julia there is specialized syntax to add (or subtract, multiply divide) some value to a variable. Instead of writing:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> counter <span style="color:#f92672">=</span> counter <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span></code></pre></div>
+<p>one could simply say:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> counter <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span></code></pre></div>
+<p></div></p>
+
+<h2 id="exercises">Exercises</h2>
+
+<ol>
+<li><code>(1346269, 2178309)</code> is a Fibonacci pair. Now that you know <code>while</code> loops, can you find a smart way to go backward in the Fibonacci sequence?</li>
+</ol>
+
       </div>
     </article>
     <aside class="ph3 mt2 mt6-ns">
@@ -148,7 +200,7 @@
         <li class="list f5 w-100 hover-bg-white nl1">
           
           <a href="/simpleblog/posts/julia_chapter4/" class="link ph2 pv2 db black o-50">
-            Programming in Julia for beginners, chapter III
+            Programming in Julia for beginners, chapter IV
           </a>
         </li>
       
@@ -204,7 +256,7 @@
     </script>
     <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
-    &copy; 2017 Thoughts and things
+    &copy; 2018 Thoughts and things
   </a>
   
 

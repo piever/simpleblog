@@ -10,7 +10,7 @@ In the previous post we mainly played with strings, but Julia is also very good 
 
 ## Integer and and non integer numbers
 
-Julia accept both integer numbers and non integer numbers (with a decimal point). All basic (and often non basic) mathematical functions are implemented in Julia. Here we will play a bit with the four basic operations (`+`, `-`, `*`, `/`), the exponentiation operator (`^`) and the comparison operators (`>`, `==`, `<`). As it is boring to type in random math expressions just for the sake of it, we will try to verify a mathematical fact linking the golden ratio and the Fibonacci numbers.
+Julia accepts both integer numbers and non integer numbers (with a decimal point). All basic (and often non basic) mathematical functions are implemented in Julia. Here we will play a bit with the four basic operations (`+`, `-`, `*`, `/`), the exponentiation operator (`^`) and the comparison operators (`>`, `==`, `<`). As it is boring to type in random math expressions just for the sake of it, we will try to verify a mathematical fact linking the golden ratio and the Fibonacci numbers.
 
 ## The golden ratio
 
@@ -56,7 +56,7 @@ true
 
 ## Fibonacci numbers
 
-We want to prove that the twelfth Fibonacci number is very close to the twelfthe power of $$\varphi$$ divided by the square root of 5 or, in formulas:
+We want to prove that the twelfth Fibonacci number is very close to the twelfth power of $$\varphi$$ divided by the square root of 5 or, in formulas:
 
 $$ F_{12} \approx \frac{\varphi ^ {12}}{\sqrt{5}} $$
 

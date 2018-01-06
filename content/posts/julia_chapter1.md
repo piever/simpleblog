@@ -59,6 +59,7 @@ As `"Hello, World!"` is something we came up with, we can't ask Julia about it i
 
 ```julia
 julia> typeof("Hello, World!")
+String
 ```
 
 What does it mean to be a string? What things can we do with strings?
