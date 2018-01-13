@@ -74,7 +74,12 @@ The first thing that comes to mind is concatenation or, in simpler terms, given 
 julia> "Hello, " * "World!"
 ```
 
-Note that we don't need to print the output, as the console automatically displays the output of a command. For this reason, some people refer to it as the REPL (Read Evaluate Print Loop): it reads your command, evaluates it, prints the answer and is ready for another command.
+Note that we don't need to print the output, as the console automatically displays the output of a command. For this reason, some people refer to it as the REPL (Read Evaluate Print Loop): it reads your command, evaluates it, prints the answer and is ready for another command. To suppress this behavior add a `;` at the end of the line:
+
+```julia
+julia> "Hello, " * "World!";
+```
+
  <div class="boxBorder">
 
 **Important remark**
