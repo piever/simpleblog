@@ -1,5 +1,5 @@
 ---
-title: "Programming in Julia for beginners, chapter III"
+title: "Chapter III: Variable assignment"
 date: 2017-11-15T00:18:23Z
 draft: false
 ---

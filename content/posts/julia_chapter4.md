@@ -1,5 +1,5 @@
 ---
-title: "Programming in Julia for beginners, chapter IV"
+title: "Chapter IV: The while loop"
 date: 2017-11-18T00:18:23Z
 draft: false
 ---

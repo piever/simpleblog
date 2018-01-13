@@ -1,5 +1,5 @@
 ---
-title: "Programming in Julia for beginners, chapter I"
+title: "Chapter I: Hello, Julia"
 date: 2017-11-14T00:17:19Z
 draft: false
 ---

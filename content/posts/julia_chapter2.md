@@ -1,5 +1,5 @@
 ---
-title: "Programming in Julia for beginners, chapter II"
+title: "Chapter II: Numbers"
 date: 2017-11-15T00:17:23Z
 markup: mmark
 draft: false
