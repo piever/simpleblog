@@ -147,7 +147,7 @@ Then we add `1` to the counter at every iteration but only if the Fibonacci is a
 
 ```julia
 julia> while next_fib < 1000000
-              fib, next_fib = next_fib, fib+next_fib
+       fib, next_fib = next_fib, fib+next_fib
        if next_fib % 7 == 0
        counter += 1
        end

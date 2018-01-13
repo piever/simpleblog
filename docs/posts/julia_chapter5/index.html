@@ -226,7 +226,7 @@ x is not so big</code></pre></div>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> counter <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span></code></pre></div>
 <p>Then we add <code>1</code> to the counter at every iteration but only if the Fibonacci is a multiple of <code>7</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">while</span> next_fib <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1000000</span>
-              fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
+       fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
        <span style="color:#66d9ef">if</span> next_fib <span style="color:#f92672">%</span> <span style="color:#ae81ff">7</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
        counter <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
        <span style="color:#66d9ef">end</span>
