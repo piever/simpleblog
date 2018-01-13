@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Thoughts and things  | Programming in Julia for beginners, chapter I</title>
+    <title>Thoughts and things  | Chapter I: Hello, Julia</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -24,7 +24,7 @@
 
     
 
-    <meta property="og:title" content="Programming in Julia for beginners, chapter I" />
+    <meta property="og:title" content="Chapter I: Hello, Julia" />
 <meta property="og:description" content="Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&rsquo;m making a series of tutorials about it, starting from the very beginning." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://piever.github.io/simpleblog/posts/julia_chapter1/" />
@@ -45,18 +45,18 @@
 
 
 
-<meta itemprop="name" content="Programming in Julia for beginners, chapter I">
+<meta itemprop="name" content="Chapter I: Hello, Julia">
 <meta itemprop="description" content="Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&rsquo;m making a series of tutorials about it, starting from the very beginning.">
 
 
 <meta itemprop="datePublished" content="2017-11-14T00:17:19&#43;00:00" />
 <meta itemprop="dateModified" content="2017-11-14T00:17:19&#43;00:00" />
-<meta itemprop="wordCount" content="854">
+<meta itemprop="wordCount" content="872">
 
 
 
 <meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Programming in Julia for beginners, chapter I"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Chapter I: Hello, Julia"/>
 <meta name="twitter:description" content="Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&rsquo;m making a series of tutorials about it, starting from the very beginning."/>
 
   </head>
@@ -123,7 +123,7 @@
           POSTS
         </p>
         <h1 class="f1">
-          Programming in Julia for beginners, chapter I
+          Chapter I: Hello, Julia
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
@@ -184,8 +184,9 @@ String</code></pre></div>
 
 <p>The first thing that comes to mind is concatenation or, in simpler terms, given two strings, we can put them one after the other. This operation is represented by <code>*</code> in Julia:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">*</span> <span style="color:#e6db74">&#34;World!&#34;</span></code></pre></div>
-<p>Note that we don&rsquo;t need to print the output, as the console automatically displays the output of a command. For this reason, some people refer to it as the REPL (Read Evaluate Print Loop): it reads your command, evaluates it, prints the answer and is ready for another command.
- <div class="boxBorder"></p>
+<p>Note that we don&rsquo;t need to print the output, as the console automatically displays the output of a command. For this reason, some people refer to it as the REPL (Read Evaluate Print Loop): it reads your command, evaluates it, prints the answer and is ready for another command. To suppress this behavior add a <code>;</code> at the end of the line:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">*</span> <span style="color:#e6db74">&#34;World!&#34;</span>;</code></pre></div>
+<p><div class="boxBorder"></p>
 
 <p><strong>Important remark</strong></p>
 
@@ -229,34 +230,41 @@ String</code></pre></div>
   <div class="bg-light-gray pa3">
     <ul>
       <li class="list b mb3">
-        3 More Posts
+        4 More Posts
       </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
+          <a href="/simpleblog/posts/julia_chapter5/" class="link ph2 pv2 db black">
+            Chapter V: Conditionals
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
           <a href="/simpleblog/posts/julia_chapter4/" class="link ph2 pv2 db black">
-            Programming in Julia for beginners, chapter IV
+            Chapter IV: The while loop
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
           <a href="/simpleblog/posts/julia_chapter3/" class="link ph2 pv2 db black">
-            Programming in Julia for beginners, chapter III
+            Chapter III: Variable assignment
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
           <a href="/simpleblog/posts/julia_chapter2/" class="link ph2 pv2 db black">
-            Programming in Julia for beginners, chapter II
+            Chapter II: Numbers
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
           <a href="/simpleblog/posts/julia_chapter1/" class="link ph2 pv2 db black o-50">
-            Programming in Julia for beginners, chapter I
+            Chapter I: Hello, Julia
           </a>
         </li>
       

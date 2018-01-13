@@ -12,7 +12,18 @@
     
     
     <item>
-      <title>Programming in Julia for beginners, chapter IV</title>
+      <title>Chapter V: Conditionals</title>
+      <link>https://piever.github.io/simpleblog/posts/julia_chapter5/</link>
+      <pubDate>Mon, 18 Dec 2017 00:18:23 +0000</pubDate>
+      
+      <guid>https://piever.github.io/simpleblog/posts/julia_chapter5/</guid>
+      <description>Working with true and false So far we have learnt how to stop a &amp;ldquo;looped&amp;rdquo; statement from going on forever, based on a condition. Now, we&amp;rsquo;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
+Conditional statements The simplest conditional statement has the form:
+if condition command end meaning that command is to be executed only if condition is verified.</description>
+    </item>
+    
+    <item>
+      <title>Chapter IV: The while loop</title>
       <link>https://piever.github.io/simpleblog/posts/julia_chapter4/</link>
       <pubDate>Sat, 18 Nov 2017 00:18:23 +0000</pubDate>
       
@@ -22,7 +33,7 @@ The while loop The while loop executes a statement as long as a given condition 
     </item>
     
     <item>
-      <title>Programming in Julia for beginners, chapter III</title>
+      <title>Chapter III: Variable assignment</title>
       <link>https://piever.github.io/simpleblog/posts/julia_chapter3/</link>
       <pubDate>Wed, 15 Nov 2017 00:18:23 +0000</pubDate>
       
@@ -31,7 +42,7 @@ The while loop The while loop executes a statement as long as a given condition 
     </item>
     
     <item>
-      <title>Programming in Julia for beginners, chapter II</title>
+      <title>Chapter II: Numbers</title>
       <link>https://piever.github.io/simpleblog/posts/julia_chapter2/</link>
       <pubDate>Wed, 15 Nov 2017 00:17:23 +0000</pubDate>
       
@@ -41,7 +52,7 @@ Integer and and non integer numbers Julia accepts both integer numbers and non i
     </item>
     
     <item>
-      <title>Programming in Julia for beginners, chapter I</title>
+      <title>Chapter I: Hello, Julia</title>
       <link>https://piever.github.io/simpleblog/posts/julia_chapter1/</link>
       <pubDate>Tue, 14 Nov 2017 00:17:19 +0000</pubDate>
       
