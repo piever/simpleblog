@@ -6,10 +6,21 @@
     <description>Recent content on Thoughts and things</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Dec 2017 00:18:23 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jan 2018 00:18:23 +0000</lastBuildDate>
     
 	<atom:link href="https://piever.github.io/simpleblog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Chapter VI: The for loop</title>
+      <link>https://piever.github.io/simpleblog/posts/julia_chapter6/</link>
+      <pubDate>Thu, 18 Jan 2018 00:18:23 +0000</pubDate>
+      
+      <guid>https://piever.github.io/simpleblog/posts/julia_chapter6/</guid>
+      <description>Working with true and false So far we have learnt how to stop a &amp;ldquo;looped&amp;rdquo; statement from going on forever, based on a condition. Now, we&amp;rsquo;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
+Conditional statements The simplest conditional statement has the form:
+if condition command end meaning that command is to be executed only if condition is verified.</description>
+    </item>
     
     <item>
       <title>Chapter V: Conditionals</title>
