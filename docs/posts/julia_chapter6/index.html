@@ -25,9 +25,7 @@
     
 
     <meta property="og:title" content="Chapter VI: The for loop" />
-<meta property="og:description" content="Working with true and false So far we have learnt how to stop a &ldquo;looped&rdquo; statement from going on forever, based on a condition. Now, we&rsquo;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
-Conditional statements The simplest conditional statement has the form:
-if condition command end meaning that command is to be executed only if condition is verified." />
+<meta property="og:description" content="For loops Draft" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://piever.github.io/simpleblog/posts/julia_chapter6/" />
 
@@ -48,23 +46,19 @@ if condition command end meaning that command is to be executed only if conditio
 
 
 <meta itemprop="name" content="Chapter VI: The for loop">
-<meta itemprop="description" content="Working with true and false So far we have learnt how to stop a &ldquo;looped&rdquo; statement from going on forever, based on a condition. Now, we&rsquo;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
-Conditional statements The simplest conditional statement has the form:
-if condition command end meaning that command is to be executed only if condition is verified.">
+<meta itemprop="description" content="For loops Draft">
 
 
 <meta itemprop="datePublished" content="2018-01-18T00:18:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-01-18T00:18:23&#43;00:00" />
-<meta itemprop="wordCount" content="591">
+<meta itemprop="wordCount" content="3">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chapter VI: The for loop"/>
-<meta name="twitter:description" content="Working with true and false So far we have learnt how to stop a &ldquo;looped&rdquo; statement from going on forever, based on a condition. Now, we&rsquo;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
-Conditional statements The simplest conditional statement has the form:
-if condition command end meaning that command is to be executed only if condition is verified."/>
+<meta name="twitter:description" content="For loops Draft"/>
 
   </head>
 
@@ -136,111 +130,9 @@ if condition command end meaning that command is to be executed only if conditio
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
         
 
-<h1 id="working-with-true-and-false">Working with <code>true</code> and <code>false</code></h1>
+<h1 id="for-loops">For loops</h1>
 
-<p>So far we have learnt how to stop a &ldquo;looped&rdquo; statement from going on forever, based on a condition. Now, we&rsquo;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.</p>
-
-<h2 id="conditional-statements">Conditional statements</h2>
-
-<p>The simplest conditional statement has the form:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">if</span> condition
-    command
-<span style="color:#66d9ef">end</span></code></pre></div>
-<p>meaning that <code>command</code> is to be executed only if condition is verified.</p>
-
-<p>For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>;
-
-julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">if</span> x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">100</span>
-       println(<span style="color:#e6db74">&#34;x is big&#34;</span>)
-       <span style="color:#66d9ef">end</span>
-x is big</code></pre></div>
-<p>In this case <code>x &gt; 100</code> is true, so the command happened and we saw the result on the screen. If instead:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
-
-julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">if</span> x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">100</span>
-       println(<span style="color:#e6db74">&#34;x is big&#34;</span>)
-       <span style="color:#66d9ef">end</span></code></pre></div>
-<p>nothing happens.</p>
-
-<h2 id="else">Else ?</h2>
-
-<p>In an <code>if</code> statement, we can specify a statement to be executed if the condition is not verified. For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
-
-julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">if</span> x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">100</span>
-       println(<span style="color:#e6db74">&#34;x is big&#34;</span>)
-       <span style="color:#66d9ef">else</span>
-       println(<span style="color:#e6db74">&#34;x is small&#34;</span>)
-       <span style="color:#66d9ef">end</span>
-x is small</code></pre></div>
-<p>There is a slightly more complex construct, <code>elseif</code>, to execute the command if the first condition is not verified but another is:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>;
-
-julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">if</span> x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">100</span>
-       println(<span style="color:#e6db74">&#34;x is big&#34;</span>)
-       <span style="color:#66d9ef">elseif</span> x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span>
-       println(<span style="color:#e6db74">&#34;x is not so big&#34;</span>)
-       <span style="color:#66d9ef">else</span>
-       println(<span style="color:#e6db74">&#34;x is small&#34;</span>)
-       <span style="color:#66d9ef">end</span>
-x is not so big</code></pre></div>
-<h2 id="combining-conditions">Combining conditions</h2>
-
-<p>Not that conditions can be combined using the logical operators: and, or, not. In Julia they are written: <code>&amp;&amp;</code>, <code>||</code> and <code>!</code> respectively. Can you figure out for which values:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#f92672">!</span>(x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span>) <span style="color:#f92672">&amp;&amp;</span> (x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">15</span>)</code></pre></div>
-<p>returns <code>true</code>?</p>
-
-<p>Choose one such <code>x</code> and run a celebratory:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>(x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span>) <span style="color:#f92672">&amp;&amp;</span> (x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">15</span>)
-       println(<span style="color:#e6db74">&#34;I knew it!&#34;</span>)
-       <span style="color:#66d9ef">end</span></code></pre></div>
-<h2 id="back-to-fibonacci">Back to Fibonacci</h2>
-
-<p>Running an <code>if</code> statement in isolation is generally not very interesting, but we can combine it with things we have learnt already. In the last part of this post, we&rsquo;ll use the full extent of our knowledge to count how many Fibonacci numbers exist, smaller than <code>1000000</code> that are multiples of <code>7</code>.</p>
-
-<hr />
-
-<h3 id="intermezzo-checking-divisibility">Intermezzo: checking divisibility</h3>
-
-<p>To see if a number is a multiple of another we can use the <code>%</code> (modulo) operator. <code>a % b</code> (reads: &ldquo;<code>a</code> modulo <code>b</code>&rdquo;) gives the reminder of <code>a</code> when divided by <code>b</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">44</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">7</span>
-<span style="color:#ae81ff">2</span></code></pre></div>
-<p>So &ldquo;<code>a</code> is a multiple of <code>b</code>&rdquo; is written <code>a % b == 0</code> in Julia.</p>
-
-<hr />
-
-<p>A you remember from the previous post there was a simple way to count the total number of Fibonacci smaller than <code>1000000</code> in Julia. First we start the Fibonacci sequence:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
-(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)</code></pre></div>
-<p>As <code>next_fib == 2</code> is the second Fibonacci, I started my counter at <code>2</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> counter <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span></code></pre></div>
-<p>Then we add <code>1</code> to the counter at every iteration:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">while</span> next_fib <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1000000</span>
-       fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
-       counter <span style="color:#f92672">+=</span> counter
-       <span style="color:#66d9ef">end</span></code></pre></div>
-<p>To only count those that are multiple of <code>7</code>, we start our sequence as usual:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
-(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)</code></pre></div>
-<p>As there is no multiple of <code>7</code> in <code>1, 2</code>, we start the counter from <code>0</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> counter <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span></code></pre></div>
-<p>Then we add <code>1</code> to the counter at every iteration but only if the Fibonacci is a multiple of <code>7</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">while</span> next_fib <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1000000</span>
-       fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
-       <span style="color:#66d9ef">if</span> next_fib <span style="color:#f92672">%</span> <span style="color:#ae81ff">7</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
-       counter <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
-       <span style="color:#66d9ef">end</span>
-       <span style="color:#66d9ef">end</span>
-
-julia<span style="color:#f92672">&gt;</span> counter
-<span style="color:#ae81ff">3</span></code></pre></div>
-<h2 id="exercises">Exercises</h2>
-
-<ol>
-<li>What is the ratio of Fibonacci numbers smaller than <code>1000000</code> that is multiple of <code>7</code>?</li>
-<li>How many Fibonacci numbers between <code>10000</code> and <code>1000000</code> are multiple of <code>7</code>?</li>
-</ol>
+<p>Draft</p>
 
       </div>
     </article>
