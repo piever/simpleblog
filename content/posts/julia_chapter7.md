@@ -235,4 +235,4 @@ and indeed it is very similar to the fibonacci plot.
 ## Exercises
 
 1. Can you visualize the difference between `v` (the Fibonacci sequence) and `w` (the golden ratio approximation)? What does it look like?
-1. The difference between `v` and `w` is equal to  $$\frac{-φ^{-n}}{\sqrt{5}}$$, can you visualize this?
+1. The difference between `v` and `w` is equal to  $$\frac{(-φ)^{-n}}{\sqrt{5}}$$, can you visualize this?
