@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Chapter VII: Plots and dots</title>
+      <link>https://piever.github.io/simpleblog/posts/julia_chapter7/</link>
+      <pubDate>Fri, 19 Jan 2018 00:18:23 +0000</pubDate>
+      
+      <guid>https://piever.github.io/simpleblog/posts/julia_chapter7/</guid>
+      <description>Visualizing our results (and a trick with a dot) Plotting is not implemented in Base Julia and to visualize our results we will need to install an external package. There are many options but, as this is an introductory post, I&#39;ll focus on the simplest option: UnicodePlots. This package creates plots inside your terminal using symbols from Unicode. It is useful for quick visualizations and has a nice vintage look.</description>
+    </item>
+    
+    <item>
       <title>Chapter VI: Arrays and the for loop</title>
       <link>https://piever.github.io/simpleblog/posts/julia_chapter6/</link>
       <pubDate>Thu, 18 Jan 2018 00:18:23 +0000</pubDate>

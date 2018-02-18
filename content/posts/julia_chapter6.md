@@ -99,7 +99,7 @@ Now we can start filling it one element at a time:
 ```julia
 julia> v[1] = 1;
 
-julia> v[2] = 2;
+julia> v[2] = 1;
 ```
 
 and so on and so forth. We can of course automatize this procedure with a `while` loop:
@@ -114,6 +114,7 @@ julia> while i <= 20
 
 julia> v
 20-element Array{Int64,1}:
+     1
      1
      2
      3
@@ -133,7 +134,6 @@ julia> v
   2584
   4181
   6765
- 10946
 ```
 
 This kind of procedure (iterating with an integer that goes from one number to another) is common enough that it has an explicit construct:
@@ -157,7 +157,7 @@ julia> collect(3:3:9)
 
 ### Version 2: create a short array and add stuff at the end
 
-There's another way to get to the same result. A different way of solving the same exercise would be to start with a small `Array`, let's say the first two Fibonacci: `v = [1, 2]`. Then we can simply add elements at the end using `push!`.
+There's another way to get to the same result. A different way of solving the same exercise would be to start with a small `Array`, let's say the first two Fibonacci: `v = [1, 1]`. Then we can simply add elements at the end using `push!`.
 
 ```julia
 julia> push!(v, v[1] + v[2]);
@@ -175,7 +175,7 @@ The function `push!` ends with a bang (exclamation mark). In Julia that mean tha
 
 </div>
 
-## Excercises
+## Exercises
 
 1. Can you use the `push!` method to compute and store the first `20` Fibonacci?
 1. The `for` loop can be used with `Arrays` directly. Can you figure out what does
