@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://piever.github.io/simpleblog/posts/juliadb/</loc>
+    <lastmod>2018-01-21T00:18:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://piever.github.io/simpleblog/posts/julia_chapter8/</loc>
+    <lastmod>2018-01-20T00:18:23+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://piever.github.io/simpleblog/posts/julia_chapter7/</loc>
     <lastmod>2018-01-19T00:18:23+00:00</lastmod>
   </url>
@@ -58,7 +68,7 @@
   
   <url>
     <loc>https://piever.github.io/simpleblog/</loc>
-    <lastmod>2018-01-19T00:18:23+00:00</lastmod>
+    <lastmod>2018-01-21T00:18:23+00:00</lastmod>
   </url>
   
 </urlset>

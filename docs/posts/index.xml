@@ -12,6 +12,25 @@
     
     
     <item>
+      <title>Manipulating data: JuliaDB</title>
+      <link>https://piever.github.io/simpleblog/posts/juliadb/</link>
+      <pubDate>Sun, 21 Jan 2018 00:18:23 +0000</pubDate>
+      
+      <guid>https://piever.github.io/simpleblog/posts/juliadb/</guid>
+      <description>JuliaDB tutorial Introduction From now on I&#39;ll focus on more advanced Julia tutorials. Here I&#39;ll talk about working with data using the JuliaDB package to reproduce a well known tutorial. The data is some example flight dataset that you can find here. The tutorial is available as a Jupyter notebook here.
+Simply open the link and choose Save as from the File menu in your browser to save the data to a folder on your computer.</description>
+    </item>
+    
+    <item>
+      <title>Chapter VIII: Functions</title>
+      <link>https://piever.github.io/simpleblog/posts/julia_chapter8/</link>
+      <pubDate>Sat, 20 Jan 2018 00:18:23 +0000</pubDate>
+      
+      <guid>https://piever.github.io/simpleblog/posts/julia_chapter8/</guid>
+      <description>Functions </description>
+    </item>
+    
+    <item>
       <title>Chapter VII: Plots and dots</title>
       <link>https://piever.github.io/simpleblog/posts/julia_chapter7/</link>
       <pubDate>Fri, 19 Jan 2018 00:18:23 +0000</pubDate>

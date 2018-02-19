@@ -9,7 +9,7 @@ draft: false
 
 ## Introduction
 
-This is a brief tutorial on working with data using the new programming language Julia. In particular, I will use the [JuliaDB](http://juliadb.org/latest/) package to reproduce a well known [tutorial](https://rpubs.com/justmarkham/dplyr-tutorial). The data is some example flight dataset that you can find [here](https://raw.githubusercontent.com/piever/JuliaDBTutorial/master/hflights.csv).
+From now on I'll focus on more advanced Julia tutorials. Here I'll talk about working with data using the [JuliaDB](http://juliadb.org/latest/) package to reproduce a well known [tutorial](https://rpubs.com/justmarkham/dplyr-tutorial). The data is some example flight dataset that you can find [here](https://raw.githubusercontent.com/piever/JuliaDBTutorial/master/hflights.csv). The tutorial is available as a Jupyter notebook [here](https://github.com/piever/JuliaDBTutorial/blob/master/hflights.ipynb).
 
 Simply open the link and choose `Save as` from the `File` menu in your browser to save the data to a folder on your computer.
 
@@ -897,7 +897,7 @@ A utility function is provided to compute statistics on a partition of the data.
 partitionplot(flights, :Distance, stat = Extrema(), by = :Month, layout = 12, legend = false, xticks = [])
 ```
 
-
+![partutitionplot](https://user-images.githubusercontent.com/6333339/36382386-9a997f72-1580-11e8-8a06-f6a467551efb.png)
 
 One can also plot one variable against the other, here for example we'll be plotting `DepDelay` versus `ArrDelay`. Be careful that, if your dataset has missing data and you want JuliaDB to filter it out for you before plotting, you need to use the keyword argument `dropmissing`. Note how much faster this plot is, compared to the scatter plot above.
 
