@@ -6,3 +6,10 @@
     padding: 50px;
     outline-offset: 5px;
 }
+
+img[src$='#center']
+{
+    display: block;
+    margin: auto;
+    width: 300px;
+}
