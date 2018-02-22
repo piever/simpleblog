@@ -53,7 +53,7 @@ Simply open the link and choose Save as from the File menu in your browser to sa
 
 <meta itemprop="datePublished" content="2018-01-21T00:18:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-01-21T00:18:23&#43;00:00" />
-<meta itemprop="wordCount" content="2865">
+<meta itemprop="wordCount" content="2873">
 
 
 
@@ -189,8 +189,8 @@ DepTime  ArrTime  FlightNum
 1600     1713     1597
 </code></pre>
 
-<p>Let's select all columns between <code>:Year</code> and <code>:Month</code> as well as all columns containing &quot;Taxi&quot; or &quot;Delay&quot; in their name. <code>Between</code> selects columns between two specified extremes, passing a function filters column names by that function and <code>Join</code> takes the union of all selectors.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">select(flights, Join(Between(<span style="color:#f92672">:</span>Year, <span style="color:#f92672">:</span>DayofMonth), i <span style="color:#f92672">-&gt;</span> contains(string(i), <span style="color:#e6db74">&#34;Taxi&#34;</span>), i <span style="color:#f92672">-&gt;</span> contains(string(i), <span style="color:#e6db74">&#34;Delay&#34;</span>)))</code></pre></div>
+<p>Let's select all columns between <code>:Year</code> and <code>:Month</code> as well as all columns containing &quot;Taxi&quot; or &quot;Delay&quot; in their name. <code>Between</code> selects columns between two specified extremes, passing a function filters column names by that function and <code>All</code> takes the union of all selectors (or all columns, if no selector is specified).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">select(flights, All(Between(<span style="color:#f92672">:</span>Year, <span style="color:#f92672">:</span>DayofMonth), i <span style="color:#f92672">-&gt;</span> contains(string(i), <span style="color:#e6db74">&#34;Taxi&#34;</span>), i <span style="color:#f92672">-&gt;</span> contains(string(i), <span style="color:#e6db74">&#34;Delay&#34;</span>)))</code></pre></div>
 <pre><code>Table with 227496 rows, 7 columns:
 Year  Month  DayofMonth  TaxiIn  TaxiOut  ArrDelay  DepDelay
 ────────────────────────────────────────────────────────────
@@ -848,7 +848,7 @@ MySQL<span style="color:#f92672">.</span>disconnect(conn)</code></pre></div>
         <li class="list f5 w-100 hover-bg-white nl1">
           
           <a href="/simpleblog/posts/julia_chapter8/" class="link ph2 pv2 db black">
-            Chapter VIII: Functions
+            Chapter VIII: Functions: can we make our own?
           </a>
         </li>
       

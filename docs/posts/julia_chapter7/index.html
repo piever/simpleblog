@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-01-19T00:18:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-01-19T00:18:23&#43;00:00" />
-<meta itemprop="wordCount" content="764">
+<meta itemprop="wordCount" content="821">
 
 
 
@@ -170,6 +170,8 @@ julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">for</sp
         <span style="color:#ae81ff">0</span>                                                <span style="color:#ae81ff">20</span></code></pre></div>
 <p>and there it is! Our vintage plot of the Fibonacci series.</p>
 
+<p>Note that in the REPL when we run a simple <code>lineplot</code> command alone, it will show automatically (just like every value that the REPL outputs is shown without having to say <code>print</code>). If your <code>lineplot</code> is in the middle on some code, you need to use <code>display</code> (the plot equivalent of <code>print</code>) to see it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> display(lineplot(v))</code></pre></div>
 <h2 id="testing-an-earlier-claim">Testing an earlier claim</h2>
 
 <p>Early on I had mentioned that the Fibonacci sequence grows exponentially (as can be seen from the above plot) and had given an explicit approximate formula:</p>
@@ -342,7 +344,7 @@ julia<span style="color:#f92672">&gt;</span> w
         <li class="list f5 w-100 hover-bg-white nl1">
           
           <a href="/simpleblog/posts/julia_chapter8/" class="link ph2 pv2 db black">
-            Chapter VIII: Functions
+            Chapter VIII: Functions: can we make our own?
           </a>
         </li>
       

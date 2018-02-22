@@ -64,6 +64,12 @@ julia> lineplot(v)
 
 and there it is! Our vintage plot of the Fibonacci series.
 
+Note that in the REPL when we run a simple `lineplot` command alone, it will show automatically (just like every value that the REPL outputs is shown without having to say `print`). If your `lineplot` is in the middle on some code, you need to use `display` (the plot equivalent of `print`) to see it:
+
+```julia
+julia> display(lineplot(v))
+```
+
 ## Testing an earlier claim
 
 Early on I had mentioned that the Fibonacci sequence grows exponentially (as can be seen from the above plot) and had given an explicit approximate formula:

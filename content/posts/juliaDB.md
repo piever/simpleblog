@@ -87,11 +87,11 @@ select(flights, (:DepTime, :ArrTime, :FlightNum))
 
 
 
-Let's select all columns between `:Year` and `:Month` as well as all columns containing "Taxi" or "Delay" in their name. `Between` selects columns between two specified extremes, passing a function filters column names by that function and `Join` takes the union of all selectors.
+Let's select all columns between `:Year` and `:Month` as well as all columns containing "Taxi" or "Delay" in their name. `Between` selects columns between two specified extremes, passing a function filters column names by that function and `All` takes the union of all selectors (or all columns, if no selector is specified).
 
 
 ```julia
-select(flights, Join(Between(:Year, :DayofMonth), i -> contains(string(i), "Taxi"), i -> contains(string(i), "Delay")))
+select(flights, All(Between(:Year, :DayofMonth), i -> contains(string(i), "Taxi"), i -> contains(string(i), "Delay")))
 ```
 
 

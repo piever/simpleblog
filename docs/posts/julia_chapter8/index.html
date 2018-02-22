@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Thoughts and things  | Chapter VIII: Functions</title>
+    <title>Thoughts and things  | Chapter VIII: Functions: can we make our own?</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -24,8 +24,10 @@
 
     
 
-    <meta property="og:title" content="Chapter VIII: Functions" />
-<meta property="og:description" content="Functions " />
+    <meta property="og:title" content="Chapter VIII: Functions: can we make our own?" />
+<meta property="og:description" content="Functions So far we&#39;ve used many built-in functions from Julia, as well as some provided by external packages such as UnicodePlots. Julia allows us to write our own functions: before learning how to do that, let&#39;s see why that would be useful.
+So far we have specialized on the Fibonacci sequence, but many other sequences are possible.
+Let&#39;s try and compute a different sequence. As a reminder, this is how we computed the first 20 Fibonacci:" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://piever.github.io/simpleblog/posts/julia_chapter8/" />
 
@@ -45,20 +47,24 @@
 
 
 
-<meta itemprop="name" content="Chapter VIII: Functions">
-<meta itemprop="description" content="Functions ">
+<meta itemprop="name" content="Chapter VIII: Functions: can we make our own?">
+<meta itemprop="description" content="Functions So far we&#39;ve used many built-in functions from Julia, as well as some provided by external packages such as UnicodePlots. Julia allows us to write our own functions: before learning how to do that, let&#39;s see why that would be useful.
+So far we have specialized on the Fibonacci sequence, but many other sequences are possible.
+Let&#39;s try and compute a different sequence. As a reminder, this is how we computed the first 20 Fibonacci:">
 
 
 <meta itemprop="datePublished" content="2018-01-20T00:18:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-01-20T00:18:23&#43;00:00" />
-<meta itemprop="wordCount" content="1">
+<meta itemprop="wordCount" content="1017">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Chapter VIII: Functions"/>
-<meta name="twitter:description" content="Functions "/>
+<meta name="twitter:title" content="Chapter VIII: Functions: can we make our own?"/>
+<meta name="twitter:description" content="Functions So far we&#39;ve used many built-in functions from Julia, as well as some provided by external packages such as UnicodePlots. Julia allows us to write our own functions: before learning how to do that, let&#39;s see why that would be useful.
+So far we have specialized on the Fibonacci sequence, but many other sequences are possible.
+Let&#39;s try and compute a different sequence. As a reminder, this is how we computed the first 20 Fibonacci:"/>
 
   </head>
 
@@ -124,11 +130,206 @@
           POSTS
         </p>
         <h1 class="f1">
-          Chapter VIII: Functions
+          Chapter VIII: Functions: can we make our own?
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
         <h1 id="functions">Functions</h1>
+
+<p>So far we've used many built-in functions from Julia, as well as some provided by external packages such as UnicodePlots. Julia allows us to write our own functions: before learning how to do that, let's see why that would be useful.</p>
+
+<p>So far we have specialized on the Fibonacci sequence, but many other sequences are possible.</p>
+
+<p>Let's try and compute a different sequence. As a reminder, this is how we computed the first 20 Fibonacci:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> v <span style="color:#f92672">=</span> fill(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">20</span>);
+
+julia<span style="color:#f92672">&gt;</span> v[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+
+julia<span style="color:#f92672">&gt;</span> v[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+
+julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span><span style="color:#ae81ff">20</span>
+       v[i] <span style="color:#f92672">=</span> v[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">+</span>v[i<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>]
+       <span style="color:#66d9ef">end</span>
+
+julia<span style="color:#f92672">&gt;</span> v
+<span style="color:#ae81ff">20</span><span style="color:#f92672">-</span>element <span style="color:#66d9ef">Array</span>{<span style="color:#66d9ef">Int64</span>,<span style="color:#ae81ff">1</span>}<span style="color:#f92672">:</span>
+     <span style="color:#ae81ff">1</span>
+     <span style="color:#ae81ff">2</span>
+     <span style="color:#ae81ff">3</span>
+     <span style="color:#ae81ff">5</span>
+     <span style="color:#ae81ff">8</span>
+    <span style="color:#ae81ff">13</span>
+    <span style="color:#ae81ff">21</span>
+    <span style="color:#ae81ff">34</span>
+    <span style="color:#ae81ff">55</span>
+    <span style="color:#ae81ff">89</span>
+   <span style="color:#ae81ff">144</span>
+   <span style="color:#ae81ff">233</span>
+   <span style="color:#ae81ff">377</span>
+   <span style="color:#ae81ff">610</span>
+   <span style="color:#ae81ff">987</span>
+  <span style="color:#ae81ff">1597</span>
+  <span style="color:#ae81ff">2584</span>
+  <span style="color:#ae81ff">4181</span>
+  <span style="color:#ae81ff">6765</span>
+ <span style="color:#ae81ff">10946</span></code></pre></div>
+<p>Let us imagine that we are interested in seeing how the evolution of this sequence depends on the first two starting values. For example what happens if, rather than <code>1, 1</code>, we start with <code>1, 5</code>? Or <code>-1, 1</code>? Or <code>1, -1</code>?</p>
+
+<p>It quickly becomes clear that copy pasting our sequence of commands (and changing where needed) is a painful solutions. Luckily, with functions, we can put together a sequence of commands to call it later as many times as we want.</p>
+
+<h2 id="a-simple-example-our-first-function">A simple example: our first function</h2>
+
+<p>To explore the syntax of function definition, let's start with a simple example: a function that compute the difference of two numbers divided by their sum:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">function</span> relative_difference(a, b)
+       d <span style="color:#f92672">=</span> a <span style="color:#f92672">-</span> b
+       s <span style="color:#f92672">=</span> a <span style="color:#f92672">+</span> b
+       d <span style="color:#f92672">/</span> s
+       <span style="color:#66d9ef">end</span>
+relative_difference (generic <span style="color:#66d9ef">function</span> with <span style="color:#ae81ff">1</span> method)</code></pre></div>
+<p>We need to start with the word <code>function</code> to tell Julia we're defining a function. Then, we continue with the name of our function, in this case I've decided to call it <code>relative_difference</code>. Between parentheses, we put the name of the function arguments. You can make up any name: try to choose something meaningful. In this case, as I really don't know much about the arguments, I called them <code>a</code> and <code>b</code> for simplicity. Once you do that, the variables <code>a</code> and <code>b</code> in the <em>function body</em> will refer to whatever value the user gives (or you will give in the future, if you're coding this function just for yourself).</p>
+
+<p>In the <em>function body</em> we put all the operations we want. In this case first we compute the difference of the arguments, then the sum and finally we divide one by the other. The function will give, as output, its last line, in this case <code>d / s</code>.</p>
+
+<p>Julia tells us that we have defined <code>relative_difference</code>, a generic function with 1 method. Methods are a pretty advanced topic and are better left for a future blog post.</p>
+
+<p>Let's see our function in action:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> relative_difference(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+<span style="color:#f92672">-</span><span style="color:#ae81ff">0.3333333333333333</span>
+
+julia<span style="color:#f92672">&gt;</span> relative_difference(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2.3</span>)
+<span style="color:#ae81ff">0.6260162601626016</span>
+
+julia<span style="color:#f92672">&gt;</span> relative_difference(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>)
+<span style="color:#ae81ff">0.0</span></code></pre></div>
+<h2 id="now-lets-do-something-interesting">Now let's do something interesting</h2>
+
+<p>A much more interesting function is the one we were thinking about above: something that takes two starting values <code>f1</code> and <code>f2</code> and returns a sequence that starts from there and evolves like Fibonacci. That's actually pretty simple to do: we need to take the code we used above to compute the first 20 Fibonacci and replace our hard-coded initial values (<code>1</code> and <code>1</code>) and replace them with variable names:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">function</span> compute_sequence(f1, f2)
+       v <span style="color:#f92672">=</span> fill(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">20</span>)
+       v[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> f1
+       v[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> f2
+       <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span><span style="color:#ae81ff">20</span>
+       v[i] <span style="color:#f92672">=</span> v[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> v[i<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>]
+       <span style="color:#66d9ef">end</span>
+       v
+       <span style="color:#66d9ef">end</span>
+compute_sequence (generic <span style="color:#66d9ef">function</span> with <span style="color:#ae81ff">1</span> method)</code></pre></div>
+<div class="boxBorder">
+
+We need to write `v`in the last line to tell Julia that this is our desired output: the vector `v` with our 20 elements of the sequence.
+
+</div>
+
+<p>Now, we can play as much as we want. We can get the usual Fibonacci:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> compute_sequence(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+<span style="color:#ae81ff">20</span><span style="color:#f92672">-</span>element <span style="color:#66d9ef">Array</span>{<span style="color:#66d9ef">Int64</span>,<span style="color:#ae81ff">1</span>}<span style="color:#f92672">:</span>
+    <span style="color:#ae81ff">1</span>
+    <span style="color:#ae81ff">1</span>
+    <span style="color:#ae81ff">2</span>
+    <span style="color:#ae81ff">3</span>
+    <span style="color:#ae81ff">5</span>
+    <span style="color:#ae81ff">8</span>
+   <span style="color:#ae81ff">13</span>
+   <span style="color:#ae81ff">21</span>
+   <span style="color:#ae81ff">34</span>
+   <span style="color:#ae81ff">55</span>
+   <span style="color:#ae81ff">89</span>
+  <span style="color:#ae81ff">144</span>
+  <span style="color:#ae81ff">233</span>
+  <span style="color:#ae81ff">377</span>
+  <span style="color:#ae81ff">610</span>
+  <span style="color:#ae81ff">987</span>
+ <span style="color:#ae81ff">1597</span>
+ <span style="color:#ae81ff">2584</span>
+ <span style="color:#ae81ff">4181</span>
+ <span style="color:#ae81ff">6765</span></code></pre></div>
+<p>We can see what happens if we add some negatives:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> compute_sequence(<span style="color:#f92672">-</span><span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">5</span>)
+<span style="color:#ae81ff">20</span><span style="color:#f92672">-</span>element <span style="color:#66d9ef">Array</span>{<span style="color:#66d9ef">Int64</span>,<span style="color:#ae81ff">1</span>}<span style="color:#f92672">:</span>
+   <span style="color:#f92672">-</span><span style="color:#ae81ff">7</span>
+    <span style="color:#ae81ff">5</span>
+   <span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>
+    <span style="color:#ae81ff">3</span>
+    <span style="color:#ae81ff">1</span>
+    <span style="color:#ae81ff">4</span>
+    <span style="color:#ae81ff">5</span>
+    <span style="color:#ae81ff">9</span>
+   <span style="color:#ae81ff">14</span>
+   <span style="color:#ae81ff">23</span>
+   <span style="color:#ae81ff">37</span>
+   <span style="color:#ae81ff">60</span>
+   <span style="color:#ae81ff">97</span>
+  <span style="color:#ae81ff">157</span>
+  <span style="color:#ae81ff">254</span>
+  <span style="color:#ae81ff">411</span>
+  <span style="color:#ae81ff">665</span>
+ <span style="color:#ae81ff">1076</span>
+ <span style="color:#ae81ff">1741</span>
+ <span style="color:#ae81ff">2817</span></code></pre></div>
+<p>And we can even visualize how the sequence depends on our starting values in an interactive plot!</p>
+
+<h2 id="plotting">Plotting</h2>
+
+<p>We can plot our results as usual with <code>UnicodePlots</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">using</span> UnicodePlots
+
+julia<span style="color:#f92672">&gt;</span> lineplot(compute_sequence(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">2</span>))
+         ┌─────────────────────────────────────────────────┐
+    <span style="color:#ae81ff">1000</span> │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+         │⠤⠤⠤⠴⠶⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⢤⣤⣤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠤⠄│
+         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠒⠤⡀⠀⠀⠀⠀⠀⠀⠀⠀│
+         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠣⡀⠀⠀⠀⠀⠀⠀│
+         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢣⠀⠀⠀⠀⠀│
+         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠱⡀⠀⠀⠀│
+         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢣⠀⠀⠀│
+         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡆⠀⠀│
+         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡄⠀│
+         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢇⠀│
+         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡀│
+         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇│
+         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸│
+   <span style="color:#f92672">-</span><span style="color:#ae81ff">5000</span> │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+         └─────────────────────────────────────────────────┘
+         <span style="color:#ae81ff">0</span>                                                <span style="color:#ae81ff">20</span></code></pre></div>
+<p>But now that we have a simple way to compute the sequence for any pair of starting points, we can go crazy and plot all sequences:</p>
+
+<pre><code>julia&gt; for i in -20:20
+       lineplot(compute_sequence(i, 2))
+       end
+</code></pre>
+
+<p>Ups! That didn't actually plot anything. If you remember from the previous post, if our plot command is in the middle of our code, we need to call <code>display</code> to see it:</p>
+
+<pre><code>julia&gt; for i in -20:20
+       display(lineplot(compute_sequence(i, 2)))
+       end
+</code></pre>
+
+<p>But that really was a bit too fast... To look at each plot as it passes by let's add some delay:</p>
+
+<pre><code>julia&gt; for i in -20:20
+       display(lineplot(compute_sequence(i, 2)))
+       sleep(0.1)
+       end
+</code></pre>
+
+<p>As a final touch, we can fix the <code>y</code> axis: it is getting adjusted all the time and it screws our pretty little animation. The <code>y</code> axis limit is an optional argument that can be given or not given to the <code>lineplot</code> function. Optional arguments are very useful when you want to give the user the freedom to tweak things to his/her liking, but you don't force them to specify the argument all the time. The syntax is as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">lineplot(compute_sequence(<span style="color:#f92672">-</span><span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">2</span>), ylim <span style="color:#f92672">=</span> [<span style="color:#f92672">-</span><span style="color:#ae81ff">10000</span>, <span style="color:#ae81ff">10000</span>])</code></pre></div>
+<p>So, if we put it all together:</p>
+
+<pre><code>julia&gt; for i in -20:20
+       display(lineplot(compute_sequence(i, 2), ylim = [-10000, 10000]))
+       sleep(0.1)
+       end
+</code></pre>
+
+<h2 id="exercises">Exercises</h2>
+
+<ol>
+<li>Can you write a function with three arguments (<code>f1</code>, <code>f2</code> and <code>n</code>) that outputs the first <code>n</code> values (not always <code>20</code>) of a sequence that starts with <code>f1</code> and <code>f2</code> and evolves like Fibonacci?</li>
+<li>Can you write a function of five arguments (<code>f1</code>, <code>f2</code>, <code>a</code>, <code>b</code> and <code>n</code>) that outputs the first <code>n</code> values (not always <code>20</code>) of a sequence that starts with <code>f1</code> and <code>f2</code> and evolves according to <span  class="math">\(F_n = a \cdot F_{n-1} + b \cdot F_{n-2}\)</span>?</li>
+</ol>
 
       </div>
     </article>
@@ -157,7 +358,7 @@
         <li class="list f5 w-100 hover-bg-white nl1">
           
           <a href="/simpleblog/posts/julia_chapter8/" class="link ph2 pv2 db black o-50">
-            Chapter VIII: Functions
+            Chapter VIII: Functions: can we make our own?
           </a>
         </li>
       
