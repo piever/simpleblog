@@ -1,6 +1,7 @@
 ---
 title: "Chapter IV: The while loop"
 date: 2017-11-18T00:18:23Z
+markup: mmark
 draft: false
 ---
 # Automatizing things

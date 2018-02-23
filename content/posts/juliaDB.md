@@ -9,8 +9,11 @@ draft: false
 
 ## Introduction
 
-From now on I'll focus on more advanced Julia tutorials. Here I'll talk about working with data using the [JuliaDB](http://juliadb.org/latest/) package to reproduce a well known [tutorial](https://rpubs.com/justmarkham/dplyr-tutorial). The data is some example flight dataset that you can find [here](https://raw.githubusercontent.com/piever/JuliaDBTutorial/master/hflights.csv). The tutorial is available as a Jupyter notebook [here](https://github.com/piever/JuliaDBTutorial/blob/master/hflights.ipynb).
+From now on I'll focus on more advanced Julia tutorials. Here I'll talk about working with data using the [JuliaDB](http://juliadb.org/latest/) package to reproduce a well known [tutorial](https://rpubs.com/justmarkham/dplyr-tutorial). This tutorial is available as a Jupyter notebook [here](https://github.com/piever/JuliaDBTutorial/blob/master/hflights.ipynb).
 
+## Getting the data
+
+The data is some example flight dataset that you can find [here](https://raw.githubusercontent.com/piever/JuliaDBTutorial/master/hflights.csv).
 Simply open the link and choose `Save as` from the `File` menu in your browser to save the data to a folder on your computer.
 
 ## Loading the data

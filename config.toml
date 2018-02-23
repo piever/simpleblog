@@ -6,6 +6,7 @@ publishDir = "docs"
 pygmentsStyle = "monokai"
 pygmentsCodefences = true
 SectionPagesMenu = "main"
+disqusShortname = "piever"
 
 
 [params]

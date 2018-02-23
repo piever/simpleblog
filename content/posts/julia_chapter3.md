@@ -1,6 +1,7 @@
 ---
 title: "Chapter III: Variable assignment"
 date: 2017-11-15T00:18:23Z
+markup: mmark
 draft: false
 ---
 # Giving names to things
