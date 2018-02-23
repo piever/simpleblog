@@ -131,15 +131,13 @@ The while loop The while loop executes a statement as long as a given condition 
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
-        
-
-<h1 id="automatizing-things">Automatizing things</h1>
+        <h1 id="automatizing-things">Automatizing things</h1>
 
 <p>Repeating a command many times can be extremely annoying. Luckily, Julia can help us automatize things using loops, which are a way to repeat the same command, or list of commands many times. Here we will continue on playing with Fibonacci numbers, without having to manually evaluate the same command at the console many times.</p>
 
 <h2 id="the-while-loop">The while loop</h2>
 
-<p>The <code>while</code> loop executes a statement as long as a given condition is verified. Let&rsquo;s use it to solve the exercise from the previous chapter: what is the largest Fibonacci smaller than <code>10000</code>?</p>
+<p>The <code>while</code> loop executes a statement as long as a given condition is verified. Let's use it to solve the exercise from the previous chapter: what is the largest Fibonacci smaller than <code>10000</code>?</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
 (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
 
@@ -149,7 +147,7 @@ julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">while</
 
 julia<span style="color:#f92672">&gt;</span> fib, next_fib
 (<span style="color:#ae81ff">6765</span>, <span style="color:#ae81ff">10946</span>)</code></pre></div>
-<p>This simple program gave us the pair of Fibonacci around <code>10000</code> without any need to painfully iterate the command at the console. How did this happen? Let&rsquo;s look in detail at this program.</p>
+<p>This simple program gave us the pair of Fibonacci around <code>10000</code> without any need to painfully iterate the command at the console. How did this happen? Let's look in detail at this program.</p>
 
 <p>Julia first assinged the variables <code>fib = 1</code> and <code>next_fib = 2</code> and then checked the condition (a condition is a statement that returns either true or false, for example <code>3 &lt; 4</code>). In this case <code>2 &lt; 1000</code> is <code>true</code>, so Julia executed <code>fib, next_fib = next_fib, fib+next_fib</code>. Now <code>next_fib</code> is <code>3</code>, but still <code>3 &lt; 10000</code>, so Julia kept going. At some point <code>next_fib</code> became <code>10946</code> (the twentieth Fibonacci) and <code>10946 &lt; 10000</code>, so Julia stopped. How did I now it was the twentieth Fibonacci? I cheated a bit, and in my code I added a counter to track where I was in the Fibonacci sequence. I started with:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
@@ -161,7 +159,7 @@ julia<span style="color:#f92672">&gt;</span> fib, next_fib
        fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
        counter <span style="color:#f92672">=</span> counter <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
        <span style="color:#66d9ef">end</span></code></pre></div>
-<p>All that&rsquo;s left to do is inspecting the value of <code>counter</code> after the <code>while</code> loop has been executed:</p>
+<p>All that's left to do is inspecting the value of <code>counter</code> after the <code>while</code> loop has been executed:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> counter
 <span style="color:#ae81ff">20</span></code></pre></div>
 <p>which confirms that <code>next_fib == 10946</code> is the twentieth Fibonacci.
@@ -290,6 +288,8 @@ julia<span style="color:#f92672">&gt;</span> fib, next_fib
     <script type="text/javascript" async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
+
+
     <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
     &copy; 2018 Thoughts and things
@@ -311,6 +311,23 @@ julia<span style="color:#f92672">&gt;</span> fib, next_fib
 
 
   </div>
+
+  <div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://piever-simpleblog.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 </footer>
 
     <script src="https://piever.github.io/simpleblog/dist/app.bundle.js" async></script>

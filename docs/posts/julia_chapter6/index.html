@@ -25,7 +25,7 @@
     
 
     <meta property="og:title" content="Chapter VI: Arrays and the for loop" />
-<meta property="og:description" content="Storing what we have computed An inconvenience with the techniques we&rsquo;ve used so far to compute the Fibonacci sequence is that we&rsquo;ve never stored any result. Fortunately Julia provides a structure to do that, called Arrays. They are created using square brackets and separating values by commas. For example:
+<meta property="og:description" content="Storing what we have computed An inconvenience with the techniques we&#39;ve used so far to compute the Fibonacci sequence is that we&#39;ve never stored any result. Fortunately Julia provides a structure to do that, called Arrays. They are created using square brackets and separating values by commas. For example:
 julia&gt; v = [7, 3] 2-element Array{Int64,1}: 7 3 is a list of values, the first is 7 and the second is 3." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://piever.github.io/simpleblog/posts/julia_chapter6/" />
@@ -47,7 +47,7 @@ julia&gt; v = [7, 3] 2-element Array{Int64,1}: 7 3 is a list of values, the firs
 
 
 <meta itemprop="name" content="Chapter VI: Arrays and the for loop">
-<meta itemprop="description" content="Storing what we have computed An inconvenience with the techniques we&rsquo;ve used so far to compute the Fibonacci sequence is that we&rsquo;ve never stored any result. Fortunately Julia provides a structure to do that, called Arrays. They are created using square brackets and separating values by commas. For example:
+<meta itemprop="description" content="Storing what we have computed An inconvenience with the techniques we&#39;ve used so far to compute the Fibonacci sequence is that we&#39;ve never stored any result. Fortunately Julia provides a structure to do that, called Arrays. They are created using square brackets and separating values by commas. For example:
 julia&gt; v = [7, 3] 2-element Array{Int64,1}: 7 3 is a list of values, the first is 7 and the second is 3.">
 
 
@@ -60,7 +60,7 @@ julia&gt; v = [7, 3] 2-element Array{Int64,1}: 7 3 is a list of values, the firs
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chapter VI: Arrays and the for loop"/>
-<meta name="twitter:description" content="Storing what we have computed An inconvenience with the techniques we&rsquo;ve used so far to compute the Fibonacci sequence is that we&rsquo;ve never stored any result. Fortunately Julia provides a structure to do that, called Arrays. They are created using square brackets and separating values by commas. For example:
+<meta name="twitter:description" content="Storing what we have computed An inconvenience with the techniques we&#39;ve used so far to compute the Fibonacci sequence is that we&#39;ve never stored any result. Fortunately Julia provides a structure to do that, called Arrays. They are created using square brackets and separating values by commas. For example:
 julia&gt; v = [7, 3] 2-element Array{Int64,1}: 7 3 is a list of values, the first is 7 and the second is 3."/>
 
   </head>
@@ -131,11 +131,9 @@ julia&gt; v = [7, 3] 2-element Array{Int64,1}: 7 3 is a list of values, the firs
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
-        
+        <h1 id="storing-what-we-have-computed">Storing what we have computed</h1>
 
-<h1 id="storing-what-we-have-computed">Storing what we have computed</h1>
-
-<p>An inconvenience with the techniques we&rsquo;ve used so far to compute the Fibonacci sequence is that we&rsquo;ve never stored any result. Fortunately Julia provides a structure to do that, called <code>Arrays</code>. They are created using square brackets and separating values by commas. For example:</p>
+<p>An inconvenience with the techniques we've used so far to compute the Fibonacci sequence is that we've never stored any result. Fortunately Julia provides a structure to do that, called <code>Arrays</code>. They are created using square brackets and separating values by commas. For example:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> v <span style="color:#f92672">=</span> [<span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">3</span>]
 <span style="color:#ae81ff">2</span><span style="color:#f92672">-</span>element <span style="color:#66d9ef">Array</span>{<span style="color:#66d9ef">Int64</span>,<span style="color:#ae81ff">1</span>}<span style="color:#f92672">:</span>
  <span style="color:#ae81ff">7</span>
@@ -159,7 +157,7 @@ julia<span style="color:#f92672">&gt;</span> v[<span style="color:#66d9ef">end</
 <h2 id="working-with-arrays-and-the-for-loop">Working with arrays and the for loop</h2>
 
 <p>Our objective is to store the first 20 Fibonacci in an array of length 20.
-We&rsquo;ll do it in two different ways.</p>
+We'll do it in two different ways.</p>
 
 <h3 id="version-1-create-an-array-and-alter-its-content">Version 1: create an array and alter its content</h3>
 
@@ -242,7 +240,7 @@ julia<span style="color:#f92672">&gt;</span> v
  <span style="color:#ae81ff">9</span></code></pre></div>
 <h3 id="version-2-create-a-short-array-and-add-stuff-at-the-end">Version 2: create a short array and add stuff at the end</h3>
 
-<p>There&rsquo;s another way to get to the same result. A different way of solving the same exercise would be to start with a small <code>Array</code>, let&rsquo;s say the first two Fibonacci: <code>v = [1, 1]</code>. Then we can simply add elements at the end using <code>push!</code>.</p>
+<p>There's another way to get to the same result. A different way of solving the same exercise would be to start with a small <code>Array</code>, let's say the first two Fibonacci: <code>v = [1, 1]</code>. Then we can simply add elements at the end using <code>push!</code>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> push!(v, v[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> v[<span style="color:#ae81ff">2</span>]);
 
 julia<span style="color:#f92672">&gt;</span> v
@@ -379,6 +377,8 @@ The function `push!` ends with a bang (exclamation mark). In Julia that mean tha
     <script type="text/javascript" async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
+
+
     <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
     &copy; 2018 Thoughts and things
@@ -400,6 +400,23 @@ The function `push!` ends with a bang (exclamation mark). In Julia that mean tha
 
 
   </div>
+
+  <div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://piever-simpleblog.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 </footer>
 
     <script src="https://piever.github.io/simpleblog/dist/app.bundle.js" async></script>

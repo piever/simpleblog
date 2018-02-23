@@ -25,7 +25,7 @@
     
 
     <meta property="og:title" content="Chapter I: Hello, Julia" />
-<meta property="og:description" content="Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&rsquo;m making a series of tutorials about it, starting from the very beginning." />
+<meta property="og:description" content="Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&#39;m making a series of tutorials about it, starting from the very beginning." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://piever.github.io/simpleblog/posts/julia_chapter1/" />
 
@@ -46,7 +46,7 @@
 
 
 <meta itemprop="name" content="Chapter I: Hello, Julia">
-<meta itemprop="description" content="Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&rsquo;m making a series of tutorials about it, starting from the very beginning.">
+<meta itemprop="description" content="Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&#39;m making a series of tutorials about it, starting from the very beginning.">
 
 
 <meta itemprop="datePublished" content="2017-11-14T00:17:19&#43;00:00" />
@@ -58,7 +58,7 @@
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chapter I: Hello, Julia"/>
-<meta name="twitter:description" content="Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&rsquo;m making a series of tutorials about it, starting from the very beginning."/>
+<meta name="twitter:description" content="Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&#39;m making a series of tutorials about it, starting from the very beginning."/>
 
   </head>
 
@@ -128,19 +128,17 @@
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
-        
+        <h1 id="learning-how-to-code">Learning how to code</h1>
 
-<h1 id="learning-how-to-code">Learning how to code</h1>
-
-<p>This is the first of a series of posts aimed about the <a href="https://julialang.org/">Julia</a> programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&rsquo;m making a series of tutorials about it, starting from the very beginning.</p>
+<p>This is the first of a series of posts aimed about the <a href="https://julialang.org/">Julia</a> programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I'm making a series of tutorials about it, starting from the very beginning.</p>
 
 <h2 id="basic-setup-downloading-and-installing-julia">Basic setup: downloading and installing Julia</h2>
 
-<p>Julia (command line version) can be downloaded <a href="https://julialang.org/downloads/">here</a>. Choose the correct distribution for your OS and follow the instruction to install it (double-clicking will probably be enough). You have now access to the Julia app in its command line version (we will explore more sophisticated setups later on). Let&rsquo;s open it and get stared.</p>
+<p>Julia (command line version) can be downloaded <a href="https://julialang.org/downloads/">here</a>. Choose the correct distribution for your OS and follow the instruction to install it (double-clicking will probably be enough). You have now access to the Julia app in its command line version (we will explore more sophisticated setups later on). Let's open it and get stared.</p>
 
-<h2 id="functions-and-objects-hello-world">Functions and objects (&ldquo;Hello, World!&rdquo;)</h2>
+<h2 id="functions-and-objects-hello-world">Functions and objects (&quot;Hello, World!&quot;)</h2>
 
-<p>Applying a function to one or more objects (its arguments) is the basic building block of programming. If we consider a command as a sentence, the function has to be thought of as the verb (the action), whereas the objects form the rest of the sentence. The subject is generally (but not always) Julia. This is best understood with an example and displaying the string &ldquo;Hello, World!&rdquo; is probably the single most known example of programming. In the following section, we will learn two things:</p>
+<p>Applying a function to one or more objects (its arguments) is the basic building block of programming. If we consider a command as a sentence, the function has to be thought of as the verb (the action), whereas the objects form the rest of the sentence. The subject is generally (but not always) Julia. This is best understood with an example and displaying the string &quot;Hello, World!&quot; is probably the single most known example of programming. In the following section, we will learn two things:</p>
 
 <ul>
 <li><code>&quot;Hello, World!&quot;</code> is a <code>String</code></li>
@@ -151,9 +149,9 @@
 
 <p>Type the following in the Julia console and press <code>Enter</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> print(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>)</code></pre></div>
-<p>You will see that, perhaps unsurprisingly, the string &ldquo;Hello, World!&rdquo; gets displayed on the screen. How did that happen? As this simple program has only two components: <code>print</code> and <code>&quot;Hello, World!&quot;</code>,  we can analyze them one by one. Let&rsquo;s start with <code>print</code>.</p>
+<p>You will see that, perhaps unsurprisingly, the string &quot;Hello, World!&quot; gets displayed on the screen. How did that happen? As this simple program has only two components: <code>print</code> and <code>&quot;Hello, World!&quot;</code>,  we can analyze them one by one. Let's start with <code>print</code>.</p>
 
-<p>Julia is very helpful and often answers our questions. Let&rsquo;s type a <code>?</code> in the console to switch to <em>help</em> mode. Then, we can type <code>print</code>, press <code>Enter</code> and see what Julia has to tell us about <code>print</code>:</p>
+<p>Julia is very helpful and often answers our questions. Let's type a <code>?</code> in the console to switch to <em>help</em> mode. Then, we can type <code>print</code>, press <code>Enter</code> and see what Julia has to tell us about <code>print</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">help<span style="color:#f92672">?&gt;</span> print
 search<span style="color:#f92672">:</span> print println print_shortest print_with_color sprint <span style="color:#a6e22e">@printf</span> isprint
 
@@ -172,9 +170,9 @@ search<span style="color:#f92672">:</span> print println print_shortest print_wi
 
   julia<span style="color:#f92672">&gt;</span> String(take!(io))
   <span style="color:#e6db74">&#34;Hello World!&#34;</span></code></pre></div>
-<p>Wow, that was a lot of information! We&rsquo;ll take it to mean that <code>print</code> is a function that displays to screen whatever we feed to it.</p>
+<p>Wow, that was a lot of information! We'll take it to mean that <code>print</code> is a function that displays to screen whatever we feed to it.</p>
 
-<p>As <code>&quot;Hello, World!&quot;</code> is something we came up with, we can&rsquo;t ask Julia about it in the <em>help</em> console, but we can see what type of thing it is:</p>
+<p>As <code>&quot;Hello, World!&quot;</code> is something we came up with, we can't ask Julia about it in the <em>help</em> console, but we can see what type of thing it is:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> typeof(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>)
 String</code></pre></div>
 <p>What does it mean to be a string? What things can we do with strings?</p>
@@ -185,7 +183,7 @@ String</code></pre></div>
 
 <p>The first thing that comes to mind is concatenation or, in simpler terms, given two strings, we can put them one after the other. This operation is represented by <code>*</code> in Julia:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">*</span> <span style="color:#e6db74">&#34;World!&#34;</span></code></pre></div>
-<p>Note that we don&rsquo;t need to print the output, as the console automatically displays the output of a command. For this reason, some people refer to it as the REPL (Read Evaluate Print Loop): it reads your command, evaluates it, prints the answer and is ready for another command. To suppress this behavior add a <code>;</code> at the end of the line:</p>
+<p>Note that we don't need to print the output, as the console automatically displays the output of a command. For this reason, some people refer to it as the REPL (Read Evaluate Print Loop): it reads your command, evaluates it, prints the answer and is ready for another command. To suppress this behavior add a <code>;</code> at the end of the line:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">*</span> <span style="color:#e6db74">&#34;World!&#34;</span>;</code></pre></div>
 <p><div class="boxBorder"></p>
 
@@ -193,7 +191,7 @@ String</code></pre></div>
 
 <p>Some functions are a bit special, in that they can be written <em>between</em> their arguments (but the normal function form is also possible). For example we could have said:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#f92672">*</span>(<span style="color:#e6db74">&#34;Hello, &#34;</span>, <span style="color:#e6db74">&#34;World!&#34;</span>)</code></pre></div>
-<p>but that would not read very well. This &ldquo;in-between&rdquo; syntax (also called operator syntax) is especially useful when writing mathematics. Compare the normal looking:</p>
+<p>but that would not read very well. This &quot;in-between&quot; syntax (also called operator syntax) is especially useful when writing mathematics. Compare the normal looking:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> (<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">3</span><span style="color:#f92672">+</span><span style="color:#ae81ff">5</span>)<span style="color:#f92672">/</span><span style="color:#ae81ff">7</span></code></pre></div>
 <p>with the monstrous:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#f92672">/</span>(<span style="color:#f92672">+</span>(<span style="color:#f92672">*</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>), <span style="color:#ae81ff">5</span>), <span style="color:#ae81ff">7</span>)</code></pre></div>
@@ -207,7 +205,7 @@ String</code></pre></div>
 
 <p><code>&quot;Hello, &quot; * &quot;World!&quot;^10 * &quot;It's enough!&quot;</code> ?</p>
 
-<p>However we are still very limited in what we can do, as we can only write commands that fit in one line in the REPL. We will see how to solve this problem in the next chapter. First, however, try the following exercises. Play with all the possible ways of composing strings: you&rsquo;ll make many silly syntax mistakes at first, but it&rsquo;s the way to go.</p>
+<p>However we are still very limited in what we can do, as we can only write commands that fit in one line in the REPL. We will see how to solve this problem in the next chapter. First, however, try the following exercises. Play with all the possible ways of composing strings: you'll make many silly syntax mistakes at first, but it's the way to go.</p>
 
 <h2 id="exercises">Exercises</h2>
 
@@ -326,6 +324,8 @@ String</code></pre></div>
     <script type="text/javascript" async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
+
+
     <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
     &copy; 2018 Thoughts and things
@@ -347,6 +347,23 @@ String</code></pre></div>
 
 
   </div>
+
+  <div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://piever-simpleblog.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 </footer>
 
     <script src="https://piever.github.io/simpleblog/dist/app.bundle.js" async></script>

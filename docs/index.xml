@@ -17,8 +17,8 @@
       <pubDate>Sun, 21 Jan 2018 00:18:23 +0000</pubDate>
       
       <guid>https://piever.github.io/simpleblog/posts/juliadb/</guid>
-      <description>JuliaDB tutorial Introduction From now on I&#39;ll focus on more advanced Julia tutorials. Here I&#39;ll talk about working with data using the JuliaDB package to reproduce a well known tutorial. The data is some example flight dataset that you can find here. The tutorial is available as a Jupyter notebook here.
-Simply open the link and choose Save as from the File menu in your browser to save the data to a folder on your computer.</description>
+      <description>JuliaDB tutorial Introduction From now on I&#39;ll focus on more advanced Julia tutorials. Here I&#39;ll talk about working with data using the JuliaDB package to reproduce a well known tutorial. This tutorial is available as a Jupyter notebook here.
+Getting the data The data is some example flight dataset that you can find here. Simply open the link and choose Save as from the File menu in your browser to save the data to a folder on your computer.</description>
     </item>
     
     <item>
@@ -47,7 +47,7 @@ Let&#39;s try and compute a different sequence. As a reminder, this is how we co
       <pubDate>Thu, 18 Jan 2018 00:18:23 +0000</pubDate>
       
       <guid>https://piever.github.io/simpleblog/posts/julia_chapter6/</guid>
-      <description>Storing what we have computed An inconvenience with the techniques we&amp;rsquo;ve used so far to compute the Fibonacci sequence is that we&amp;rsquo;ve never stored any result. Fortunately Julia provides a structure to do that, called Arrays. They are created using square brackets and separating values by commas. For example:
+      <description>Storing what we have computed An inconvenience with the techniques we&#39;ve used so far to compute the Fibonacci sequence is that we&#39;ve never stored any result. Fortunately Julia provides a structure to do that, called Arrays. They are created using square brackets and separating values by commas. For example:
 julia&amp;gt; v = [7, 3] 2-element Array{Int64,1}: 7 3 is a list of values, the first is 7 and the second is 3.</description>
     </item>
     
@@ -57,7 +57,7 @@ julia&amp;gt; v = [7, 3] 2-element Array{Int64,1}: 7 3 is a list of values, the 
       <pubDate>Mon, 18 Dec 2017 00:18:23 +0000</pubDate>
       
       <guid>https://piever.github.io/simpleblog/posts/julia_chapter5/</guid>
-      <description>Working with true and false So far we have learnt how to stop a &amp;ldquo;looped&amp;rdquo; statement from going on forever, based on a condition. Now, we&amp;rsquo;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
+      <description>Working with true and false So far we have learnt how to stop a &amp;quot;looped&amp;quot; statement from going on forever, based on a condition. Now, we&#39;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
 Conditional statements The simplest conditional statement has the form:
 if condition command end meaning that command is to be executed only if condition is verified.</description>
     </item>
@@ -78,7 +78,7 @@ The while loop The while loop executes a statement as long as a given condition 
       <pubDate>Wed, 15 Nov 2017 00:18:23 +0000</pubDate>
       
       <guid>https://piever.github.io/simpleblog/posts/julia_chapter3/</guid>
-      <description>Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1+1 at the console, we looked at the result, which was 2, we typed 2+1, we got 3, we typed 3+2 and so on and so forth. In this and the following post, we&amp;rsquo;ll discover a less excruciatingly boring way of doing the same computation.</description>
+      <description>Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1+1 at the console, we looked at the result, which was 2, we typed 2+1, we got 3, we typed 3+2 and so on and so forth. In this and the following post, we&#39;ll discover a less excruciatingly boring way of doing the same computation. In the process, we&#39;ll learn two key building blocks of programming: assigning values to variables and looping.</description>
     </item>
     
     <item>
@@ -97,7 +97,7 @@ Integer and and non integer numbers Julia accepts both integer numbers and non i
       <pubDate>Tue, 14 Nov 2017 00:17:19 +0000</pubDate>
       
       <guid>https://piever.github.io/simpleblog/posts/julia_chapter1/</guid>
-      <description>Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&amp;rsquo;m making a series of tutorials about it, starting from the very beginning.</description>
+      <description>Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&#39;m making a series of tutorials about it, starting from the very beginning.</description>
     </item>
     
   </channel>

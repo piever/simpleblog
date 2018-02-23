@@ -25,7 +25,7 @@
     
 
     <meta property="og:title" content="Chapter III: Variable assignment" />
-<meta property="og:description" content="Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1&#43;1 at the console, we looked at the result, which was 2, we typed 2&#43;1, we got 3, we typed 3&#43;2 and so on and so forth. In this and the following post, we&rsquo;ll discover a less excruciatingly boring way of doing the same computation." />
+<meta property="og:description" content="Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1&#43;1 at the console, we looked at the result, which was 2, we typed 2&#43;1, we got 3, we typed 3&#43;2 and so on and so forth. In this and the following post, we&#39;ll discover a less excruciatingly boring way of doing the same computation. In the process, we&#39;ll learn two key building blocks of programming: assigning values to variables and looping." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://piever.github.io/simpleblog/posts/julia_chapter3/" />
 
@@ -46,7 +46,7 @@
 
 
 <meta itemprop="name" content="Chapter III: Variable assignment">
-<meta itemprop="description" content="Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1&#43;1 at the console, we looked at the result, which was 2, we typed 2&#43;1, we got 3, we typed 3&#43;2 and so on and so forth. In this and the following post, we&rsquo;ll discover a less excruciatingly boring way of doing the same computation.">
+<meta itemprop="description" content="Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1&#43;1 at the console, we looked at the result, which was 2, we typed 2&#43;1, we got 3, we typed 3&#43;2 and so on and so forth. In this and the following post, we&#39;ll discover a less excruciatingly boring way of doing the same computation. In the process, we&#39;ll learn two key building blocks of programming: assigning values to variables and looping.">
 
 
 <meta itemprop="datePublished" content="2017-11-15T00:18:23&#43;00:00" />
@@ -58,7 +58,7 @@
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chapter III: Variable assignment"/>
-<meta name="twitter:description" content="Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1&#43;1 at the console, we looked at the result, which was 2, we typed 2&#43;1, we got 3, we typed 3&#43;2 and so on and so forth. In this and the following post, we&rsquo;ll discover a less excruciatingly boring way of doing the same computation."/>
+<meta name="twitter:description" content="Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1&#43;1 at the console, we looked at the result, which was 2, we typed 2&#43;1, we got 3, we typed 3&#43;2 and so on and so forth. In this and the following post, we&#39;ll discover a less excruciatingly boring way of doing the same computation. In the process, we&#39;ll learn two key building blocks of programming: assigning values to variables and looping."/>
 
   </head>
 
@@ -128,26 +128,24 @@
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
-        
+        <h1 id="giving-names-to-things">Giving names to things</h1>
 
-<h1 id="giving-names-to-things">Giving names to things</h1>
-
-<p>In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing <code>1+1</code> at the console, we looked at the result, which was <code>2</code>, we typed <code>2+1</code>, we got <code>3</code>, we typed <code>3+2</code> and so on and so forth. In this and the following post, we&rsquo;ll discover a less excruciatingly boring way of doing the same computation. In the process, we&rsquo;ll learn two key building blocks of programming: assigning values to variables and looping.</p>
+<p>In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing <code>1+1</code> at the console, we looked at the result, which was <code>2</code>, we typed <code>2+1</code>, we got <code>3</code>, we typed <code>3+2</code> and so on and so forth. In this and the following post, we'll discover a less excruciatingly boring way of doing the same computation. In the process, we'll learn two key building blocks of programming: assigning values to variables and looping.</p>
 
 <h2 id="variable-assignment">Variable assignment</h2>
 
 <p>In Julia (and in any reasonable programming language), you can assign a value to a variable. It works as follows:</p>
 
 <ul>
-<li>First you decide a name for your variable, for example <code>fib</code> (almost any sequence of characters will do, it&rsquo;s good to choose something that&rsquo;s easy to remember and that clarifies the purpose of that variable)</li>
+<li>First you decide a name for your variable, for example <code>fib</code> (almost any sequence of characters will do, it's good to choose something that's easy to remember and that clarifies the purpose of that variable)</li>
 <li>Choose a value to assign (for example <code>1</code>)</li>
 <li>Execute the following code:</li>
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span></code></pre></div>
-<p>and you&rsquo;re all set! Now we can inquire Julia about the value of <code>fib</code>:</p>
+<p>and you're all set! Now we can inquire Julia about the value of <code>fib</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib
 <span style="color:#ae81ff">1</span></code></pre></div>
-<p>Once you&rsquo;ve assigned a variable, you can reassing it to something else, for example:</p>
+<p>Once you've assigned a variable, you can reassing it to something else, for example:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span></code></pre></div>
 <p>And now:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib
@@ -158,7 +156,7 @@
 
 <h2 id="back-to-fibonacci">Back to Fibonacci</h2>
 
-<p><code>fib</code> and <code>next_fib</code> will be (as the names suggest) two consecutive Fibonacci numbers. How can we go from one pair of consecutive Fibonacci numbers to the next? For example, starting with <code>(1, 2)</code>, we want to move to <code>(2, 3)</code>, then <code>(3, 5)</code>, <code>(5, 8)</code> and so on. It&rsquo;s actually quite simple, <code>fib</code> has to be transformed into <code>next_fib</code> and <code>next_fib</code> has to be transformed into <code>fib+next_fib</code> or, in Julia code:</p>
+<p><code>fib</code> and <code>next_fib</code> will be (as the names suggest) two consecutive Fibonacci numbers. How can we go from one pair of consecutive Fibonacci numbers to the next? For example, starting with <code>(1, 2)</code>, we want to move to <code>(2, 3)</code>, then <code>(3, 5)</code>, <code>(5, 8)</code> and so on. It's actually quite simple, <code>fib</code> has to be transformed into <code>next_fib</code> and <code>next_fib</code> has to be transformed into <code>fib+next_fib</code> or, in Julia code:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib</code></pre></div>
 <p>We have a new way of computing the Fibonacci sequence:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
@@ -313,6 +311,8 @@ julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f
     <script type="text/javascript" async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
+
+
     <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
     &copy; 2018 Thoughts and things
@@ -334,6 +334,23 @@ julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f
 
 
   </div>
+
+  <div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://piever-simpleblog.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 </footer>
 
     <script src="https://piever.github.io/simpleblog/dist/app.bundle.js" async></script>

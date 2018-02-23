@@ -136,8 +136,8 @@
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      JuliaDB tutorial Introduction From now on I'll focus on more advanced Julia tutorials. Here I'll talk about working with data using the JuliaDB package to reproduce a well known tutorial. The data is some example flight dataset that you can find here. The tutorial is available as a Jupyter notebook here.
-Simply open the link and choose Save as from the File menu in your browser to save the data to a folder on your computer.
+      JuliaDB tutorial Introduction From now on I'll focus on more advanced Julia tutorials. Here I'll talk about working with data using the JuliaDB package to reproduce a well known tutorial. This tutorial is available as a Jupyter notebook here.
+Getting the data The data is some example flight dataset that you can find here. Simply open the link and choose Save as from the File menu in your browser to save the data to a folder on your computer.
     </div>
   </div>
 </div>
@@ -190,7 +190,7 @@ Let's try and compute a different sequence. As a reminder, this is how we comput
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Storing what we have computed An inconvenience with the techniques we&rsquo;ve used so far to compute the Fibonacci sequence is that we&rsquo;ve never stored any result. Fortunately Julia provides a structure to do that, called Arrays. They are created using square brackets and separating values by commas. For example:
+      Storing what we have computed An inconvenience with the techniques we've used so far to compute the Fibonacci sequence is that we've never stored any result. Fortunately Julia provides a structure to do that, called Arrays. They are created using square brackets and separating values by commas. For example:
 julia&gt; v = [7, 3] 2-element Array{Int64,1}: 7 3 is a list of values, the first is 7 and the second is 3.
     </div>
   </div>
@@ -208,7 +208,7 @@ julia&gt; v = [7, 3] 2-element Array{Int64,1}: 7 3 is a list of values, the firs
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Working with true and false So far we have learnt how to stop a &ldquo;looped&rdquo; statement from going on forever, based on a condition. Now, we&rsquo;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
+      Working with true and false So far we have learnt how to stop a &quot;looped&quot; statement from going on forever, based on a condition. Now, we'll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
 Conditional statements The simplest conditional statement has the form:
 if condition command end meaning that command is to be executed only if condition is verified.
     </div>
@@ -245,7 +245,7 @@ The while loop The while loop executes a statement as long as a given condition 
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1+1 at the console, we looked at the result, which was 2, we typed 2+1, we got 3, we typed 3+2 and so on and so forth. In this and the following post, we&rsquo;ll discover a less excruciatingly boring way of doing the same computation.
+      Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1+1 at the console, we looked at the result, which was 2, we typed 2+1, we got 3, we typed 3+2 and so on and so forth. In this and the following post, we'll discover a less excruciatingly boring way of doing the same computation. In the process, we'll learn two key building blocks of programming: assigning values to variables and looping.
     </div>
   </div>
 </div>
@@ -280,7 +280,7 @@ Integer and and non integer numbers Julia accepts both integer numbers and non i
       </a>
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I&rsquo;m making a series of tutorials about it, starting from the very beginning.
+      Learning how to code This is the first of a series of posts aimed about the Julia programming language. Julia is a reasonably young language designed for scientific computing. Despite being free, fast and elegantly designed, Julia is not as widely used as I think it should be. I also believe that, due to its simplicity and clarity, Julia makes for a good first programming language. In case some newcomers to programming are curious enough to give Julia a try, I'm making a series of tutorials about it, starting from the very beginning.
     </div>
   </div>
 </div>
@@ -314,6 +314,8 @@ Integer and and non integer numbers Julia accepts both integer numbers and non i
     <script type="text/javascript" async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
+
+
     <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
     &copy; 2018 Thoughts and things
@@ -335,6 +337,23 @@ Integer and and non integer numbers Julia accepts both integer numbers and non i
 
 
   </div>
+
+  <div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://piever-simpleblog.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 </footer>
 
     <script src="https://piever.github.io/simpleblog/dist/app.bundle.js" async></script>

@@ -25,7 +25,7 @@
     
 
     <meta property="og:title" content="Chapter V: Conditionals" />
-<meta property="og:description" content="Working with true and false So far we have learnt how to stop a &ldquo;looped&rdquo; statement from going on forever, based on a condition. Now, we&rsquo;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
+<meta property="og:description" content="Working with true and false So far we have learnt how to stop a &quot;looped&quot; statement from going on forever, based on a condition. Now, we&#39;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
 Conditional statements The simplest conditional statement has the form:
 if condition command end meaning that command is to be executed only if condition is verified." />
 <meta property="og:type" content="article" />
@@ -48,7 +48,7 @@ if condition command end meaning that command is to be executed only if conditio
 
 
 <meta itemprop="name" content="Chapter V: Conditionals">
-<meta itemprop="description" content="Working with true and false So far we have learnt how to stop a &ldquo;looped&rdquo; statement from going on forever, based on a condition. Now, we&rsquo;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
+<meta itemprop="description" content="Working with true and false So far we have learnt how to stop a &quot;looped&quot; statement from going on forever, based on a condition. Now, we&#39;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
 Conditional statements The simplest conditional statement has the form:
 if condition command end meaning that command is to be executed only if condition is verified.">
 
@@ -62,7 +62,7 @@ if condition command end meaning that command is to be executed only if conditio
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chapter V: Conditionals"/>
-<meta name="twitter:description" content="Working with true and false So far we have learnt how to stop a &ldquo;looped&rdquo; statement from going on forever, based on a condition. Now, we&rsquo;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
+<meta name="twitter:description" content="Working with true and false So far we have learnt how to stop a &quot;looped&quot; statement from going on forever, based on a condition. Now, we&#39;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
 Conditional statements The simplest conditional statement has the form:
 if condition command end meaning that command is to be executed only if condition is verified."/>
 
@@ -134,11 +134,9 @@ if condition command end meaning that command is to be executed only if conditio
         </h1>
       </header>
       <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
-        
+        <h1 id="working-with-true-and-false">Working with <code>true</code> and <code>false</code></h1>
 
-<h1 id="working-with-true-and-false">Working with <code>true</code> and <code>false</code></h1>
-
-<p>So far we have learnt how to stop a &ldquo;looped&rdquo; statement from going on forever, based on a condition. Now, we&rsquo;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.</p>
+<p>So far we have learnt how to stop a &quot;looped&quot; statement from going on forever, based on a condition. Now, we'll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.</p>
 
 <h2 id="conditional-statements">Conditional statements</h2>
 
@@ -163,7 +161,7 @@ julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">if</spa
        <span style="color:#66d9ef">end</span></code></pre></div>
 <p>nothing happens.</p>
 
-<h2 id="else">Else ?</h2>
+<h2 id="else-">Else ?</h2>
 
 <p>In an <code>if</code> statement, we can specify a statement to be executed if the condition is not verified. For example:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
@@ -197,18 +195,18 @@ x is not so big</code></pre></div>
        <span style="color:#66d9ef">end</span></code></pre></div>
 <h2 id="back-to-fibonacci">Back to Fibonacci</h2>
 
-<p>Running an <code>if</code> statement in isolation is generally not very interesting, but we can combine it with things we have learnt already. In the last part of this post, we&rsquo;ll use the full extent of our knowledge to count how many Fibonacci numbers exist, smaller than <code>1000000</code> that are multiples of <code>7</code>.</p>
+<p>Running an <code>if</code> statement in isolation is generally not very interesting, but we can combine it with things we have learnt already. In the last part of this post, we'll use the full extent of our knowledge to count how many Fibonacci numbers exist, smaller than <code>1000000</code> that are multiples of <code>7</code>.</p>
 
-<hr />
+<hr>
 
 <h3 id="intermezzo-checking-divisibility">Intermezzo: checking divisibility</h3>
 
-<p>To see if a number is a multiple of another we can use the <code>%</code> (modulo) operator. <code>a % b</code> (reads: &ldquo;<code>a</code> modulo <code>b</code>&rdquo;) gives the reminder of <code>a</code> when divided by <code>b</code>:</p>
+<p>To see if a number is a multiple of another we can use the <code>%</code> (modulo) operator. <code>a % b</code> (reads: &quot;<code>a</code> modulo <code>b</code>&quot;) gives the reminder of <code>a</code> when divided by <code>b</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">44</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">7</span>
 <span style="color:#ae81ff">2</span></code></pre></div>
-<p>So &ldquo;<code>a</code> is a multiple of <code>b</code>&rdquo; is written <code>a % b == 0</code> in Julia.</p>
+<p>So &quot;<code>a</code> is a multiple of <code>b</code>&quot; is written <code>a % b == 0</code> in Julia.</p>
 
-<hr />
+<hr>
 
 <p>A you remember from the previous post there was a simple way to count the total number of Fibonacci smaller than <code>1000000</code> in Julia. First we start the Fibonacci sequence:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
@@ -351,6 +349,8 @@ julia<span style="color:#f92672">&gt;</span> counter
     <script type="text/javascript" async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
+
+
     <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
     &copy; 2018 Thoughts and things
@@ -372,6 +372,23 @@ julia<span style="color:#f92672">&gt;</span> counter
 
 
   </div>
+
+  <div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://piever-simpleblog.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
 </footer>
 
     <script src="https://piever.github.io/simpleblog/dist/app.bundle.js" async></script>
