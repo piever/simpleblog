@@ -9,7 +9,7 @@
     <meta name="MobileOptimized" content="320">
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.36.1" />
+    <meta name="generator" content="Hugo 0.30.2" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -28,7 +28,7 @@
 <meta property="og:description" content="JuliaDB tutorial Introduction From now on I&#39;ll focus on more advanced Julia tutorials. Here I&#39;ll talk about working with data using the JuliaDB package to reproduce a well known tutorial. This tutorial is available as a Jupyter notebook here.
 Getting the data The data is some example flight dataset that you can find here. Simply open the link and choose Save as from the File menu in your browser to save the data to a folder on your computer." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://piever.github.io/simpleblog/posts/juliadb/" />
+<meta property="og:url" content="https://piever.github.io/simpleblog/post/juliadb/" />
 
 
 
@@ -58,8 +58,7 @@ Getting the data The data is some example flight dataset that you can find here.
 
 
 <meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Manipulating data: JuliaDB"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Manipulating data: JuliaDB"/>
 <meta name="twitter:description" content="JuliaDB tutorial Introduction From now on I&#39;ll focus on more advanced Julia tutorials. Here I&#39;ll talk about working with data using the JuliaDB package to reproduce a well known tutorial. This tutorial is available as a Jupyter notebook here.
 Getting the data The data is some example flight dataset that you can find here. Simply open the link and choose Save as from the File menu in your browser to save the data to a folder on your computer."/>
 
@@ -68,6 +67,8 @@ Getting the data The data is some example flight dataset that you can find here.
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
   <header>
     <div class="bg-black">
@@ -87,7 +88,7 @@ Getting the data The data is some example flight dataset that you can find here.
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/simpleblog/posts/" title="Articles page">
+            <a class="hover-white no-underline white-90" href="/simpleblog/post/" title="Articles page">
               Articles
             </a>
           </li>
@@ -118,19 +119,24 @@ Getting the data The data is some example flight dataset that you can find here.
   </header>
 
 
+
     <main class="pb7" role="main">
       
   <div class="flex-l mt2 mw8 center">
     <article class="center cf pv5 ph3 ph4-ns mw7">
-      <header>
-        <p class="f6 b helvetica tracked">
-          POSTS
-        </p>
-        <h1 class="f1">
-          Manipulating data: JuliaDB
-        </h1>
-      </header>
-      <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
+      <p class="f6 b helvetica tracked">
+        
+        POST
+      </p>
+      <h1 class="f1 athelas">
+        Manipulating data: JuliaDB
+      </h1>
+        
+        
+      <time class="f6 mv4 dib tracked" datetime="2018-01-21T00:18:23Z">
+        January 21, 2018
+      </time>
+      <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray">
         <h1 id="juliadb-tutorial">JuliaDB tutorial</h1>
 
 <h2 id="introduction">Introduction</h2>
@@ -824,9 +830,12 @@ groupreduce(Mean(), flights, <span style="color:#f92672">:</span>Month; select <
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">using</span> MySQL, JuliaDB</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">conn <span style="color:#f92672">=</span> MySQL<span style="color:#f92672">.</span>connect(host<span style="color:#f92672">::</span>String, user<span style="color:#f92672">::</span>String, passwd<span style="color:#f92672">::</span>String; db<span style="color:#f92672">::</span>String <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>) <span style="color:#75715e"># edit as needed for your dataset</span>
 MySQL<span style="color:#f92672">.</span>query(conn, <span style="color:#e6db74">&#34;SELECT Name, Salary FROM Employee;&#34;</span>) <span style="color:#f92672">|&gt;</span> table <span style="color:#75715e"># execute the query and collect as a table</span>
 MySQL<span style="color:#f92672">.</span>disconnect(conn)</code></pre></div>
-      </div>
+      </section>
+      
+
+
     </article>
-    <aside class="ph3 mt2 mt6-ns">
+    <div class="ph3 mt2 mt6-ns">
       
 
 
@@ -843,63 +852,63 @@ MySQL<span style="color:#f92672">.</span>disconnect(conn)</code></pre></div>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/juliadb/" class="link ph2 pv2 db black o-50">
+          <a href="/simpleblog/post/juliadb/" class="link ph2 pv2 db black o-50">
             Manipulating data: JuliaDB
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter8/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter8/" class="link ph2 pv2 db black">
             Chapter VIII: Functions: can we make our own?
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter7/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter7/" class="link ph2 pv2 db black">
             Chapter VII: Plots and dots
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter6/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter6/" class="link ph2 pv2 db black">
             Chapter VI: Arrays and the for loop
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter5/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter5/" class="link ph2 pv2 db black">
             Chapter V: Conditionals
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter4/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter4/" class="link ph2 pv2 db black">
             Chapter IV: The while loop
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter3/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter3/" class="link ph2 pv2 db black">
             Chapter III: Variable assignment
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter2/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter2/" class="link ph2 pv2 db black">
             Chapter II: Numbers
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter1/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter1/" class="link ph2 pv2 db black">
             Chapter I: Hello, Julia
           </a>
         </li>
@@ -908,7 +917,7 @@ MySQL<span style="color:#f92672">.</span>disconnect(conn)</code></pre></div>
   </div>
 
 
-    </aside>
+    </div>
   </div>
 
     </main>

@@ -1,6 +1,6 @@
 ---
 title: "Chapter III: Variable assignment"
-date: 2017-11-15T00:18:23Z
+date: 2017-11-16T00:18:23Z
 markup: mmark
 draft: false
 ---

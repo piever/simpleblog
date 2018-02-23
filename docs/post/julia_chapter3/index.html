@@ -9,7 +9,7 @@
     <meta name="MobileOptimized" content="320">
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.36.1" />
+    <meta name="generator" content="Hugo 0.30.2" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -27,13 +27,13 @@
     <meta property="og:title" content="Chapter III: Variable assignment" />
 <meta property="og:description" content="Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1&#43;1 at the console, we looked at the result, which was 2, we typed 2&#43;1, we got 3, we typed 3&#43;2 and so on and so forth. In this and the following post, we&#39;ll discover a less excruciatingly boring way of doing the same computation. In the process, we&#39;ll learn two key building blocks of programming: assigning values to variables and looping." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://piever.github.io/simpleblog/posts/julia_chapter3/" />
+<meta property="og:url" content="https://piever.github.io/simpleblog/post/julia_chapter3/" />
 
 
 
-<meta property="article:published_time" content="2017-11-15T00:18:23&#43;00:00"/>
+<meta property="article:published_time" content="2017-11-16T00:18:23&#43;00:00"/>
 
-<meta property="article:modified_time" content="2017-11-15T00:18:23&#43;00:00"/>
+<meta property="article:modified_time" content="2017-11-16T00:18:23&#43;00:00"/>
 
 
 
@@ -49,15 +49,14 @@
 <meta itemprop="description" content="Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1&#43;1 at the console, we looked at the result, which was 2, we typed 2&#43;1, we got 3, we typed 3&#43;2 and so on and so forth. In this and the following post, we&#39;ll discover a less excruciatingly boring way of doing the same computation. In the process, we&#39;ll learn two key building blocks of programming: assigning values to variables and looping.">
 
 
-<meta itemprop="datePublished" content="2017-11-15T00:18:23&#43;00:00" />
-<meta itemprop="dateModified" content="2017-11-15T00:18:23&#43;00:00" />
+<meta itemprop="datePublished" content="2017-11-16T00:18:23&#43;00:00" />
+<meta itemprop="dateModified" content="2017-11-16T00:18:23&#43;00:00" />
 <meta itemprop="wordCount" content="485">
 
 
 
 <meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Chapter III: Variable assignment"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Chapter III: Variable assignment"/>
 <meta name="twitter:description" content="Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1&#43;1 at the console, we looked at the result, which was 2, we typed 2&#43;1, we got 3, we typed 3&#43;2 and so on and so forth. In this and the following post, we&#39;ll discover a less excruciatingly boring way of doing the same computation. In the process, we&#39;ll learn two key building blocks of programming: assigning values to variables and looping."/>
 
   </head>
@@ -65,6 +64,8 @@
   <body class="ma0 avenir bg-near-white">
 
     
+   
+  
 
   <header>
     <div class="bg-black">
@@ -84,7 +85,7 @@
           </li>
           
           <li class="list f5 f4-ns fw4 dib pr3">
-            <a class="hover-white no-underline white-90" href="/simpleblog/posts/" title="Articles page">
+            <a class="hover-white no-underline white-90" href="/simpleblog/post/" title="Articles page">
               Articles
             </a>
           </li>
@@ -115,19 +116,24 @@
   </header>
 
 
+
     <main class="pb7" role="main">
       
   <div class="flex-l mt2 mw8 center">
     <article class="center cf pv5 ph3 ph4-ns mw7">
-      <header>
-        <p class="f6 b helvetica tracked">
-          POSTS
-        </p>
-        <h1 class="f1">
-          Chapter III: Variable assignment
-        </h1>
-      </header>
-      <div class="nested-copy-line-height lh-copy f4 nested-links nested-img mid-gray">
+      <p class="f6 b helvetica tracked">
+        
+        POST
+      </p>
+      <h1 class="f1 athelas">
+        Chapter III: Variable assignment
+      </h1>
+        
+        
+      <time class="f6 mv4 dib tracked" datetime="2017-11-16T00:18:23Z">
+        November 16, 2017
+      </time>
+      <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray">
         <h1 id="giving-names-to-things">Giving names to things</h1>
 
 <p>In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing <code>1+1</code> at the console, we looked at the result, which was <code>2</code>, we typed <code>2+1</code>, we got <code>3</code>, we typed <code>3+2</code> and so on and so forth. In this and the following post, we'll discover a less excruciatingly boring way of doing the same computation. In the process, we'll learn two key building blocks of programming: assigning values to variables and looping.</p>
@@ -202,9 +208,12 @@ julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f
 <li><code>(1346269, 2178309)</code> is a Fibonacci pair. What is the previous Fibonacci pair? Can you find a smart way to go backward in the Fibonacci sequence?</li>
 </ol>
 
-      </div>
+      </section>
+      
+
+
     </article>
-    <aside class="ph3 mt2 mt6-ns">
+    <div class="ph3 mt2 mt6-ns">
       
 
 
@@ -221,63 +230,63 @@ julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/juliadb/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/juliadb/" class="link ph2 pv2 db black">
             Manipulating data: JuliaDB
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter8/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter8/" class="link ph2 pv2 db black">
             Chapter VIII: Functions: can we make our own?
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter7/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter7/" class="link ph2 pv2 db black">
             Chapter VII: Plots and dots
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter6/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter6/" class="link ph2 pv2 db black">
             Chapter VI: Arrays and the for loop
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter5/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter5/" class="link ph2 pv2 db black">
             Chapter V: Conditionals
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter4/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter4/" class="link ph2 pv2 db black">
             Chapter IV: The while loop
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter3/" class="link ph2 pv2 db black o-50">
+          <a href="/simpleblog/post/julia_chapter3/" class="link ph2 pv2 db black o-50">
             Chapter III: Variable assignment
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter2/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter2/" class="link ph2 pv2 db black">
             Chapter II: Numbers
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/posts/julia_chapter1/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/julia_chapter1/" class="link ph2 pv2 db black">
             Chapter I: Hello, Julia
           </a>
         </li>
@@ -286,7 +295,7 @@ julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f
   </div>
 
 
-    </aside>
+    </div>
   </div>
 
     </main>
