@@ -9,7 +9,7 @@
     <meta name="MobileOptimized" content="320">
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.30.2" />
+    <meta name="generator" content="Hugo 0.36.1" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -60,7 +60,8 @@ if condition command end meaning that command is to be executed only if conditio
 
 
 <meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Chapter V: Conditionals"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Chapter V: Conditionals"/>
 <meta name="twitter:description" content="Working with true and false So far we have learnt how to stop a &quot;looped&quot; statement from going on forever, based on a condition. Now, we&#39;ll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
 Conditional statements The simplest conditional statement has the form:
 if condition command end meaning that command is to be executed only if condition is verified."/>
@@ -191,7 +192,7 @@ julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">if</spa
 x is not so big</code></pre></div>
 <h2 id="combining-conditions">Combining conditions</h2>
 
-<p>Not that conditions can be combined using the logical operators: and, or, not. In Julia they are written: <code>&amp;&amp;</code>, <code>||</code> and <code>!</code> respectively. Can you figure out for which values:</p>
+<p>Note that conditions can be combined using the logical operators: and, or, not. In Julia they are written: <code>&amp;&amp;</code>, <code>||</code> and <code>!</code> respectively. Can you figure out for which values:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#f92672">!</span>(x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">20</span>) <span style="color:#f92672">&amp;&amp;</span> (x <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">15</span>)</code></pre></div>
 <p>returns <code>true</code>?</p>
 

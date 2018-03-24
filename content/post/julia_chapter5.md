@@ -76,7 +76,7 @@ x is not so big
 
 ## Combining conditions
 
-Not that conditions can be combined using the logical operators: and, or, not. In Julia they are written: `&&`, `||` and `!` respectively. Can you figure out for which values:
+Note that conditions can be combined using the logical operators: and, or, not. In Julia they are written: `&&`, `||` and `!` respectively. Can you figure out for which values:
 
 ```julia
 julia> !(x > 20) && (x < 15)
