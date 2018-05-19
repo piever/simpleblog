@@ -6,10 +6,20 @@
     <description>Recent content on Thoughts and things</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Jan 2018 00:18:23 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 May 2018 00:18:23 +0000</lastBuildDate>
     
 	<atom:link href="https://piever.github.io/simpleblog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sputnik project, first update</title>
+      <link>https://piever.github.io/simpleblog/post/sputnik1/</link>
+      <pubDate>Sat, 19 May 2018 00:18:23 +0000</pubDate>
+      
+      <guid>https://piever.github.io/simpleblog/post/sputnik1/</guid>
+      <description>Sputnik: a web app to look at your data This is the first of a series of blog updates about my Google Summer of Code project. I&#39;ll be working during Summer on a Julia based web app for data analysis and visualizations. So far I have the core structure and am exploring ways to make the interface more intuitive and user-friendly.
+Loading the data To load the data, I&#39;m using a simple file picker dialog or a dropdown menu to choose among previously saved datasets:</description>
+    </item>
     
     <item>
       <title>Manipulating data: JuliaDB</title>

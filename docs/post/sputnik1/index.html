@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Thoughts and things  | Chapter IV: The while loop</title>
+    <title>Thoughts and things  | Sputnik project, first update</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -24,21 +24,17 @@
 
     
 
-    <meta property="og:title" content="Chapter IV: The while loop" />
-<meta property="og:description" content="Automatizing things Repeating a command many times can be extremely annoying. Luckily, Julia can help us automatize things using loops, which are a way to repeat the same command, or list of commands many times. Here we will continue on playing with Fibonacci numbers, without having to manually evaluate the same command at the console many times.
-The while loop The while loop executes a statement as long as a given condition is verified." />
+    <meta property="og:title" content="Sputnik project, first update" />
+<meta property="og:description" content="Sputnik: a web app to look at your data This is the first of a series of blog updates about my Google Summer of Code project. I&#39;ll be working during Summer on a Julia based web app for data analysis and visualizations. So far I have the core structure and am exploring ways to make the interface more intuitive and user-friendly.
+Loading the data To load the data, I&#39;m using a simple file picker dialog or a dropdown menu to choose among previously saved datasets:" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://piever.github.io/simpleblog/post/julia_chapter4/" />
+<meta property="og:url" content="https://piever.github.io/simpleblog/post/sputnik1/" />
 
 
 
-<meta property="article:published_time" content="2017-11-18T00:18:23&#43;00:00"/>
+<meta property="article:published_time" content="2018-05-19T00:18:23&#43;00:00"/>
 
-<meta property="article:modified_time" content="2017-11-18T00:18:23&#43;00:00"/>
-
-
-
-
+<meta property="article:modified_time" content="2018-05-19T00:18:23&#43;00:00"/>
 
 
 
@@ -46,22 +42,26 @@ The while loop The while loop executes a statement as long as a given condition 
 
 
 
-<meta itemprop="name" content="Chapter IV: The while loop">
-<meta itemprop="description" content="Automatizing things Repeating a command many times can be extremely annoying. Luckily, Julia can help us automatize things using loops, which are a way to repeat the same command, or list of commands many times. Here we will continue on playing with Fibonacci numbers, without having to manually evaluate the same command at the console many times.
-The while loop The while loop executes a statement as long as a given condition is verified.">
 
 
-<meta itemprop="datePublished" content="2017-11-18T00:18:23&#43;00:00" />
-<meta itemprop="dateModified" content="2017-11-18T00:18:23&#43;00:00" />
-<meta itemprop="wordCount" content="406">
+
+
+<meta itemprop="name" content="Sputnik project, first update">
+<meta itemprop="description" content="Sputnik: a web app to look at your data This is the first of a series of blog updates about my Google Summer of Code project. I&#39;ll be working during Summer on a Julia based web app for data analysis and visualizations. So far I have the core structure and am exploring ways to make the interface more intuitive and user-friendly.
+Loading the data To load the data, I&#39;m using a simple file picker dialog or a dropdown menu to choose among previously saved datasets:">
+
+
+<meta itemprop="datePublished" content="2018-05-19T00:18:23&#43;00:00" />
+<meta itemprop="dateModified" content="2018-05-19T00:18:23&#43;00:00" />
+<meta itemprop="wordCount" content="161">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Chapter IV: The while loop"/>
-<meta name="twitter:description" content="Automatizing things Repeating a command many times can be extremely annoying. Luckily, Julia can help us automatize things using loops, which are a way to repeat the same command, or list of commands many times. Here we will continue on playing with Fibonacci numbers, without having to manually evaluate the same command at the console many times.
-The while loop The while loop executes a statement as long as a given condition is verified."/>
+<meta name="twitter:title" content="Sputnik project, first update"/>
+<meta name="twitter:description" content="Sputnik: a web app to look at your data This is the first of a series of blog updates about my Google Summer of Code project. I&#39;ll be working during Summer on a Julia based web app for data analysis and visualizations. So far I have the core structure and am exploring ways to make the interface more intuitive and user-friendly.
+Loading the data To load the data, I&#39;m using a simple file picker dialog or a dropdown menu to choose among previously saved datasets:"/>
 
   </head>
 
@@ -130,61 +130,35 @@ The while loop The while loop executes a statement as long as a given condition 
         POST
       </p>
       <h1 class="f1 athelas">
-        Chapter IV: The while loop
+        Sputnik project, first update
       </h1>
         
         
-      <time class="f6 mv4 dib tracked" datetime="2017-11-18T00:18:23Z">
-        November 18, 2017
+      <time class="f6 mv4 dib tracked" datetime="2018-05-19T00:18:23Z">
+        May 19, 2018
       </time>
       <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray">
-        <h1 id="automatizing-things">Automatizing things</h1>
+        <h1 id="sputnik-a-web-app-to-look-at-your-data">Sputnik: a web app to look at your data</h1>
 
-<p>Repeating a command many times can be extremely annoying. Luckily, Julia can help us automatize things using loops, which are a way to repeat the same command, or list of commands many times. Here we will continue on playing with Fibonacci numbers, without having to manually evaluate the same command at the console many times.</p>
+<p>This is the first of a series of blog updates about my Google Summer of Code project. I'll be working during Summer on a Julia based web app for data analysis and visualizations. So far I have the core structure and am exploring ways to make the interface more intuitive and user-friendly.</p>
 
-<h2 id="the-while-loop">The while loop</h2>
+<h2 id="loading-the-data">Loading the data</h2>
 
-<p>The <code>while</code> loop executes a statement as long as a given condition is verified. Let's use it to solve the exercise from the previous chapter: what is the largest Fibonacci smaller than <code>10000</code>?</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
-(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+<p>To load the data, I'm using a simple file picker dialog or a dropdown menu to choose among previously saved datasets:</p>
 
-julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">while</span> next_fib <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10000</span>
-       fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
-       <span style="color:#66d9ef">end</span>
+<p><figure><img src="/images/load.jpg" alt="load"></figure></p>
 
-julia<span style="color:#f92672">&gt;</span> fib, next_fib
-(<span style="color:#ae81ff">6765</span>, <span style="color:#ae81ff">10946</span>)</code></pre></div>
-<p>This simple program gave us the pair of Fibonacci around <code>10000</code> without any need to painfully iterate the command at the console. How did this happen? Let's look in detail at this program.</p>
+<h2 id="filtering-the-data">Filtering the data</h2>
 
-<p>Julia first assinged the variables <code>fib = 1</code> and <code>next_fib = 2</code> and then checked the condition (a condition is a statement that returns either true or false, for example <code>3 &lt; 4</code>). In this case <code>2 &lt; 1000</code> is <code>true</code>, so Julia executed <code>fib, next_fib = next_fib, fib+next_fib</code>. Now <code>next_fib</code> is <code>3</code>, but still <code>3 &lt; 10000</code>, so Julia kept going. At some point <code>next_fib</code> became <code>10946</code> (the twentieth Fibonacci) and <code>10946 &lt; 10000</code>, so Julia stopped. How did I now it was the twentieth Fibonacci? I cheated a bit, and in my code I added a counter to track where I was in the Fibonacci sequence. I started with:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
-(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)</code></pre></div>
-<p>As <code>next_fib == 2</code> is the second Fibonacci, I started my counter at <code>2</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> counter <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span></code></pre></div>
-<p>Then I added <code>1</code> to the counter at every iteration:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">while</span> next_fib <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10000</span>
-       fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
-       counter <span style="color:#f92672">=</span> counter <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
-       <span style="color:#66d9ef">end</span></code></pre></div>
-<p>All that's left to do is inspecting the value of <code>counter</code> after the <code>while</code> loop has been executed:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> counter
-<span style="color:#ae81ff">20</span></code></pre></div>
-<p>which confirms that <code>next_fib == 10946</code> is the twentieth Fibonacci.
-<div class="boxBorder"></p>
+<p>To filter the data, I distinguish between categorical variables, where the user can select using checkboxes which values to accept, and continuous variables, where the user can specify a condition with Julia code:</p>
 
-<p><strong>Important remark</strong></p>
+<p><figure><img src="/images/filter.jpg" alt="filter"></figure></p>
 
-<p>In Julia there is specialized syntax to add (or subtract, multiply divide) some value to a variable. Instead of writing:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> counter <span style="color:#f92672">=</span> counter <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span></code></pre></div>
-<p>one could simply say:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> counter <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span></code></pre></div>
-<p></div></p>
+<h2 id="styling-the-data">Styling the data</h2>
 
-<h2 id="exercises">Exercises</h2>
+<p>To style the data, I allow the user to choose which variables will be used as &quot;aesthetics&quot; with toggle switches. If a variable is selected, the user can choose which attribute to style with a dropdown menu:</p>
 
-<ol>
-<li><code>(1346269, 2178309)</code> is a Fibonacci pair. Now that you know <code>while</code> loops, can you find a smart way to go backward in the Fibonacci sequence?</li>
-</ol>
+<p><figure><img src="/images/style.jpg" alt="style"></figure></p>
 
       </section>
       
@@ -208,7 +182,7 @@ julia<span style="color:#f92672">&gt;</span> fib, next_fib
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/post/sputnik1/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/sputnik1/" class="link ph2 pv2 db black o-50">
             Sputnik project, first update
           </a>
         </li>
@@ -250,7 +224,7 @@ julia<span style="color:#f92672">&gt;</span> fib, next_fib
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/post/julia_chapter4/" class="link ph2 pv2 db black o-50">
+          <a href="/simpleblog/post/julia_chapter4/" class="link ph2 pv2 db black">
             Chapter IV: The while loop
           </a>
         </li>
