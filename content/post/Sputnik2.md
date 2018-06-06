@@ -1,6 +1,6 @@
 ---
 title: "Sputnik project, second update"
-date: 2018-05-31T00:18:23Z
+date: 2018-06-06T00:12:23Z
 markup: mmark
 ---
 
@@ -19,6 +19,18 @@ Most Julia users are probably familiar with [Interact](https://github.com/JuliaG
 
 The advantage of this decomposition is that new CSS backends can be added with relative simplicity (see for example [InteractUIkit](https://github.com/piever/InteractUIkit.jl), which is just a few lines of code).
 
+As defining a backend is mainly done by specifying what classes to use for every widget, a future plan is to allow a set of "themes" based on some atomic CSS framwork: each theme could have a different color scheme, or different button shapes / styles, different fonts and so on.
+
 ## How does it work in practice
 
-InteractBase wraps HTML5 input types (text, checkbox, radio button, select dropdown, number, range, color, date, file, email, password) as well as a few more widgets (toggle switch, button, togglable content, tabulator, tabs, togglebuttons) and uses Vue.js and Observab;es/k;
+InteractBase wraps HTML5 input types (text, checkbox, radio button, select dropdown, number, range, color, date, file, email, password) as well as a few more widgets (toggle switch, button, togglable content, tabulator, tabs, togglebuttons) and uses the [Observables](https://github.com/JuliaGizmos/Observables.jl) Julia package to represent the value of each `Widget` as an `Observable` (meaning a `Ref` that gets updated in real time when the `Widget` receives user input). The javascript framework [Vue.js](https://vuejs.org) (wrapped by [Vue.jl](https://github.com/JuliaGizmos/Vue.jl)) takes care of syncing the state of the `Widget` as displayed on the web page with the state of the Julia `Observable`.
+
+## Some eye candy
+
+To display the simplicity and flexibility of InteractBase, here is a simple video showcasing how to add two color pickers to select the color of a plot and a slider to select the linewidth, while a timing signal animates the plot:
+
+<iframe src="https://player.vimeo.com/video/273565899" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+## Learning more
+
+[Documentation](https://piever.github.io/InteractBase.jl/latest/), a [tutorial](https://github.com/piever/InteractBase.jl/blob/master/docs/examples/tutorial.ipynb) and a list of [all available widgets](https://piever.github.io/InteractBase.jl/latest/api_reference.html) are available for the InteractBase package.

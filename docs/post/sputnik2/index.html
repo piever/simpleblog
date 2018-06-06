@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
-    <title>Thoughts and things  | Sputnik project, first update</title>
+    <title>Thoughts and things  | Sputnik project, second update</title>
     <meta name="HandheldFriendly" content="True">
     <meta name="MobileOptimized" content="320">
 
@@ -24,21 +24,18 @@
 
     
 
-    <meta property="og:title" content="Sputnik project, first update" />
-<meta property="og:description" content="Sputnik: a web app to look at your data This is the first of a series of blog updates about my Google Summer of Code project. I&#39;ll be working during Summer on a Julia based web app for data analysis and visualizations. So far I have the core structure and am exploring ways to make the interface more intuitive and user-friendly.
-Loading the data To load the data, I&#39;m using a simple file picker dialog or a dropdown menu to choose among previously saved datasets:" />
+    <meta property="og:title" content="Sputnik project, second update" />
+<meta property="og:description" content="Building a toolkit to create web-based GUIs in Julia The last two week of my GSoC project were mostly dedicated to developing tools to build GUIs in Julia.
+As most of these tools are getting released, I&#39;ll try to give an overview of how they can be used, what they can achieve and what are the current challenges.
+A little bit of history Most Julia users are probably familiar with Interact, a package to add reactive sliders, togglebuttons and other widgets to Jupyter notebooks in Julia." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://piever.github.io/simpleblog/post/sputnik1/" />
+<meta property="og:url" content="https://piever.github.io/simpleblog/post/sputnik2/" />
 
 
 
-<meta property="article:published_time" content="2018-05-19T00:18:23&#43;00:00"/>
+<meta property="article:published_time" content="2018-06-06T00:12:23&#43;00:00"/>
 
-<meta property="article:modified_time" content="2018-05-19T00:18:23&#43;00:00"/>
-
-
-
-
+<meta property="article:modified_time" content="2018-06-06T00:12:23&#43;00:00"/>
 
 
 
@@ -46,22 +43,28 @@ Loading the data To load the data, I&#39;m using a simple file picker dialog or 
 
 
 
-<meta itemprop="name" content="Sputnik project, first update">
-<meta itemprop="description" content="Sputnik: a web app to look at your data This is the first of a series of blog updates about my Google Summer of Code project. I&#39;ll be working during Summer on a Julia based web app for data analysis and visualizations. So far I have the core structure and am exploring ways to make the interface more intuitive and user-friendly.
-Loading the data To load the data, I&#39;m using a simple file picker dialog or a dropdown menu to choose among previously saved datasets:">
 
 
-<meta itemprop="datePublished" content="2018-05-19T00:18:23&#43;00:00" />
-<meta itemprop="dateModified" content="2018-05-19T00:18:23&#43;00:00" />
-<meta itemprop="wordCount" content="161">
+
+
+<meta itemprop="name" content="Sputnik project, second update">
+<meta itemprop="description" content="Building a toolkit to create web-based GUIs in Julia The last two week of my GSoC project were mostly dedicated to developing tools to build GUIs in Julia.
+As most of these tools are getting released, I&#39;ll try to give an overview of how they can be used, what they can achieve and what are the current challenges.
+A little bit of history Most Julia users are probably familiar with Interact, a package to add reactive sliders, togglebuttons and other widgets to Jupyter notebooks in Julia.">
+
+
+<meta itemprop="datePublished" content="2018-06-06T00:12:23&#43;00:00" />
+<meta itemprop="dateModified" content="2018-06-06T00:12:23&#43;00:00" />
+<meta itemprop="wordCount" content="415">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Sputnik project, first update"/>
-<meta name="twitter:description" content="Sputnik: a web app to look at your data This is the first of a series of blog updates about my Google Summer of Code project. I&#39;ll be working during Summer on a Julia based web app for data analysis and visualizations. So far I have the core structure and am exploring ways to make the interface more intuitive and user-friendly.
-Loading the data To load the data, I&#39;m using a simple file picker dialog or a dropdown menu to choose among previously saved datasets:"/>
+<meta name="twitter:title" content="Sputnik project, second update"/>
+<meta name="twitter:description" content="Building a toolkit to create web-based GUIs in Julia The last two week of my GSoC project were mostly dedicated to developing tools to build GUIs in Julia.
+As most of these tools are getting released, I&#39;ll try to give an overview of how they can be used, what they can achieve and what are the current challenges.
+A little bit of history Most Julia users are probably familiar with Interact, a package to add reactive sliders, togglebuttons and other widgets to Jupyter notebooks in Julia."/>
 
   </head>
 
@@ -130,35 +133,46 @@ Loading the data To load the data, I&#39;m using a simple file picker dialog or 
         POST
       </p>
       <h1 class="f1 athelas">
-        Sputnik project, first update
+        Sputnik project, second update
       </h1>
         
         
-      <time class="f6 mv4 dib tracked" datetime="2018-05-19T00:18:23Z">
-        May 19, 2018
+      <time class="f6 mv4 dib tracked" datetime="2018-06-06T00:12:23Z">
+        June 6, 2018
       </time>
       <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray">
-        <h1 id="sputnik-a-web-app-to-look-at-your-data">Sputnik: a web app to look at your data</h1>
+        <h1 id="building-a-toolkit-to-create-webbased-guis-in-julia">Building a toolkit to create web-based GUIs in Julia</h1>
 
-<p>This is the first of a series of blog updates about my Google Summer of Code project. I'll be working during Summer on a Julia based web app for data analysis and visualizations. So far I have the core structure and am exploring ways to make the interface more intuitive and user-friendly.</p>
+<p>The last two week of my GSoC project were mostly dedicated to developing tools to build GUIs in Julia.</p>
 
-<h2 id="loading-the-data">Loading the data</h2>
+<p>As most of these tools are getting released, I'll try to give an overview of how they can be used, what they can achieve and what are the current challenges.</p>
 
-<p>To load the data, I'm using a simple file picker dialog or a dropdown menu to choose among previously saved datasets:</p>
+<h2 id="a-little-bit-of-history">A little bit of history</h2>
 
-<p><figure><img src="../../images/load.png" alt="load"></figure></p>
+<p>Most Julia users are probably familiar with <a href="https://github.com/JuliaGizmos/Interact.jl">Interact</a>, a package to add reactive sliders, togglebuttons and other widgets to Jupyter notebooks in Julia. Last year, there was a new project to replace it, called <a href="https://github.com/JuliaGizmos/InteractNext.jl">InteractNext</a>, which had the major advantage of running on a wider number of platforms (Jupyter lab/notebook, Juno, Electron window and browser). The <a href="https://github.com/piever/InteractBase.jl">InteractBase</a> / <a href="https://github.com/piever/InteractBulma.jl">InteractBulma</a> pair builds on it, but brings to the table a clean separation between logic and styling:</p>
 
-<h2 id="filtering-the-data">Filtering the data</h2>
+<ul>
+<li>InteractBase is built on top of native HTML5 widgets, and handles all the logic using the Vue.js framework</li>
+<li>InteractBulma is a possible skin on top of it: the <a href="https://bulma.io">Bulma</a> CSS framework beautifies the widgets and the layout.</li>
+</ul>
 
-<p>To filter the data, I distinguish between categorical variables, where the user can select using checkboxes which values to accept, and continuous variables, where the user can specify a condition with Julia code:</p>
+<p>The advantage of this decomposition is that new CSS backends can be added with relative simplicity (see for example <a href="https://github.com/piever/InteractUIkit.jl">InteractUIkit</a>, which is just a few lines of code).</p>
 
-<p><figure><img src="../../images/filter.png" alt="filter"></figure></p>
+<p>As defining a backend is mainly done by specifying what classes to use for every widget, a future plan is to allow a set of &quot;themes&quot; based on some atomic CSS framwork: each theme could have a different color scheme, or different button shapes / styles, different fonts and so on.</p>
 
-<h2 id="styling-the-data">Styling the data</h2>
+<h2 id="how-does-it-work-in-practice">How does it work in practice</h2>
 
-<p>To style the data, I allow the user to choose which variables will be used as &quot;aesthetics&quot; with toggle switches. If a variable is selected, the user can choose which attribute to style with a dropdown menu:</p>
+<p>InteractBase wraps HTML5 input types (text, checkbox, radio button, select dropdown, number, range, color, date, file, email, password) as well as a few more widgets (toggle switch, button, togglable content, tabulator, tabs, togglebuttons) and uses the <a href="https://github.com/JuliaGizmos/Observables.jl">Observables</a> Julia package to represent the value of each <code>Widget</code> as an <code>Observable</code> (meaning a <code>Ref</code> that gets updated in real time when the <code>Widget</code> receives user input). The javascript framework <a href="https://vuejs.org">Vue.js</a> (wrapped by <a href="https://github.com/JuliaGizmos/Vue.jl">Vue.jl</a>) takes care of syncing the state of the <code>Widget</code> as displayed on the web page with the state of the Julia <code>Observable</code>.</p>
 
-<p><figure><img src="../../images/style.png" alt="style"></figure></p>
+<h2 id="some-eye-candy">Some eye candy</h2>
+
+<p>To display the simplicity and flexibility of InteractBase, here is a simple video showcasing how to add two color pickers to select the color of a plot and a slider to select the linewidth, while a timing signal animates the plot:</p>
+
+<iframe src="https://player.vimeo.com/video/273565899" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+<h2 id="learning-more">Learning more</h2>
+
+<p><a href="https://piever.github.io/InteractBase.jl/latest/">Documentation</a>, a <a href="https://github.com/piever/InteractBase.jl/blob/master/docs/examples/tutorial.ipynb">tutorial</a> and a list of <a href="https://piever.github.io/InteractBase.jl/latest/api_reference.html">all available widgets</a> are available for the InteractBase package.</p>
 
       </section>
       
@@ -182,14 +196,14 @@ Loading the data To load the data, I&#39;m using a simple file picker dialog or 
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/post/sputnik2/" class="link ph2 pv2 db black">
+          <a href="/simpleblog/post/sputnik2/" class="link ph2 pv2 db black o-50">
             Sputnik project, second update
           </a>
         </li>
       
         <li class="list f5 w-100 hover-bg-white nl1">
           
-          <a href="/simpleblog/post/sputnik1/" class="link ph2 pv2 db black o-50">
+          <a href="/simpleblog/post/sputnik1/" class="link ph2 pv2 db black">
             Sputnik project, first update
           </a>
         </li>

@@ -12,6 +12,17 @@
     
     
     <item>
+      <title>Sputnik project, second update</title>
+      <link>https://piever.github.io/simpleblog/post/sputnik2/</link>
+      <pubDate>Wed, 06 Jun 2018 00:12:23 +0000</pubDate>
+      
+      <guid>https://piever.github.io/simpleblog/post/sputnik2/</guid>
+      <description>Building a toolkit to create web-based GUIs in Julia The last two week of my GSoC project were mostly dedicated to developing tools to build GUIs in Julia.
+As most of these tools are getting released, I&#39;ll try to give an overview of how they can be used, what they can achieve and what are the current challenges.
+A little bit of history Most Julia users are probably familiar with Interact, a package to add reactive sliders, togglebuttons and other widgets to Jupyter notebooks in Julia.</description>
+    </item>
+    
+    <item>
       <title>Sputnik project, first update</title>
       <link>https://piever.github.io/simpleblog/post/sputnik1/</link>
       <pubDate>Sat, 19 May 2018 00:18:23 +0000</pubDate>
