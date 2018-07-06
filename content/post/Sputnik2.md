@@ -19,7 +19,7 @@ Most Julia users are probably familiar with [Interact](https://github.com/JuliaG
 
 The advantage of this decomposition is that new CSS backends can be added with relative simplicity (see for example [InteractUIkit](https://github.com/piever/InteractUIkit.jl), which is just a few lines of code).
 
-As defining a backend is mainly done by specifying what classes to use for every widget, a future plan is to allow a set of "themes" based on some atomic CSS framwork: each theme could have a different color scheme, or different button shapes / styles, different fonts and so on.
+As defining a backend is mainly done by specifying what classes to use for every widget, a future plan is to allow a set of "themes" based on some atomic CSS framework: each theme could have a different color scheme, or different button shapes / styles, different fonts and so on.
 
 ## How does it work in practice
 

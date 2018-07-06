@@ -6,10 +6,21 @@
     <description>Recent content on Thoughts and things</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Jun 2018 00:12:23 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 06 Jul 2018 00:12:23 +0000</lastBuildDate>
     
 	<atom:link href="https://piever.github.io/simpleblog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sputnik project, third update</title>
+      <link>https://piever.github.io/simpleblog/post/sputnik3/</link>
+      <pubDate>Fri, 06 Jul 2018 00:12:23 +0000</pubDate>
+      
+      <guid>https://piever.github.io/simpleblog/post/sputnik3/</guid>
+      <description>Create nestable custom widgets in Julia Since the last update I have mainly been working on tools for web app creation in Julia. The work has been on two fronts:
+ on the techical side, I transitioned from using Vue.js to using Knockout.js to sync Julia values to Javascript values
+ on the user facing side, I&#39;ve been working on a framework for custom widgets creation, so that using a @widget macro users can define their own custom widgets / recipes to visualize their custom types with simple code</description>
+    </item>
     
     <item>
       <title>Sputnik project, second update</title>
