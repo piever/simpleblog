@@ -67,3 +67,10 @@ Is it possible to have separate `_.output` and `_.display`, where `_.output` is 
   _.layout = vbox(hbox(:select, :btn), _.display)
 end
 ```
+
+The UI can then be launched with any `DataFrame`:
+
+```julia
+df = DataFrame(x = rand(100), y = randn(100), z = rand(["Male", "Female"], 100))
+mywidget(df)
+```
