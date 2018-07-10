@@ -55,7 +55,7 @@
 
 <meta itemprop="datePublished" content="2018-07-06T00:12:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-07-06T00:12:23&#43;00:00" />
-<meta itemprop="wordCount" content="371">
+<meta itemprop="wordCount" content="398">
 
 
 
@@ -171,25 +171,28 @@ knockout(template, [<span style="color:#f92672">:</span>message<span style="colo
 <h2 id="widget-recipes">Widget &quot;recipes&quot;</h2>
 
 <p>Concerning the second point, <a href="https://github.com/piever/Widgets.jl">Widgets.jl</a> offers the <code>@widget</code> macro to create custom widgets. The macro needs a function call:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#a6e22e">@widget</span> <span style="color:#66d9ef">function</span> mywidget(df<span style="color:#f92672">::</span>DataFrame)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#a6e22e">@widget</span> wdg <span style="color:#66d9ef">function</span> mywidget(df<span style="color:#f92672">::</span>DataFrame)
   <span style="color:#f92672">:</span>select <span style="color:#f92672">=</span> dropdown(names(df))
   <span style="color:#f92672">:</span>btn <span style="color:#f92672">=</span> button(<span style="color:#e6db74">&#34;Plot histogram&#34;</span>)
-  _<span style="color:#f92672">.</span>output <span style="color:#f92672">=</span> (<span style="color:#f92672">$</span>(<span style="color:#f92672">:</span>btn); histogram(df[<span style="color:#f92672">:</span>select[]]))
-  _<span style="color:#f92672">.</span>layout <span style="color:#f92672">=</span> vbox(hbox(<span style="color:#f92672">:</span>select, <span style="color:#f92672">:</span>btn), _<span style="color:#f92672">.</span>output)
+  <span style="color:#a6e22e">@output!</span> wdg (<span style="color:#f92672">$</span>(<span style="color:#f92672">:</span>btn); histogram(df[<span style="color:#f92672">:</span>select[]]))
+  <span style="color:#a6e22e">@layout!</span> wdg vbox(hbox(<span style="color:#f92672">:</span>select, <span style="color:#f92672">:</span>btn), _<span style="color:#f92672">.</span>output)
 <span style="color:#66d9ef">end</span></code></pre></div>
 <p>where symbols correspond to &quot;children&quot; that will form the new UI, with a structure specified by <code>_.layout</code>. <code>_.output</code> will denote the output of the UI. Symbols refer to other widgets, you can either use <code>:select[]</code> to mean &quot;put here the value of <code>:select</code>&quot;&quot;, or <code>$(:select)</code> which means &quot;put here the value of <code>:select</code> and update whenever <code>:select</code> changes&quot;. In this case for example, <code>_.output</code> will update when pressing <code>:btn</code> but not when changing <code>:select</code>.</p>
 
 <p>Is it possible to have separate <code>_.output</code> and <code>_.display</code>, where <code>_.output</code> is what you want the UI to return and <code>_.display</code> is how you want to show it. For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#a6e22e">@widget</span> <span style="color:#66d9ef">function</span> mywidget(df<span style="color:#f92672">::</span>DataFrame)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#a6e22e">@widget</span> wdg <span style="color:#66d9ef">function</span> mywidget(df<span style="color:#f92672">::</span>DataFrame)
   <span style="color:#f92672">:</span>select <span style="color:#f92672">=</span> dropdown(names(df))
   <span style="color:#f92672">:</span>btn <span style="color:#f92672">=</span> button(<span style="color:#e6db74">&#34;Plot histogram&#34;</span>)
-  _<span style="color:#f92672">.</span>output <span style="color:#f92672">=</span> (<span style="color:#f92672">$</span>(<span style="color:#f92672">:</span>btn); df[<span style="color:#f92672">:</span>select[]]) <span style="color:#75715e"># return the column</span>
-  _<span style="color:#f92672">.</span>display <span style="color:#f92672">=</span> histogram(<span style="color:#f92672">$</span>(_<span style="color:#f92672">.</span>output)) <span style="color:#75715e"># plot histogram</span>
-  _<span style="color:#f92672">.</span>layout <span style="color:#f92672">=</span> vbox(hbox(<span style="color:#f92672">:</span>select, <span style="color:#f92672">:</span>btn), _<span style="color:#f92672">.</span>display)
+  <span style="color:#a6e22e">@output!</span> wdg (<span style="color:#f92672">$</span>(<span style="color:#f92672">:</span>btn); df[<span style="color:#f92672">:</span>select[]]) <span style="color:#75715e"># return the column</span>
+  <span style="color:#a6e22e">@display!</span> wdg histogram(<span style="color:#f92672">$</span>(_<span style="color:#f92672">.</span>output)) <span style="color:#75715e"># plot histogram</span>
+  <span style="color:#a6e22e">@layout!</span> wdg vbox(hbox(<span style="color:#f92672">:</span>select, <span style="color:#f92672">:</span>btn), _<span style="color:#f92672">.</span>display)
 <span style="color:#66d9ef">end</span></code></pre></div>
 <p>The UI can then be launched with any <code>DataFrame</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">df <span style="color:#f92672">=</span> DataFrame(x <span style="color:#f92672">=</span> rand(<span style="color:#ae81ff">100</span>), y <span style="color:#f92672">=</span> randn(<span style="color:#ae81ff">100</span>), z <span style="color:#f92672">=</span> rand([<span style="color:#e6db74">&#34;Male&#34;</span>, <span style="color:#e6db74">&#34;Female&#34;</span>], <span style="color:#ae81ff">100</span>))
-mywidget(df)</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">using</span> Plots, DataFrames
+df <span style="color:#f92672">=</span> DataFrame(x <span style="color:#f92672">=</span> rand(<span style="color:#ae81ff">100</span>), y <span style="color:#f92672">=</span> randn(<span style="color:#ae81ff">100</span>), z <span style="color:#f92672">=</span> rand([<span style="color:#e6db74">&#34;Male&#34;</span>, <span style="color:#e6db74">&#34;Female&#34;</span>], <span style="color:#ae81ff">100</span>))
+ui <span style="color:#f92672">=</span> mywidget(df)</code></pre></div>
+<p>The output of <code>ui</code> has been defined to be the select column and you can access that observable with <code>observe(ui)</code>.</p>
+
       </section>
       
 

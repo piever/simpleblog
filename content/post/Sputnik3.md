@@ -46,11 +46,11 @@ InteractBase.jl now uses Knockout.jl to sync the value of its widgets on-screen 
 Concerning the second point, [Widgets.jl](https://github.com/piever/Widgets.jl) offers the `@widget` macro to create custom widgets. The macro needs a function call:
 
 ```julia
-@widget function mywidget(df::DataFrame)
+@widget wdg function mywidget(df::DataFrame)
   :select = dropdown(names(df))
   :btn = button("Plot histogram")
-  _.output = ($(:btn); histogram(df[:select[]]))
-  _.layout = vbox(hbox(:select, :btn), _.output)
+  @output! wdg ($(:btn); histogram(df[:select[]]))
+  @layout! wdg vbox(hbox(:select, :btn), _.output)
 end
 ```
 
@@ -59,18 +59,21 @@ where symbols correspond to "children" that will form the new UI, with a structu
 Is it possible to have separate `_.output` and `_.display`, where `_.output` is what you want the UI to return and `_.display` is how you want to show it. For example:
 
 ```julia
-@widget function mywidget(df::DataFrame)
+@widget wdg function mywidget(df::DataFrame)
   :select = dropdown(names(df))
   :btn = button("Plot histogram")
-  _.output = ($(:btn); df[:select[]]) # return the column
-  _.display = histogram($(_.output)) # plot histogram
-  _.layout = vbox(hbox(:select, :btn), _.display)
+  @output! wdg ($(:btn); df[:select[]]) # return the column
+  @display! wdg histogram($(_.output)) # plot histogram
+  @layout! wdg vbox(hbox(:select, :btn), _.display)
 end
 ```
 
 The UI can then be launched with any `DataFrame`:
 
 ```julia
+using Plots, DataFrames
 df = DataFrame(x = rand(100), y = randn(100), z = rand(["Male", "Female"], 100))
-mywidget(df)
+ui = mywidget(df)
 ```
+
+The output of `ui` has been defined to be the select column and you can access that observable with `observe(ui)`.
