@@ -6,10 +6,21 @@
     <description>Recent content on Thoughts and things</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Jul 2018 00:12:23 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Jul 2018 00:11:23 +0000</lastBuildDate>
     
 	<atom:link href="https://piever.github.io/simpleblog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sputnik project, fourth update</title>
+      <link>https://piever.github.io/simpleblog/post/sputnik4/</link>
+      <pubDate>Thu, 19 Jul 2018 00:11:23 +0000</pubDate>
+      
+      <guid>https://piever.github.io/simpleblog/post/sputnik4/</guid>
+      <description>The new Interact framework allows packages to define &amp;quot;interactivity recipes&amp;quot; taking only a small dependency on the Widgets.jl package.
+As an example, let&#39;s see how to add a simle recipe for interactive partition Plots in JuliaDB. JuliaDB already offers static partition plots: the user specifies the x axis, potentially the y axis, the statistics (Mean(), Extrema(), Hist(25), etc...) and the number of partition and gets the plot as output.
+This is very user friendly but still require a bit of typing and could be annoying for datasets with many columns, and we&#39;d like to create a GUI for it.</description>
+    </item>
     
     <item>
       <title>Sputnik project, third update</title>
