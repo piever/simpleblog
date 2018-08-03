@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://piever.github.io/simpleblog/post/sputnik5/</loc>
+    <lastmod>2018-08-03T00:11:23+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://piever.github.io/simpleblog/post/sputnik4/</loc>
     <lastmod>2018-07-19T00:11:23+00:00</lastmod>
   </url>
@@ -88,7 +93,7 @@
   
   <url>
     <loc>https://piever.github.io/simpleblog/</loc>
-    <lastmod>2018-07-19T00:11:23+00:00</lastmod>
+    <lastmod>2018-08-03T00:11:23+00:00</lastmod>
   </url>
   
 </urlset>

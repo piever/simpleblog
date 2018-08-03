@@ -12,6 +12,18 @@
     
     
     <item>
+      <title>Sputnik project, final update</title>
+      <link>https://piever.github.io/simpleblog/post/sputnik5/</link>
+      <pubDate>Fri, 03 Aug 2018 00:11:23 +0000</pubDate>
+      
+      <guid>https://piever.github.io/simpleblog/post/sputnik5/</guid>
+      <description>This post is a summary of my Google Summer of Code work on project Sputnik: a GUI toolkit based on web technology to analyze data in Julia.
+The project had several distinct parts:
+Building tools creating UI widgets in Julia Pre-GSoC state of the art While several packages existed already (namely Interact and InteractNext) to create web based widgets in Julia, they both had serious limitations.
+Interact could only be run in a Jupyter Notebook and was therefore not suitable to create local electron apps or to serve apps remotely.</description>
+    </item>
+    
+    <item>
       <title>Sputnik project, fourth update</title>
       <link>https://piever.github.io/simpleblog/post/sputnik4/</link>
       <pubDate>Thu, 19 Jul 2018 00:11:23 +0000</pubDate>
