@@ -1,6 +1,6 @@
 ---
 title: "Sputnik project, final update"
-date: 2018-08-03T00:11:23Z
+date: 2018-08-14T00:11:23Z
 markup: mmark
 ---
 
@@ -108,3 +108,9 @@ I hope that the packages developed with the help of my mentor can be useful for 
 I benefited immensely from the guidance (both conceptual and technical) as well as the occasionally crazy ideas of my mentor Shashi Gowda. In particular most of the ideas on the widget recipe framework come from a series of lengthy discussions we had, spanning several GitHub issues / Slack conversations.
 
 I would also like to acknowledge the Julia community that helped me technically when I got stuck using library / Julia Base functions I was not familiar with. In particular, the help of another GSoC student, Sebastian Pfitzner, was instrumental in getting things working properly in Jupyter Notebook and in Juno (a Julia IDE he has been developing) and in sharing with me some of his knowledge of front-end development. I'm also thankful to Robin Deits for his work on WebIO, the underlying technology upon which the Interact ecosystem is built, and to Joel Mason, for his work on InteractNext, the previous iteration of this design, also a GSoC project.
+
+## Addendum
+
+Part of this work was presented at JuliaCon 2018. My talk is available on youtube:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wFzkNSoKo0U" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
