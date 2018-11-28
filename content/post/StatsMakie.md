@@ -103,7 +103,7 @@ plot(linear, x, y)
 
 ![screenshot from 2018-11-28 11-56-38](https://user-images.githubusercontent.com/6333339/49150406-b3fe3400-f304-11e8-84a0-8b402b66880c.png)
 
-That was anti-climatic! It is the linear prediction of `y` given `x`, but it's a bit of a sad plot! We can make it more colorful by splitting our data by `z`, and everything will work as above:
+That was anti-climatic! It is the linear prediction of `y` given `x`, but it's a bit of a sad plot! We can make it more colorful by splitting our data by `a`, and everything will work as above:
 
 ```julia
 plot(linear, Group(a), x, y)
