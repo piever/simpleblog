@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Thoughts and things  | StatsMakie: elegant data visualizations in Julia</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.40.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    <link href='https://piever.github.io/simpleblog/dist/main.css' rel='stylesheet' type="text/css" />
+    
+      
+<link rel="shortcut icon" href="https://piever.github.io/simpleblog/favicon.ico" type="image/x-icon" />
+
+    
+
+    
+
+    <meta property="og:title" content="StatsMakie: elegant data visualizations in Julia" />
+<meta property="og:description" content="Lately I have finally got around to start implementing an old project to simplify data visualizations in Julia. The idea is to combine what is generally called &quot;Grammar of Graphics&quot;, that is to say the ability to cleanly express in a plot how to translate variables from a dataset into graphical attributes, with the new interactive plotting package Makie. This effort led to the package StatsMakie and this blog post gives a general overview on how to use it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://piever.github.io/simpleblog/post/statsmakie/" />
+
+
+
+<meta property="article:published_time" content="2018-11-22T00:11:23&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-11-22T00:11:23&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="StatsMakie: elegant data visualizations in Julia">
+<meta itemprop="description" content="Lately I have finally got around to start implementing an old project to simplify data visualizations in Julia. The idea is to combine what is generally called &quot;Grammar of Graphics&quot;, that is to say the ability to cleanly express in a plot how to translate variables from a dataset into graphical attributes, with the new interactive plotting package Makie. This effort led to the package StatsMakie and this blog post gives a general overview on how to use it.">
+
+
+<meta itemprop="datePublished" content="2018-11-22T00:11:23&#43;00:00" />
+<meta itemprop="dateModified" content="2018-11-22T00:11:23&#43;00:00" />
+<meta itemprop="wordCount" content="1062">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="StatsMakie: elegant data visualizations in Julia"/>
+<meta name="twitter:description" content="Lately I have finally got around to start implementing an old project to simplify data visualizations in Julia. The idea is to combine what is generally called &quot;Grammar of Graphics&quot;, that is to say the ability to cleanly express in a plot how to translate variables from a dataset into graphical attributes, with the new interactive plotting package Makie. This effort led to the package StatsMakie and this blog post gives a general overview on how to use it."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://piever.github.io/simpleblog/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Thoughts and things
+    </a>
+    <div class="flex-l items-center">
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/simpleblog/about/" title="About me page">
+              About me
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white no-underline white-90" href="/simpleblog/post/" title="Articles page">
+              Articles
+            </a>
+          </li>
+          
+        </ul>
+      
+      
+
+
+
+
+
+
+
+  <a href="https://github.com/piever" class="link-transition github link dib z-999 pt3 pt0-l mr2" title="Github link">
+    <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+  </a>
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  <div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+      <p class="f6 b helvetica tracked">
+        
+        POST
+      </p>
+      <h1 class="f1 athelas">
+        StatsMakie: elegant data visualizations in Julia
+      </h1>
+        
+        
+      <time class="f6 mv4 dib tracked" datetime="2018-11-22T00:11:23Z">
+        November 22, 2018
+      </time>
+      <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray">
+        <p>Lately I have finally got around to start implementing an old project to simplify data visualizations in Julia. The idea is to combine what is generally called &quot;Grammar of Graphics&quot;, that is to say the ability to cleanly express in a plot how to translate variables from a dataset into graphical attributes, with the new interactive plotting package Makie. This effort led to the package StatsMakie and this blog post gives a general overview on how to use it. The package is unreleased and of alpha quality, but still fun to play with.</p>
+
+<h2 id="warm-up">Warm up</h2>
+
+<p>First of all we need to install everything we need:</p>
+
+<pre><code>(v1.0) pkg&gt; add AbstractPlotting#master Makie#master https://github.com/JuliaPlots/StatsMakie.jl.git
+</code></pre>
+
+<p>and then:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">using</span> Makie, StatsMakie
+<span style="color:#75715e"># setting the theme is not strictly needed, but the default font looks ugly on my machine</span>
+set_theme!(font <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;NotoSans&#34;</span>)</code></pre></div>
+<h2 id="grouping-data-by-discrete-variables">Grouping data by discrete variables</h2>
+
+<p>The first feature that StatsMakie adds to Makie is the ability to group data by some discrete variables and use those variables to style the result. Let's first create some vectors to play with:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">N <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+a <span style="color:#f92672">=</span> rand(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>, N) <span style="color:#75715e"># a discrete variable</span>
+b <span style="color:#f92672">=</span> rand(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>, N) <span style="color:#75715e"># a discrete variable</span>
+x <span style="color:#f92672">=</span> randn(N) <span style="color:#75715e"># a continuous variable</span>
+y <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#f92672">.</span> x <span style="color:#f92672">*</span> a <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.8</span><span style="color:#f92672">*</span>randn() <span style="color:#75715e"># a continuous variable</span>
+z <span style="color:#f92672">=</span> x <span style="color:#f92672">.+</span> y <span style="color:#75715e"># a continuous variable</span></code></pre></div>
+<p>To see how <code>x</code> and <code>y</code> relate to each other, we could simply try (be warned: the first plot is quite slow, the following ones will be much faster):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(x, y, markersize <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49149907-443b7980-f303-11e8-8836-96418f0f6b1f.png" alt="screenshot from 2018-11-28 11-46-19"></figure></p>
+
+<p>It looks like there are two components in the data, and we can ask whether they come from different values of the <code>a</code> variable:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(a), x, y, markersize <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49149908-469dd380-f303-11e8-9f88-b541b8a3f06c.png" alt="screenshot from 2018-11-28 11-45-51"></figure></p>
+
+<p><code>Group</code> will split the data by the discrete variable we provided and color according to that variable. Colors will cycle across a range of default values, but we can easily customize those:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(a), x, y, color <span style="color:#f92672">=</span> [<span style="color:#f92672">:</span>black, <span style="color:#f92672">:</span>red], markersize <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49150007-8664bb00-f303-11e8-9c57-9e8af0fc401a.png" alt="screenshot from 2018-11-28 11-48-13"></figure></p>
+
+<p>and of course we are not limited to grouping with colors: we can use the shape of the marker instead. <code>Group(a)</code> defaults to <code>Group(color = a)</code>, whereas <code>Group(marker = a)</code> with encode the information about variable <code>a</code> in the marker:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(marker <span style="color:#f92672">=</span> a), x, y, markersize <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49150055-a2685c80-f303-11e8-908e-6487f968db8d.png" alt="screenshot from 2018-11-28 11-48-55"></figure></p>
+
+<p>Grouping by many variables is also supported:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(marker <span style="color:#f92672">=</span> a, color <span style="color:#f92672">=</span> b), x, y, markersize <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49150284-43571780-f304-11e8-9020-e976c1914efd.png" alt="screenshot from 2018-11-28 11-53-18"></figure></p>
+
+<h2 id="styling-data-with-continuous-variables">Styling data with continuous variables</h2>
+
+<p>One of the advantage of using an inherently discrete quantity (like the shape of the marker) to encode a discrete variable is that we are &quot;save&quot; continuous variables (e.g. color within a colorscale) for continuous variable. In this case, if we want to see how <code>a, x, y, z</code> interact, we could choose the marker according to <code>a</code> and style the color according to <code>z</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(marker <span style="color:#f92672">=</span> a), Style(color <span style="color:#f92672">=</span> z), x, y)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49150115-dba0cc80-f303-11e8-83f2-093c48335a0d.png" alt="screenshot from 2018-11-28 11-50-33"></figure></p>
+
+<p>Just like with <code>Group</code>, we can <code>Style</code> any number of attributes in the same plot (<code>color</code> is probably the most common, <code>markersize</code> is another sensible option though it may be broken at the moment).</p>
+
+<h2 id="splitapplycombine-strategy-with-a-plot">Split-apply-combine strategy with a plot</h2>
+
+<p>StatsMakie also has the concept of a &quot;visualization&quot; function (which is somewhat different but inspired on Grammar of Graphics statistics). The idea is that any function whose return type is understood by StatsMakie (meaning, there is an appropriate visualization for it) can be passed as first argument and it will be applied to the following arguments as well.</p>
+
+<p>A simple example is probably linear and non-linear regression.</p>
+
+<h3 id="linear-regression">Linear regression</h3>
+
+<p>StatsMakie knows how to plot a &quot;kernel density&quot; object (an idealized estimate of the distribution of a random variable) so we could simply compute the kernel density and then visualize it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">using</span> StatsMakie<span style="color:#f92672">:</span> linear, smooth
+
+plot(linear, x, y)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49150406-b3fe3400-f304-11e8-84a0-8b402b66880c.png" alt="screenshot from 2018-11-28 11-56-38"></figure></p>
+
+<p>That was anti-climatic! It is the linear prediction of <code>y</code> given <code>x</code>, but it's a bit of a sad plot! We can make it more colorful by splitting our data by <code>z</code>, and everything will work as above:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(linear, Group(a), x, y)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49150498-fc1d5680-f304-11e8-809e-19113c99e345.png" alt="screenshot from 2018-11-28 11-58-32"></figure></p>
+
+<p>And then we can plot it on top of the previous scatter plot, to make sure we got a good fit:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(a), x, y, markersize <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>)
+plot!(linear, Group(a), x, y)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49150576-38e94d80-f305-11e8-99e7-fedf0a2f114d.png" alt="screenshot from 2018-11-28 12-00-25"></figure></p>
+
+<p>Here of course it makes sense to group both things by color, but for line plots we have other options like <code>linestyle</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(linear, Group(linestyle <span style="color:#f92672">=</span> a), x, y)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49150640-6cc47300-f305-11e8-8db7-d8a97e84218e.png" alt="screenshot from 2018-11-28 12-01-54"></figure></p>
+
+<p>The solution is simply visualization functions. I can pass a function as first argument and it will be applied separately to each group:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(kde, Group(a), x)</code></pre></div>
+<h3 id="a-nonlinear-example">A non-linear example</h3>
+
+<p>Using non-linear techniques here is not very interesting as linear techniques work quite well already, so let's change variables:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">N <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>
+x <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">.*</span> rand(N)
+a <span style="color:#f92672">=</span> rand(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>, N)
+y <span style="color:#f92672">=</span> sin<span style="color:#f92672">.</span>(x) <span style="color:#f92672">.+</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">.*</span> rand(N) <span style="color:#f92672">.+</span> cos<span style="color:#f92672">.</span>(x) <span style="color:#f92672">.*</span> a</code></pre></div>
+<p>and then:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(a), x, y)
+plot!(smooth, Group(a), x, y)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49150923-363b2800-f306-11e8-89d0-682aba6cb7b9.png" alt="screenshot from 2018-11-28 12-07-31"></figure></p>
+
+<h3 id="different-analyses">Different analyses</h3>
+
+<p><code>linear</code> and <code>smooth</code> are two examples of possible analysis, but many more are possibles and it's easy to add new ones. If we were interested to the distributions of <code>x</code> and <code>y</code> for example we could do:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(histogram, y)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49151084-cd07e480-f306-11e8-8399-6e0224ef3622.png" alt="screenshot from 2018-11-28 12-11-43"></figure></p>
+
+<p>The default plot type is determined by the dimensionality of the input and the analysis: with two variables one would get a heatmap:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(histogram, x, y)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49151146-050f2780-f307-11e8-8a3d-99a4b9eb4349.png" alt="screenshot from 2018-11-28 12-13-16"></figure></p>
+
+<p>This plots is reasonably customizable in that one can pass keywords arguments to the <code>histogram</code> analysis:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(histogram(nbins <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>), x, y)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49151196-2b34c780-f307-11e8-8a8f-a25fcc610b32.png" alt="screenshot from 2018-11-28 12-14-19"></figure></p>
+
+<p>and change the default plot type to something else:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">wireframe(histogram(nbins <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>), x, y)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49151258-5ae3cf80-f307-11e8-81a3-711b36a1deb0.png" alt="screenshot from 2018-11-28 12-15-42"></figure></p>
+
+<p>Of course heatmap is the saner choice, but why not abuse Makie 3D capabilities?</p>
+
+<p>Other available analysis are <code>density</code> (to use kernel density estimation rather than binning) and <code>frequency</code> (to count occurrences of discrete variables).</p>
+
+<h2 id="what-if-i-have-data-instead">What if I have data instead?</h2>
+
+<p>If one has data instead, it is possible to signal StatsMakie that we are working from a DataFrame (or any table actually) and it will interpret symbols as columns:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">using</span> DataFrames, RDatasets
+iris <span style="color:#f92672">=</span> RDatasets<span style="color:#f92672">.</span>dataset(<span style="color:#e6db74">&#34;datasets&#34;</span>, <span style="color:#e6db74">&#34;iris&#34;</span>)
+scatter(Data(iris), Group(<span style="color:#f92672">:</span>Species), <span style="color:#f92672">:</span>SepalLength, <span style="color:#f92672">:</span>SepalWidth)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49151656-7b605980-f308-11e8-8bb1-d5e745929c9d.png" alt="screenshot from 2018-11-28 12-23-41"></figure></p>
+
+<p>And everything else works as usual:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#75715e"># use Position.stack to signal that you want bars stacked vertically rather than superimposed</span>
+plot(Position<span style="color:#f92672">.</span>stack, histogram, Data(iris), Group(<span style="color:#f92672">:</span>Species), <span style="color:#f92672">:</span>SepalLength)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49151854-05a8bd80-f309-11e8-9b9a-7dca7bf3cf6b.png" alt="screenshot from 2018-11-28 12-27-34"></figure></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">wireframe(density(trim<span style="color:#f92672">=</span><span style="color:#66d9ef">true</span>), Data(iris), Group(<span style="color:#f92672">:</span>Species), <span style="color:#f92672">:</span>SepalLength, <span style="color:#f92672">:</span>SepalWidth)</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49151783-d09c6b00-f308-11e8-8920-3bea731f28d8.png" alt="screenshot from 2018-11-28 12-26-08"></figure></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>That's kind of it for now. Key features are still missing (automatic legend and label, facet plots, non-numerical x and y axis) but one can already play with the library. Feel free to leave recipe ideas, propose new &quot;statistics&quot; or features in the comments or on the <a href="https://github.com/JuliaPlots/StatsMakie.jl">GitHub repo</a>.</p>
+
+      </section>
+      
+
+
+    </article>
+    <div class="ph3 mt2 mt6-ns">
+      
+
+
+
+
+
+
+
+  <div class="bg-light-gray pa3">
+    <ul>
+      <li class="list b mb3">
+        14 More Posts
+      </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/statsmakie/" class="link ph2 pv2 db black o-50">
+            StatsMakie: elegant data visualizations in Julia
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/sputnik5/" class="link ph2 pv2 db black">
+            Sputnik project, final update
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/sputnik4/" class="link ph2 pv2 db black">
+            Sputnik project, fourth update
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/sputnik3/" class="link ph2 pv2 db black">
+            Sputnik project, third update
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/sputnik2/" class="link ph2 pv2 db black">
+            Sputnik project, second update
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/sputnik1/" class="link ph2 pv2 db black">
+            Sputnik project, first update
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/juliadb/" class="link ph2 pv2 db black">
+            Manipulating data: JuliaDB
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/julia_chapter8/" class="link ph2 pv2 db black">
+            Chapter VIII: Functions: can we make our own?
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/julia_chapter7/" class="link ph2 pv2 db black">
+            Chapter VII: Plots and dots
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/julia_chapter6/" class="link ph2 pv2 db black">
+            Chapter VI: Arrays and the for loop
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/julia_chapter5/" class="link ph2 pv2 db black">
+            Chapter V: Conditionals
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/julia_chapter4/" class="link ph2 pv2 db black">
+            Chapter IV: The while loop
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/julia_chapter3/" class="link ph2 pv2 db black">
+            Chapter III: Variable assignment
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/julia_chapter2/" class="link ph2 pv2 db black">
+            Chapter II: Numbers
+          </a>
+        </li>
+      
+        <li class="list f5 w-100 hover-bg-white nl1">
+          
+          <a href="/simpleblog/post/julia_chapter1/" class="link ph2 pv2 db black">
+            Chapter I: Hello, Julia
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+    </div>
+  </div>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+    <link rel="stylesheet" type="text/css" href="/simpleblog/css/style.css">
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          
+          
+          processEscapes: true,
+          processEnvironments: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+          TeX: { equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js"] }
+          },
+        CommonHTML: { linebreaks: { automatic: true } },
+        "HTML-CSS": { linebreaks: { automatic: true } },
+        SVG: { linebreaks: { automatic: true } }
+      });
+    </script>
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+
+    <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
+    &copy; 2018 Thoughts and things
+  </a>
+  
+
+
+
+
+
+
+
+  <a href="https://github.com/piever" class="link-transition github link dib z-999 pt3 pt0-l mr2" title="Github link">
+    <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+  </a>
+
+
+  </div>
+
+  <div id="disqus_thread"></div>
+<script>
+
+
+
+
+
+(function() { 
+  var d = document, s = d.createElement('script');
+  s.src = 'https://piever-simpleblog.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</footer>
+
+    <script src="https://piever.github.io/simpleblog/dist/app.bundle.js" async></script>
+
+  </body>
+</html>

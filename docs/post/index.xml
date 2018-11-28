@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>StatsMakie: elegant data visualizations in Julia</title>
+      <link>https://piever.github.io/simpleblog/post/statsmakie/</link>
+      <pubDate>Thu, 22 Nov 2018 00:11:23 +0000</pubDate>
+      
+      <guid>https://piever.github.io/simpleblog/post/statsmakie/</guid>
+      <description>Lately I have finally got around to start implementing an old project to simplify data visualizations in Julia. The idea is to combine what is generally called &amp;quot;Grammar of Graphics&amp;quot;, that is to say the ability to cleanly express in a plot how to translate variables from a dataset into graphical attributes, with the new interactive plotting package Makie. This effort led to the package StatsMakie and this blog post gives a general overview on how to use it.</description>
+    </item>
+    
+    <item>
       <title>Sputnik project, final update</title>
       <link>https://piever.github.io/simpleblog/post/sputnik5/</link>
       <pubDate>Tue, 14 Aug 2018 00:11:23 +0000</pubDate>

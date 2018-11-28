@@ -9,7 +9,7 @@
     <meta name="MobileOptimized" content="320">
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.30.2" />
+    <meta name="generator" content="Hugo 0.40.1" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -48,7 +48,8 @@
 <meta itemprop="name" content="Articles">
 <meta itemprop="description" content="">
 
-<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Articles"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Articles"/>
 <meta name="twitter:description" content=""/>
 
   </head>
@@ -122,6 +123,25 @@
   </main>
     
     <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        November 22, 2018
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="/simpleblog/post/statsmakie/" class="link black dim">
+        StatsMakie: elegant data visualizations in Julia
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Lately I have finally got around to start implementing an old project to simplify data visualizations in Julia. The idea is to combine what is generally called &quot;Grammar of Graphics&quot;, that is to say the ability to cleanly express in a plot how to translate variables from a dataset into graphical attributes, with the new interactive plotting package Makie. This effort led to the package StatsMakie and this blog post gives a general overview on how to use it.
+    </div>
+  </div>
+
+        </div>
       
         <div class="relative w-100 w-30-l mb4 bg-white">
             <div class="mb3 pa4 mid-gray overflow-hidden">
@@ -303,27 +323,6 @@ Let's try and compute a different sequence. As a reminder, this is how we comput
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Storing what we have computed An inconvenience with the techniques we've used so far to compute the Fibonacci sequence is that we've never stored any result. Fortunately Julia provides a structure to do that, called Arrays. They are created using square brackets and separating values by commas. For example:
 julia&gt; v = [7, 3] 2-element Array{Int64,1}: 7 3 is a list of values, the first is 7 and the second is 3.
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        December 18, 2017
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="/simpleblog/post/julia_chapter5/" class="link black dim">
-        Chapter V: Conditionals
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Working with true and false So far we have learnt how to stop a &quot;looped&quot; statement from going on forever, based on a condition. Now, we'll see how to execute single statements based on a condition and apply that to our study of the Fibonacci sequence.
-Conditional statements The simplest conditional statement has the form:
-if condition command end meaning that command is to be executed only if condition is verified.
     </div>
   </div>
 
