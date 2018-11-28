@@ -128,12 +128,6 @@ plot(linear, Group(linestyle = a), x, y)
 
 ![screenshot from 2018-11-28 12-01-54](https://user-images.githubusercontent.com/6333339/49150640-6cc47300-f305-11e8-8db7-d8a97e84218e.png)
 
-The solution is simply visualization functions. I can pass a function as first argument and it will be applied separately to each group:
-
-```julia
-plot(kde, Group(a), x)
-```
-
 ### A non-linear example
 
 Using non-linear techniques here is not very interesting as linear techniques work quite well already, so let's change variables:
@@ -217,6 +211,20 @@ wireframe(density(trim=true), Data(iris), Group(:Species), :SepalLength, :SepalW
 ```
 
 ![screenshot from 2018-11-28 12-26-08](https://user-images.githubusercontent.com/6333339/49151783-d09c6b00-f308-11e8-8920-3bea731f28d8.png)
+
+## Wide data
+
+Other than comparing the same column split by a categorical variable, one may also compare different columns put side by side (here in a `Tuple`, `(:PetalLength, :PetalWidth)`). The attribute that styles them has to be set to `bycolumn`. Here color will distinguish `:PetalLength` versus `:PetalWidth` whereas the marker will distinguish the species.
+
+```julia
+scatter(
+           Data(iris),
+           Group(marker = :Species, color = bycolumn),
+           :SepalLength, (:PetalLength, :PetalWidth)
+       )
+```
+
+![screenshot from 2018-11-28 12-41-30](https://user-images.githubusercontent.com/6333339/49152507-f62a7400-f30a-11e8-876b-2df48e6d815a.png)
 
 ## Conclusion
 

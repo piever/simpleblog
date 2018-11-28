@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-11-22T00:11:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-22T00:11:23&#43;00:00" />
-<meta itemprop="wordCount" content="1062">
+<meta itemprop="wordCount" content="1102">
 
 
 
@@ -212,8 +212,6 @@ plot!(linear, Group(a), x, y)</code></pre></div>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(linear, Group(linestyle <span style="color:#f92672">=</span> a), x, y)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49150640-6cc47300-f305-11e8-8db7-d8a97e84218e.png" alt="screenshot from 2018-11-28 12-01-54"></figure></p>
 
-<p>The solution is simply visualization functions. I can pass a function as first argument and it will be applied separately to each group:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(kde, Group(a), x)</code></pre></div>
 <h3 id="a-nonlinear-example">A non-linear example</h3>
 
 <p>Using non-linear techniques here is not very interesting as linear techniques work quite well already, so let's change variables:</p>
@@ -262,6 +260,16 @@ plot(Position<span style="color:#f92672">.</span>stack, histogram, Data(iris), G
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49151854-05a8bd80-f309-11e8-9b9a-7dca7bf3cf6b.png" alt="screenshot from 2018-11-28 12-27-34"></figure></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">wireframe(density(trim<span style="color:#f92672">=</span><span style="color:#66d9ef">true</span>), Data(iris), Group(<span style="color:#f92672">:</span>Species), <span style="color:#f92672">:</span>SepalLength, <span style="color:#f92672">:</span>SepalWidth)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49151783-d09c6b00-f308-11e8-8920-3bea731f28d8.png" alt="screenshot from 2018-11-28 12-26-08"></figure></p>
+
+<h2 id="wide-data">Wide data</h2>
+
+<p>Other than comparing the same column split by a categorical variable, one may also compare different columns put side by side (here in a <code>Tuple</code>, <code>(:PetalLength, :PetalWidth)</code>). The attribute that styles them has to be set to <code>bycolumn</code>. Here color will distinguish <code>:PetalLength</code> versus <code>:PetalWidth</code> whereas the marker will distinguish the species.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(
+           Data(iris),
+           Group(marker <span style="color:#f92672">=</span> <span style="color:#f92672">:</span>Species, color <span style="color:#f92672">=</span> bycolumn),
+           <span style="color:#f92672">:</span>SepalLength, (<span style="color:#f92672">:</span>PetalLength, <span style="color:#f92672">:</span>PetalWidth)
+       )</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49152507-f62a7400-f30a-11e8-876b-2df48e6d815a.png" alt="screenshot from 2018-11-28 12-41-30"></figure></p>
 
 <h2 id="conclusion">Conclusion</h2>
 
