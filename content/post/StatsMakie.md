@@ -93,7 +93,7 @@ A simple example is probably linear and non-linear regression.
 
 ### Linear regression
 
-StatsMakie knows how to plot a "kernel density" object (an idealized estimate of the distribution of a random variable) so we could simply compute the kernel density and then visualize it:
+StatsMakie knows how to compute both a linear and non-linear fit of `y` as a function of `x`, via the "analysis functions" `linear` (linear regression) and `smooth` (local polynomial regression) respectively:
 
 ```julia
 using StatsMakie: linear, smooth
