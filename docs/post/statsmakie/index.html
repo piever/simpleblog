@@ -51,7 +51,7 @@
 
 <meta itemprop="datePublished" content="2018-11-22T00:11:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-22T00:11:23&#43;00:00" />
-<meta itemprop="wordCount" content="1102">
+<meta itemprop="wordCount" content="1114">
 
 
 
@@ -183,7 +183,9 @@ z <span style="color:#f92672">=</span> x <span style="color:#f92672">.+</span> y
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(marker <span style="color:#f92672">=</span> a), Style(color <span style="color:#f92672">=</span> z), x, y)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49150115-dba0cc80-f303-11e8-83f2-093c48335a0d.png" alt="screenshot from 2018-11-28 11-50-33"></figure></p>
 
-<p>Just like with <code>Group</code>, we can <code>Style</code> any number of attributes in the same plot (<code>color</code> is probably the most common, <code>markersize</code> is another sensible option though it may be broken at the moment).</p>
+<p>Just like with <code>Group</code>, we can <code>Style</code> any number of attributes in the same plot. <code>color</code> is probably the most common, <code>markersize</code> is another sensible option (especially if we are using <code>color</code> already for the grouping):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(color <span style="color:#f92672">=</span> a), x, y, Style(markersize <span style="color:#f92672">=</span> z <span style="color:#f92672">./</span> <span style="color:#ae81ff">10</span>))</code></pre></div>
+<p><figure><img src="https://user-images.githubusercontent.com/6333339/49215980-e9b52280-f3c1-11e8-8f6d-8b0962f2ba99.png" alt="screenshot from 2018-11-29 10-30-59"></figure></p>
 
 <h2 id="splitapplycombine-strategy-with-a-plot">Split-apply-combine strategy with a plot</h2>
 

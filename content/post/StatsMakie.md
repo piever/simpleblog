@@ -83,7 +83,13 @@ scatter(Group(marker = a), Style(color = z), x, y)
 
 ![screenshot from 2018-11-28 11-50-33](https://user-images.githubusercontent.com/6333339/49150115-dba0cc80-f303-11e8-83f2-093c48335a0d.png)
 
-Just like with `Group`, we can `Style` any number of attributes in the same plot (`color` is probably the most common, `markersize` is another sensible option though it may be broken at the moment).
+Just like with `Group`, we can `Style` any number of attributes in the same plot. `color` is probably the most common, `markersize` is another sensible option (especially if we are using `color` already for the grouping):
+
+```julia
+scatter(Group(color = a), x, y, Style(markersize = z ./ 10))
+```
+
+![screenshot from 2018-11-29 10-30-59](https://user-images.githubusercontent.com/6333339/49215980-e9b52280-f3c1-11e8-8f6d-8b0962f2ba99.png)
 
 ## Split-apply-combine strategy with a plot
 
