@@ -179,7 +179,7 @@ z <span style="color:#f92672">=</span> x <span style="color:#f92672">.+</span> y
 
 <h2 id="styling-data-with-continuous-variables">Styling data with continuous variables</h2>
 
-<p>One of the advantage of using an inherently discrete quantity (like the shape of the marker) to encode a discrete variable is that we are &quot;save&quot; continuous variables (e.g. color within a colorscale) for continuous variable. In this case, if we want to see how <code>a, x, y, z</code> interact, we could choose the marker according to <code>a</code> and style the color according to <code>z</code>:</p>
+<p>One of the advantage of using an inherently discrete quantity (like the shape of the marker) to encode a discrete variable is that we can use continuous attributes (e.g. color within a colorscale) for continuous variable. In this case, if we want to see how <code>a, x, y, z</code> interact, we could choose the marker according to <code>a</code> and style the color according to <code>z</code>:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(marker <span style="color:#f92672">=</span> a), Style(color <span style="color:#f92672">=</span> z), x, y)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49150115-dba0cc80-f303-11e8-83f2-093c48335a0d.png" alt="screenshot from 2018-11-28 11-50-33"></figure></p>
 
