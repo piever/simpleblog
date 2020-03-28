@@ -3,16 +3,20 @@ languageCode = "en-us"
 title = "Thoughts and things"
 theme = "ananke"
 publishDir = "docs"
-pygmentsStyle = "monokai"
 pygmentsCodefences = true
 SectionPagesMenu = "main"
 googleAnalytics = ""
 disqusShortname = "piever"
 
+[markup]
+  [markup.highlight]
+    codeFences = true
+    style = "solarized-dark"
+    tabWidth = 4
 
 [params]
   favicon = "https://piever.github.io/simpleblog/favicon.ico"
   # choose a background color from any on this page: http://tachyons.io/docs/themes/skins/ and preface it with "bg-"
-  background_color_class = "bg-gray"
+  background_color_class = "bg-mid-gray"
   recent_posts_number = 4
   github = "https://github.com/piever"

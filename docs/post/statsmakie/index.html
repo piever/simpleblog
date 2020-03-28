@@ -9,7 +9,7 @@
     <meta name="MobileOptimized" content="320">
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -28,35 +28,17 @@
 <meta property="og:description" content="Lately I have finally got around to start implementing an old project to simplify data visualizations in Julia. The idea is to combine what is generally called &quot;Grammar of Graphics&quot;, that is to say the ability to cleanly express in a plot how to translate variables from a dataset into graphical attributes, with the new interactive plotting package Makie. This effort led to the package StatsMakie and this blog post gives a general overview on how to use it." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://piever.github.io/simpleblog/post/statsmakie/" />
-
-
-
-<meta property="article:published_time" content="2018-11-22T00:11:23&#43;00:00"/>
-
-<meta property="article:modified_time" content="2018-11-22T00:11:23&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-11-22T00:11:23+00:00" />
+<meta property="article:modified_time" content="2018-11-22T00:11:23+00:00" />
 <meta itemprop="name" content="StatsMakie: elegant data visualizations in Julia">
 <meta itemprop="description" content="Lately I have finally got around to start implementing an old project to simplify data visualizations in Julia. The idea is to combine what is generally called &quot;Grammar of Graphics&quot;, that is to say the ability to cleanly express in a plot how to translate variables from a dataset into graphical attributes, with the new interactive plotting package Makie. This effort led to the package StatsMakie and this blog post gives a general overview on how to use it.">
-
-
 <meta itemprop="datePublished" content="2018-11-22T00:11:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-11-22T00:11:23&#43;00:00" />
-<meta itemprop="wordCount" content="1114">
+<meta itemprop="wordCount" content="1113">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="StatsMakie: elegant data visualizations in Julia"/>
 <meta name="twitter:description" content="Lately I have finally got around to start implementing an old project to simplify data visualizations in Julia. The idea is to combine what is generally called &quot;Grammar of Graphics&quot;, that is to say the ability to cleanly express in a plot how to translate variables from a dataset into graphical attributes, with the new interactive plotting package Makie. This effort led to the package StatsMakie and this blog post gives a general overview on how to use it."/>
 
@@ -69,7 +51,7 @@
   
 
   <header>
-    <div class="bg-black">
+    <div class="bg-mid-gray">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://piever.github.io/simpleblog/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -140,51 +122,48 @@
 <h2 id="warm-up">Warm up</h2>
 
 <p>First of all we need to install everything we need:</p>
-
-<pre><code>(v1.0) pkg&gt; add AbstractPlotting#master Makie#master https://github.com/JuliaPlots/StatsMakie.jl.git
-</code></pre>
-
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">(v1<span style="color:#719e07">.</span><span style="color:#2aa198">0</span>) pkg<span style="color:#719e07">&gt;</span> add Makie StatsMakie</code></pre></div>
 <p>and then:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">using</span> Makie, StatsMakie
-<span style="color:#75715e"># setting the theme is not strictly needed, but the default font looks ugly on my machine</span>
-set_theme!(font <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;NotoSans&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#719e07">using</span> Makie, StatsMakie
+<span style="color:#586e75"># setting the theme is not strictly needed, but the default font looks ugly on my machine</span>
+set_theme!(font <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;NotoSans&#34;</span>)</code></pre></div>
 <h2 id="grouping-data-by-discrete-variables">Grouping data by discrete variables</h2>
 
 <p>The first feature that StatsMakie adds to Makie is the ability to group data by some discrete variables and use those variables to style the result. Let's first create some vectors to play with:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">N <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
-a <span style="color:#f92672">=</span> rand(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>, N) <span style="color:#75715e"># a discrete variable</span>
-b <span style="color:#f92672">=</span> rand(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>, N) <span style="color:#75715e"># a discrete variable</span>
-x <span style="color:#f92672">=</span> randn(N) <span style="color:#75715e"># a continuous variable</span>
-y <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#f92672">.</span> x <span style="color:#f92672">*</span> a <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.8</span><span style="color:#f92672">*</span>randn() <span style="color:#75715e"># a continuous variable</span>
-z <span style="color:#f92672">=</span> x <span style="color:#f92672">.+</span> y <span style="color:#75715e"># a continuous variable</span></code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">N <span style="color:#719e07">=</span> <span style="color:#2aa198">1000</span>
+a <span style="color:#719e07">=</span> rand(<span style="color:#2aa198">1</span><span style="color:#719e07">:</span><span style="color:#2aa198">2</span>, N) <span style="color:#586e75"># a discrete variable</span>
+b <span style="color:#719e07">=</span> rand(<span style="color:#2aa198">1</span><span style="color:#719e07">:</span><span style="color:#2aa198">2</span>, N) <span style="color:#586e75"># a discrete variable</span>
+x <span style="color:#719e07">=</span> randn(N) <span style="color:#586e75"># a continuous variable</span>
+y <span style="color:#719e07">=</span> @<span style="color:#719e07">.</span> x <span style="color:#719e07">*</span> a <span style="color:#719e07">+</span> <span style="color:#2aa198">0.8</span><span style="color:#719e07">*</span>randn() <span style="color:#586e75"># a continuous variable</span>
+z <span style="color:#719e07">=</span> x <span style="color:#719e07">.+</span> y <span style="color:#586e75"># a continuous variable</span></code></pre></div>
 <p>To see how <code>x</code> and <code>y</code> relate to each other, we could simply try (be warned: the first plot is quite slow, the following ones will be much faster):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(x, y, markersize <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(x, y, markersize <span style="color:#719e07">=</span> <span style="color:#2aa198">0.2</span>)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49149907-443b7980-f303-11e8-8836-96418f0f6b1f.png" alt="screenshot from 2018-11-28 11-46-19"></figure></p>
 
 <p>It looks like there are two components in the data, and we can ask whether they come from different values of the <code>a</code> variable:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(a), x, y, markersize <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(a), x, y, markersize <span style="color:#719e07">=</span> <span style="color:#2aa198">0.2</span>)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49149908-469dd380-f303-11e8-9f88-b541b8a3f06c.png" alt="screenshot from 2018-11-28 11-45-51"></figure></p>
 
 <p><code>Group</code> will split the data by the discrete variable we provided and color according to that variable. Colors will cycle across a range of default values, but we can easily customize those:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(a), x, y, color <span style="color:#f92672">=</span> [<span style="color:#f92672">:</span>black, <span style="color:#f92672">:</span>red], markersize <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(a), x, y, color <span style="color:#719e07">=</span> [<span style="color:#719e07">:</span>black, <span style="color:#719e07">:</span>red], markersize <span style="color:#719e07">=</span> <span style="color:#2aa198">0.2</span>)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49150007-8664bb00-f303-11e8-9c57-9e8af0fc401a.png" alt="screenshot from 2018-11-28 11-48-13"></figure></p>
 
 <p>and of course we are not limited to grouping with colors: we can use the shape of the marker instead. <code>Group(a)</code> defaults to <code>Group(color = a)</code>, whereas <code>Group(marker = a)</code> with encode the information about variable <code>a</code> in the marker:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(marker <span style="color:#f92672">=</span> a), x, y, markersize <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(marker <span style="color:#719e07">=</span> a), x, y, markersize <span style="color:#719e07">=</span> <span style="color:#2aa198">0.2</span>)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49150055-a2685c80-f303-11e8-908e-6487f968db8d.png" alt="screenshot from 2018-11-28 11-48-55"></figure></p>
 
 <p>Grouping by many variables is also supported:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(marker <span style="color:#f92672">=</span> a, color <span style="color:#f92672">=</span> b), x, y, markersize <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(marker <span style="color:#719e07">=</span> a, color <span style="color:#719e07">=</span> b), x, y, markersize <span style="color:#719e07">=</span> <span style="color:#2aa198">0.2</span>)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49150284-43571780-f304-11e8-9020-e976c1914efd.png" alt="screenshot from 2018-11-28 11-53-18"></figure></p>
 
 <h2 id="styling-data-with-continuous-variables">Styling data with continuous variables</h2>
 
 <p>One of the advantage of using an inherently discrete quantity (like the shape of the marker) to encode a discrete variable is that we can use continuous attributes (e.g. color within a colorscale) for continuous variable. In this case, if we want to see how <code>a, x, y, z</code> interact, we could choose the marker according to <code>a</code> and style the color according to <code>z</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(marker <span style="color:#f92672">=</span> a), Style(color <span style="color:#f92672">=</span> z), x, y)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(marker <span style="color:#719e07">=</span> a), Style(color <span style="color:#719e07">=</span> z), x, y)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49150115-dba0cc80-f303-11e8-83f2-093c48335a0d.png" alt="screenshot from 2018-11-28 11-50-33"></figure></p>
 
 <p>Just like with <code>Group</code>, we can <code>Style</code> any number of attributes in the same plot. <code>color</code> is probably the most common, <code>markersize</code> is another sensible option (especially if we are using <code>color</code> already for the grouping):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(color <span style="color:#f92672">=</span> a), x, y, Style(markersize <span style="color:#f92672">=</span> z <span style="color:#f92672">./</span> <span style="color:#ae81ff">10</span>))</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(color <span style="color:#719e07">=</span> a), x, y, Style(markersize <span style="color:#719e07">=</span> z <span style="color:#719e07">./</span> <span style="color:#2aa198">10</span>))</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49215980-e9b52280-f3c1-11e8-8f6d-8b0962f2ba99.png" alt="screenshot from 2018-11-29 10-30-59"></figure></p>
 
 <h2 id="splitapplycombine-strategy-with-a-plot">Split-apply-combine strategy with a plot</h2>
@@ -196,52 +175,52 @@ z <span style="color:#f92672">=</span> x <span style="color:#f92672">.+</span> y
 <h3 id="linear-regression">Linear regression</h3>
 
 <p>StatsMakie knows how to compute both a linear and non-linear fit of <code>y</code> as a function of <code>x</code>, via the &quot;analysis functions&quot; <code>linear</code> (linear regression) and <code>smooth</code> (local polynomial regression) respectively:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">using</span> StatsMakie<span style="color:#f92672">:</span> linear, smooth
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#719e07">using</span> StatsMakie<span style="color:#719e07">:</span> linear, smooth
 
 plot(linear, x, y)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49150406-b3fe3400-f304-11e8-84a0-8b402b66880c.png" alt="screenshot from 2018-11-28 11-56-38"></figure></p>
 
 <p>That was anti-climatic! It is the linear prediction of <code>y</code> given <code>x</code>, but it's a bit of a sad plot! We can make it more colorful by splitting our data by <code>a</code>, and everything will work as above:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(linear, Group(a), x, y)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(linear, Group(a), x, y)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49150498-fc1d5680-f304-11e8-809e-19113c99e345.png" alt="screenshot from 2018-11-28 11-58-32"></figure></p>
 
 <p>And then we can plot it on top of the previous scatter plot, to make sure we got a good fit:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(a), x, y, markersize <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>)
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(a), x, y, markersize <span style="color:#719e07">=</span> <span style="color:#2aa198">0.2</span>)
 plot!(linear, Group(a), x, y)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49150576-38e94d80-f305-11e8-99e7-fedf0a2f114d.png" alt="screenshot from 2018-11-28 12-00-25"></figure></p>
 
 <p>Here of course it makes sense to group both things by color, but for line plots we have other options like <code>linestyle</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(linear, Group(linestyle <span style="color:#f92672">=</span> a), x, y)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(linear, Group(linestyle <span style="color:#719e07">=</span> a), x, y)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49150640-6cc47300-f305-11e8-8db7-d8a97e84218e.png" alt="screenshot from 2018-11-28 12-01-54"></figure></p>
 
 <h3 id="a-nonlinear-example">A non-linear example</h3>
 
 <p>Using non-linear techniques here is not very interesting as linear techniques work quite well already, so let's change variables:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">N <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>
-x <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">.*</span> rand(N)
-a <span style="color:#f92672">=</span> rand(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">2</span>, N)
-y <span style="color:#f92672">=</span> sin<span style="color:#f92672">.</span>(x) <span style="color:#f92672">.+</span> <span style="color:#ae81ff">0.5</span> <span style="color:#f92672">.*</span> rand(N) <span style="color:#f92672">.+</span> cos<span style="color:#f92672">.</span>(x) <span style="color:#f92672">.*</span> a</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">N <span style="color:#719e07">=</span> <span style="color:#2aa198">200</span>
+x <span style="color:#719e07">=</span> <span style="color:#2aa198">10</span> <span style="color:#719e07">.*</span> rand(N)
+a <span style="color:#719e07">=</span> rand(<span style="color:#2aa198">1</span><span style="color:#719e07">:</span><span style="color:#2aa198">2</span>, N)
+y <span style="color:#719e07">=</span> sin<span style="color:#719e07">.</span>(x) <span style="color:#719e07">.+</span> <span style="color:#2aa198">0.5</span> <span style="color:#719e07">.*</span> rand(N) <span style="color:#719e07">.+</span> cos<span style="color:#719e07">.</span>(x) <span style="color:#719e07">.*</span> a</code></pre></div>
 <p>and then:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(a), x, y)
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(Group(a), x, y)
 plot!(smooth, Group(a), x, y)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49150923-363b2800-f306-11e8-89d0-682aba6cb7b9.png" alt="screenshot from 2018-11-28 12-07-31"></figure></p>
 
 <h3 id="different-analyses">Different analyses</h3>
 
 <p><code>linear</code> and <code>smooth</code> are two examples of possible analysis, but many more are possibles and it's easy to add new ones. If we were interested to the distributions of <code>x</code> and <code>y</code> for example we could do:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(histogram, y)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(histogram, y)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49151084-cd07e480-f306-11e8-8399-6e0224ef3622.png" alt="screenshot from 2018-11-28 12-11-43"></figure></p>
 
 <p>The default plot type is determined by the dimensionality of the input and the analysis: with two variables one would get a heatmap:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(histogram, x, y)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(histogram, x, y)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49151146-050f2780-f307-11e8-8a3d-99a4b9eb4349.png" alt="screenshot from 2018-11-28 12-13-16"></figure></p>
 
 <p>This plots is reasonably customizable in that one can pass keywords arguments to the <code>histogram</code> analysis:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(histogram(nbins <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>), x, y)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">plot(histogram(nbins <span style="color:#719e07">=</span> <span style="color:#2aa198">30</span>), x, y)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49151196-2b34c780-f307-11e8-8a8f-a25fcc610b32.png" alt="screenshot from 2018-11-28 12-14-19"></figure></p>
 
 <p>and change the default plot type to something else:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">wireframe(histogram(nbins <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>), x, y)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">wireframe(histogram(nbins <span style="color:#719e07">=</span> <span style="color:#2aa198">30</span>), x, y)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49151258-5ae3cf80-f307-11e8-81a3-711b36a1deb0.png" alt="screenshot from 2018-11-28 12-15-42"></figure></p>
 
 <p>Of course heatmap is the saner choice, but why not abuse Makie 3D capabilities?</p>
@@ -251,25 +230,25 @@ plot!(smooth, Group(a), x, y)</code></pre></div>
 <h2 id="what-if-i-have-data-instead">What if I have data instead?</h2>
 
 <p>If one has data instead, it is possible to signal StatsMakie that we are working from a DataFrame (or any table actually) and it will interpret symbols as columns:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">using</span> DataFrames, RDatasets
-iris <span style="color:#f92672">=</span> RDatasets<span style="color:#f92672">.</span>dataset(<span style="color:#e6db74">&#34;datasets&#34;</span>, <span style="color:#e6db74">&#34;iris&#34;</span>)
-scatter(Data(iris), Group(<span style="color:#f92672">:</span>Species), <span style="color:#f92672">:</span>SepalLength, <span style="color:#f92672">:</span>SepalWidth)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#719e07">using</span> DataFrames, RDatasets
+iris <span style="color:#719e07">=</span> RDatasets<span style="color:#719e07">.</span>dataset(<span style="color:#2aa198">&#34;datasets&#34;</span>, <span style="color:#2aa198">&#34;iris&#34;</span>)
+scatter(Data(iris), Group(<span style="color:#719e07">:</span>Species), <span style="color:#719e07">:</span>SepalLength, <span style="color:#719e07">:</span>SepalWidth)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49151656-7b605980-f308-11e8-8bb1-d5e745929c9d.png" alt="screenshot from 2018-11-28 12-23-41"></figure></p>
 
 <p>And everything else works as usual:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#75715e"># use Position.stack to signal that you want bars stacked vertically rather than superimposed</span>
-plot(Position<span style="color:#f92672">.</span>stack, histogram, Data(iris), Group(<span style="color:#f92672">:</span>Species), <span style="color:#f92672">:</span>SepalLength)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#586e75"># use Position.stack to signal that you want bars stacked vertically rather than superimposed</span>
+plot(Position<span style="color:#719e07">.</span>stack, histogram, Data(iris), Group(<span style="color:#719e07">:</span>Species), <span style="color:#719e07">:</span>SepalLength)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49151854-05a8bd80-f309-11e8-9b9a-7dca7bf3cf6b.png" alt="screenshot from 2018-11-28 12-27-34"></figure></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">wireframe(density(trim<span style="color:#f92672">=</span><span style="color:#66d9ef">true</span>), Data(iris), Group(<span style="color:#f92672">:</span>Species), <span style="color:#f92672">:</span>SepalLength, <span style="color:#f92672">:</span>SepalWidth)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">wireframe(density(trim<span style="color:#719e07">=</span><span style="color:#cb4b16">true</span>), Data(iris), Group(<span style="color:#719e07">:</span>Species), <span style="color:#719e07">:</span>SepalLength, <span style="color:#719e07">:</span>SepalWidth)</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49151783-d09c6b00-f308-11e8-8920-3bea731f28d8.png" alt="screenshot from 2018-11-28 12-26-08"></figure></p>
 
 <h2 id="wide-data">Wide data</h2>
 
 <p>Other than comparing the same column split by a categorical variable, one may also compare different columns put side by side (here in a <code>Tuple</code>, <code>(:PetalLength, :PetalWidth)</code>). The attribute that styles them has to be set to <code>bycolumn</code>. Here color will distinguish <code>:PetalLength</code> versus <code>:PetalWidth</code> whereas the marker will distinguish the species.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">scatter(
            Data(iris),
-           Group(marker <span style="color:#f92672">=</span> <span style="color:#f92672">:</span>Species, color <span style="color:#f92672">=</span> bycolumn),
-           <span style="color:#f92672">:</span>SepalLength, (<span style="color:#f92672">:</span>PetalLength, <span style="color:#f92672">:</span>PetalWidth)
+           Group(marker <span style="color:#719e07">=</span> <span style="color:#719e07">:</span>Species, color <span style="color:#719e07">=</span> bycolumn),
+           <span style="color:#719e07">:</span>SepalLength, (<span style="color:#719e07">:</span>PetalLength, <span style="color:#719e07">:</span>PetalWidth)
        )</code></pre></div>
 <p><figure><img src="https://user-images.githubusercontent.com/6333339/49152507-f62a7400-f30a-11e8-876b-2df48e6d815a.png" alt="screenshot from 2018-11-28 12-41-30"></figure></p>
 
@@ -435,7 +414,7 @@ plot(Position<span style="color:#f92672">.</span>stack, histogram, Data(iris), G
 
     <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
-    &copy; 2018 Thoughts and things
+    &copy; 2020 Thoughts and things
   </a>
   
 

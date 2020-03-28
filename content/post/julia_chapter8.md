@@ -102,9 +102,7 @@ compute_sequence (generic function with 1 method)
 ```
 
 <div class="boxBorder">
-
-We need to write `v`in the last line to tell Julia that this is our desired output: the vector `v` with our 20 elements of the sequence.
-
+We need to write `v` in the last line to tell Julia that this is our desired output: the vector `v` with our 20 elements of the sequence.
 </div>
 
 Now, we can play as much as we want. We can get the usual Fibonacci:

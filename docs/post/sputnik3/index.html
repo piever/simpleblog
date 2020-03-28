@@ -9,7 +9,7 @@
     <meta name="MobileOptimized" content="320">
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -30,37 +30,19 @@
  on the user facing side, I&#39;ve been working on a framework for custom widgets creation, so that using a @widget macro users can define their own custom widgets / recipes to visualize their custom types with simple code" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://piever.github.io/simpleblog/post/sputnik3/" />
-
-
-
-<meta property="article:published_time" content="2018-07-06T00:12:23&#43;00:00"/>
-
-<meta property="article:modified_time" content="2018-07-06T00:12:23&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-07-06T00:12:23+00:00" />
+<meta property="article:modified_time" content="2018-07-06T00:12:23+00:00" />
 <meta itemprop="name" content="Sputnik project, third update">
 <meta itemprop="description" content="Create nestable custom widgets in Julia Since the last update I have mainly been working on tools for web app creation in Julia. The work has been on two fronts:
  on the techical side, I transitioned from using Vue.js to using Knockout.js to sync Julia values to Javascript values
  on the user facing side, I&#39;ve been working on a framework for custom widgets creation, so that using a @widget macro users can define their own custom widgets / recipes to visualize their custom types with simple code">
-
-
 <meta itemprop="datePublished" content="2018-07-06T00:12:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-07-06T00:12:23&#43;00:00" />
 <meta itemprop="wordCount" content="398">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Sputnik project, third update"/>
 <meta name="twitter:description" content="Create nestable custom widgets in Julia Since the last update I have mainly been working on tools for web app creation in Julia. The work has been on two fronts:
  on the techical side, I transitioned from using Vue.js to using Knockout.js to sync Julia values to Javascript values
@@ -75,7 +57,7 @@
   
 
   <header>
-    <div class="bg-black">
+    <div class="bg-mid-gray">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://piever.github.io/simpleblog/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -156,41 +138,41 @@
 <p>Concerning point 1, <a href="https://github.com/JuliaGizmos/Knockout.jl">Knockout.jl</a> allows two-way binding between Julia and Javascript values.</p>
 
 <p>The following Julia code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">using</span> Knockout, WebIO, Observables
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#719e07">using</span> Knockout, WebIO, Observables
 
-template <span style="color:#f92672">=</span> Node(<span style="color:#f92672">:</span>p, <span style="color:#e6db74">&#34;{{message}}&#34;</span>, attributes <span style="color:#f92672">=</span> <span style="color:#66d9ef">Dict</span>(<span style="color:#e6db74">&#34;data-bind&#34;</span> <span style="color:#f92672">=&gt;</span> <span style="color:#e6db74">&#34;visible : visible&#34;</span>))
-msg <span style="color:#f92672">=</span> Observable(<span style="color:#e6db74">&#34;hello&#34;</span>)
-vis <span style="color:#f92672">=</span> Observable(<span style="color:#66d9ef">true</span>)
-knockout(template, [<span style="color:#f92672">:</span>message<span style="color:#f92672">=&gt;</span>msg, <span style="color:#f92672">:</span>visible<span style="color:#f92672">=&gt;</span>vis])</code></pre></div>
+template <span style="color:#719e07">=</span> Node(<span style="color:#719e07">:</span>p, <span style="color:#2aa198">&#34;{{message}}&#34;</span>, attributes <span style="color:#719e07">=</span> <span style="color:#dc322f">Dict</span>(<span style="color:#2aa198">&#34;data-bind&#34;</span> <span style="color:#719e07">=&gt;</span> <span style="color:#2aa198">&#34;visible : visible&#34;</span>))
+msg <span style="color:#719e07">=</span> Observable(<span style="color:#2aa198">&#34;hello&#34;</span>)
+vis <span style="color:#719e07">=</span> Observable(<span style="color:#cb4b16">true</span>)
+knockout(template, [<span style="color:#719e07">:</span>message<span style="color:#719e07">=&gt;</span>msg, <span style="color:#719e07">:</span>visible<span style="color:#719e07">=&gt;</span>vis])</code></pre></div>
 <p>will display <code>&quot;hello&quot;</code> but will hide it if we set:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">vis[] <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span></code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">vis[] <span style="color:#719e07">=</span> <span style="color:#cb4b16">false</span></code></pre></div>
 <p>To change the text we should simply change the Julia <code>Observable</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">mgs[] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Good bye&#34;</span></code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">mgs[] <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;Good bye&#34;</span></code></pre></div>
 <p>InteractBase.jl now uses Knockout.jl to sync the value of its widgets on-screen with the corresponding Julia values.</p>
 
 <h2 id="widget-recipes">Widget &quot;recipes&quot;</h2>
 
 <p>Concerning the second point, <a href="https://github.com/piever/Widgets.jl">Widgets.jl</a> offers the <code>@widget</code> macro to create custom widgets. The macro needs a function call:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#a6e22e">@widget</span> wdg <span style="color:#66d9ef">function</span> mywidget(df<span style="color:#f92672">::</span>DataFrame)
-  <span style="color:#f92672">:</span>select <span style="color:#f92672">=</span> dropdown(names(df))
-  <span style="color:#f92672">:</span>btn <span style="color:#f92672">=</span> button(<span style="color:#e6db74">&#34;Plot histogram&#34;</span>)
-  <span style="color:#a6e22e">@output!</span> wdg (<span style="color:#f92672">$</span>(<span style="color:#f92672">:</span>btn); histogram(df[<span style="color:#f92672">:</span>select[]]))
-  <span style="color:#a6e22e">@layout!</span> wdg vbox(hbox(<span style="color:#f92672">:</span>select, <span style="color:#f92672">:</span>btn), _<span style="color:#f92672">.</span>output)
-<span style="color:#66d9ef">end</span></code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#268bd2">@widget</span> wdg <span style="color:#719e07">function</span> mywidget(df<span style="color:#719e07">::</span>DataFrame)
+  <span style="color:#719e07">:</span>select <span style="color:#719e07">=</span> dropdown(names(df))
+  <span style="color:#719e07">:</span>btn <span style="color:#719e07">=</span> button(<span style="color:#2aa198">&#34;Plot histogram&#34;</span>)
+  <span style="color:#268bd2">@output!</span> wdg (<span style="color:#719e07">$</span>(<span style="color:#719e07">:</span>btn); histogram(df[<span style="color:#719e07">:</span>select[]]))
+  <span style="color:#268bd2">@layout!</span> wdg vbox(hbox(<span style="color:#719e07">:</span>select, <span style="color:#719e07">:</span>btn), _<span style="color:#719e07">.</span>output)
+<span style="color:#719e07">end</span></code></pre></div>
 <p>where symbols correspond to &quot;children&quot; that will form the new UI, with a structure specified by <code>_.layout</code>. <code>_.output</code> will denote the output of the UI. Symbols refer to other widgets, you can either use <code>:select[]</code> to mean &quot;put here the value of <code>:select</code>&quot;&quot;, or <code>$(:select)</code> which means &quot;put here the value of <code>:select</code> and update whenever <code>:select</code> changes&quot;. In this case for example, <code>_.output</code> will update when pressing <code>:btn</code> but not when changing <code>:select</code>.</p>
 
 <p>Is it possible to have separate <code>_.output</code> and <code>_.display</code>, where <code>_.output</code> is what you want the UI to return and <code>_.display</code> is how you want to show it. For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#a6e22e">@widget</span> wdg <span style="color:#66d9ef">function</span> mywidget(df<span style="color:#f92672">::</span>DataFrame)
-  <span style="color:#f92672">:</span>select <span style="color:#f92672">=</span> dropdown(names(df))
-  <span style="color:#f92672">:</span>btn <span style="color:#f92672">=</span> button(<span style="color:#e6db74">&#34;Plot histogram&#34;</span>)
-  <span style="color:#a6e22e">@output!</span> wdg (<span style="color:#f92672">$</span>(<span style="color:#f92672">:</span>btn); df[<span style="color:#f92672">:</span>select[]]) <span style="color:#75715e"># return the column</span>
-  <span style="color:#a6e22e">@display!</span> wdg histogram(<span style="color:#f92672">$</span>(_<span style="color:#f92672">.</span>output)) <span style="color:#75715e"># plot histogram</span>
-  <span style="color:#a6e22e">@layout!</span> wdg vbox(hbox(<span style="color:#f92672">:</span>select, <span style="color:#f92672">:</span>btn), _<span style="color:#f92672">.</span>display)
-<span style="color:#66d9ef">end</span></code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#268bd2">@widget</span> wdg <span style="color:#719e07">function</span> mywidget(df<span style="color:#719e07">::</span>DataFrame)
+  <span style="color:#719e07">:</span>select <span style="color:#719e07">=</span> dropdown(names(df))
+  <span style="color:#719e07">:</span>btn <span style="color:#719e07">=</span> button(<span style="color:#2aa198">&#34;Plot histogram&#34;</span>)
+  <span style="color:#268bd2">@output!</span> wdg (<span style="color:#719e07">$</span>(<span style="color:#719e07">:</span>btn); df[<span style="color:#719e07">:</span>select[]]) <span style="color:#586e75"># return the column</span>
+  <span style="color:#268bd2">@display!</span> wdg histogram(<span style="color:#719e07">$</span>(_<span style="color:#719e07">.</span>output)) <span style="color:#586e75"># plot histogram</span>
+  <span style="color:#268bd2">@layout!</span> wdg vbox(hbox(<span style="color:#719e07">:</span>select, <span style="color:#719e07">:</span>btn), _<span style="color:#719e07">.</span>display)
+<span style="color:#719e07">end</span></code></pre></div>
 <p>The UI can then be launched with any <code>DataFrame</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#66d9ef">using</span> Plots, DataFrames
-df <span style="color:#f92672">=</span> DataFrame(x <span style="color:#f92672">=</span> rand(<span style="color:#ae81ff">100</span>), y <span style="color:#f92672">=</span> randn(<span style="color:#ae81ff">100</span>), z <span style="color:#f92672">=</span> rand([<span style="color:#e6db74">&#34;Male&#34;</span>, <span style="color:#e6db74">&#34;Female&#34;</span>], <span style="color:#ae81ff">100</span>))
-ui <span style="color:#f92672">=</span> mywidget(df)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia"><span style="color:#719e07">using</span> Plots, DataFrames
+df <span style="color:#719e07">=</span> DataFrame(x <span style="color:#719e07">=</span> rand(<span style="color:#2aa198">100</span>), y <span style="color:#719e07">=</span> randn(<span style="color:#2aa198">100</span>), z <span style="color:#719e07">=</span> rand([<span style="color:#2aa198">&#34;Male&#34;</span>, <span style="color:#2aa198">&#34;Female&#34;</span>], <span style="color:#2aa198">100</span>))
+ui <span style="color:#719e07">=</span> mywidget(df)</code></pre></div>
 <p>The output of <code>ui</code> has been defined to be the select column and you can access that observable with <code>observe(ui)</code>.</p>
 
       </section>
@@ -351,7 +333,7 @@ ui <span style="color:#f92672">=</span> mywidget(df)</code></pre></div>
 
     <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
-    &copy; 2018 Thoughts and things
+    &copy; 2020 Thoughts and things
   </a>
   
 

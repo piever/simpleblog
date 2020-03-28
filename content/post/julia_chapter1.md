@@ -82,7 +82,6 @@ julia> "Hello, " * "World!";
 ```
 
  <div class="boxBorder">
-
 **Important remark**
 
 Some functions are a bit special, in that they can be written *between* their arguments (but the normal function form is also possible). For example we could have said:

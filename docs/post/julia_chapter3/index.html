@@ -9,7 +9,7 @@
     <meta name="MobileOptimized" content="320">
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -28,35 +28,17 @@
 <meta property="og:description" content="Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1&#43;1 at the console, we looked at the result, which was 2, we typed 2&#43;1, we got 3, we typed 3&#43;2 and so on and so forth. In this and the following post, we&#39;ll discover a less excruciatingly boring way of doing the same computation. In the process, we&#39;ll learn two key building blocks of programming: assigning values to variables and looping." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://piever.github.io/simpleblog/post/julia_chapter3/" />
-
-
-
-<meta property="article:published_time" content="2017-11-16T00:18:23&#43;00:00"/>
-
-<meta property="article:modified_time" content="2017-11-16T00:18:23&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-11-16T00:18:23+00:00" />
+<meta property="article:modified_time" content="2017-11-16T00:18:23+00:00" />
 <meta itemprop="name" content="Chapter III: Variable assignment">
 <meta itemprop="description" content="Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1&#43;1 at the console, we looked at the result, which was 2, we typed 2&#43;1, we got 3, we typed 3&#43;2 and so on and so forth. In this and the following post, we&#39;ll discover a less excruciatingly boring way of doing the same computation. In the process, we&#39;ll learn two key building blocks of programming: assigning values to variables and looping.">
-
-
 <meta itemprop="datePublished" content="2017-11-16T00:18:23&#43;00:00" />
 <meta itemprop="dateModified" content="2017-11-16T00:18:23&#43;00:00" />
 <meta itemprop="wordCount" content="485">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chapter III: Variable assignment"/>
 <meta name="twitter:description" content="Giving names to things In the previous blog post, we have found a somewhat tedious way to compute the Fibonacci sequence. We started by typing 1&#43;1 at the console, we looked at the result, which was 2, we typed 2&#43;1, we got 3, we typed 3&#43;2 and so on and so forth. In this and the following post, we&#39;ll discover a less excruciatingly boring way of doing the same computation. In the process, we&#39;ll learn two key building blocks of programming: assigning values to variables and looping."/>
 
@@ -69,7 +51,7 @@
   
 
   <header>
-    <div class="bg-black">
+    <div class="bg-mid-gray">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://piever.github.io/simpleblog/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -148,56 +130,55 @@
 <li>Choose a value to assign (for example <code>1</code>)</li>
 <li>Execute the following code:</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span></code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> fib <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span></code></pre></div>
 <p>and you're all set! Now we can inquire Julia about the value of <code>fib</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib
-<span style="color:#ae81ff">1</span></code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> fib
+<span style="color:#2aa198">1</span></code></pre></div>
 <p>Once you've assigned a variable, you can reassing it to something else, for example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span></code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> fib <span style="color:#719e07">=</span> <span style="color:#2aa198">2</span></code></pre></div>
 <p>And now:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib
-<span style="color:#ae81ff">2</span></code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> fib
+<span style="color:#2aa198">2</span></code></pre></div>
 <p>Also, you can assign several variables simultaneously, with the following syntax:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span></code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> fib, next_fib <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span></code></pre></div>
 <p>And now <code>fib</code> is <code>1</code> and <code>next_fib</code> is <code>2</code>.</p>
 
 <h2 id="back-to-fibonacci">Back to Fibonacci</h2>
 
 <p><code>fib</code> and <code>next_fib</code> will be (as the names suggest) two consecutive Fibonacci numbers. How can we go from one pair of consecutive Fibonacci numbers to the next? For example, starting with <code>(1, 2)</code>, we want to move to <code>(2, 3)</code>, then <code>(3, 5)</code>, <code>(5, 8)</code> and so on. It's actually quite simple, <code>fib</code> has to be transformed into <code>next_fib</code> and <code>next_fib</code> has to be transformed into <code>fib+next_fib</code> or, in Julia code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> fib, next_fib <span style="color:#719e07">=</span> next_fib, fib<span style="color:#719e07">+</span>next_fib</code></pre></div>
 <p>We have a new way of computing the Fibonacci sequence:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>
-(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>)
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> fib, next_fib <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>
+(<span style="color:#2aa198">1</span>, <span style="color:#2aa198">2</span>)
 
-julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
-(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>)
+julia<span style="color:#719e07">&gt;</span> fib, next_fib <span style="color:#719e07">=</span> next_fib, fib<span style="color:#719e07">+</span>next_fib
+(<span style="color:#2aa198">2</span>, <span style="color:#2aa198">3</span>)
 
-julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
-(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>)
+julia<span style="color:#719e07">&gt;</span> fib, next_fib <span style="color:#719e07">=</span> next_fib, fib<span style="color:#719e07">+</span>next_fib
+(<span style="color:#2aa198">3</span>, <span style="color:#2aa198">5</span>)
 
-julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
-(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">8</span>)
+julia<span style="color:#719e07">&gt;</span> fib, next_fib <span style="color:#719e07">=</span> next_fib, fib<span style="color:#719e07">+</span>next_fib
+(<span style="color:#2aa198">5</span>, <span style="color:#2aa198">8</span>)
 
-julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
-(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">13</span>)
+julia<span style="color:#719e07">&gt;</span> fib, next_fib <span style="color:#719e07">=</span> next_fib, fib<span style="color:#719e07">+</span>next_fib
+(<span style="color:#2aa198">8</span>, <span style="color:#2aa198">13</span>)
 
-julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
-(<span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">21</span>)
+julia<span style="color:#719e07">&gt;</span> fib, next_fib <span style="color:#719e07">=</span> next_fib, fib<span style="color:#719e07">+</span>next_fib
+(<span style="color:#2aa198">13</span>, <span style="color:#2aa198">21</span>)
 
-julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
-(<span style="color:#ae81ff">21</span>, <span style="color:#ae81ff">34</span>)
+julia<span style="color:#719e07">&gt;</span> fib, next_fib <span style="color:#719e07">=</span> next_fib, fib<span style="color:#719e07">+</span>next_fib
+(<span style="color:#2aa198">21</span>, <span style="color:#2aa198">34</span>)
 
-julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
-(<span style="color:#ae81ff">34</span>, <span style="color:#ae81ff">55</span>)
+julia<span style="color:#719e07">&gt;</span> fib, next_fib <span style="color:#719e07">=</span> next_fib, fib<span style="color:#719e07">+</span>next_fib
+(<span style="color:#2aa198">34</span>, <span style="color:#2aa198">55</span>)
 
-julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
-(<span style="color:#ae81ff">55</span>, <span style="color:#ae81ff">89</span>)
+julia<span style="color:#719e07">&gt;</span> fib, next_fib <span style="color:#719e07">=</span> next_fib, fib<span style="color:#719e07">+</span>next_fib
+(<span style="color:#2aa198">55</span>, <span style="color:#2aa198">89</span>)
 
-julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f92672">=</span> next_fib, fib<span style="color:#f92672">+</span>next_fib
-(<span style="color:#ae81ff">89</span>, <span style="color:#ae81ff">144</span>)</code></pre></div>
-<p><div class="boxBorder"></p>
-
-<p><strong>Important remark</strong></p>
+julia<span style="color:#719e07">&gt;</span> fib, next_fib <span style="color:#719e07">=</span> next_fib, fib<span style="color:#719e07">+</span>next_fib
+(<span style="color:#2aa198">89</span>, <span style="color:#2aa198">144</span>)</code></pre></div>
+<p><div class="boxBorder">
+<strong>Important remark</strong></p>
 
 <p>This way is actually much faster to type: if you want to repeat a previous command at the console, simply press <code>↑</code> (the UP arrow) and the previous command will reappear, ready for execution. You can press <code>↑</code> as many times as you want to recover an old command from your console history.
 </div></p>
@@ -367,7 +348,7 @@ julia<span style="color:#f92672">&gt;</span> fib, next_fib <span style="color:#f
 
     <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
-    &copy; 2018 Thoughts and things
+    &copy; 2020 Thoughts and things
   </a>
   
 

@@ -171,9 +171,7 @@ julia> v
 ```
 
 <div class="boxBorder">
-
 The function `push!` ends with a bang (exclamation mark). In Julia that mean that it modifies the argument: in this case it makes its first argument longer, by adding the second argument at the end.
-
 </div>
 
 ## Exercises

@@ -57,7 +57,6 @@ julia> counter
 
 which confirms that `next_fib == 10946` is the twentieth Fibonacci.
 <div class="boxBorder">
-
 **Important remark**
 
 In Julia there is specialized syntax to add (or subtract, multiply divide) some value to a variable. Instead of writing:

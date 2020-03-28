@@ -10,8 +10,8 @@ Lately I have finally got around to start implementing an old project to simplif
 
 First of all we need to install everything we need:
 
-```
-(v1.0) pkg> add AbstractPlotting#master Makie#master https://github.com/JuliaPlots/StatsMakie.jl.git
+```julia
+(v1.0) pkg> add Makie StatsMakie
 ```
 
 and then:

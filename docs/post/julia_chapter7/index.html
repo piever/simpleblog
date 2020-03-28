@@ -9,7 +9,7 @@
     <meta name="MobileOptimized" content="320">
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -28,35 +28,17 @@
 <meta property="og:description" content="Visualizing our results (and a trick with a dot) Plotting is not implemented in Base Julia and to visualize our results we will need to install an external package. There are many options but, as this is an introductory post, I&#39;ll focus on the simplest option: UnicodePlots. This package creates plots inside your terminal using symbols from Unicode. It is useful for quick visualizations and has a nice vintage look." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://piever.github.io/simpleblog/post/julia_chapter7/" />
-
-
-
-<meta property="article:published_time" content="2018-01-19T00:18:23&#43;00:00"/>
-
-<meta property="article:modified_time" content="2018-01-19T00:18:23&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2018-01-19T00:18:23+00:00" />
+<meta property="article:modified_time" content="2018-01-19T00:18:23+00:00" />
 <meta itemprop="name" content="Chapter VII: Plots and dots">
 <meta itemprop="description" content="Visualizing our results (and a trick with a dot) Plotting is not implemented in Base Julia and to visualize our results we will need to install an external package. There are many options but, as this is an introductory post, I&#39;ll focus on the simplest option: UnicodePlots. This package creates plots inside your terminal using symbols from Unicode. It is useful for quick visualizations and has a nice vintage look.">
-
-
 <meta itemprop="datePublished" content="2018-01-19T00:18:23&#43;00:00" />
 <meta itemprop="dateModified" content="2018-01-19T00:18:23&#43;00:00" />
 <meta itemprop="wordCount" content="821">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chapter VII: Plots and dots"/>
 <meta name="twitter:description" content="Visualizing our results (and a trick with a dot) Plotting is not implemented in Base Julia and to visualize our results we will need to install an external package. There are many options but, as this is an introductory post, I&#39;ll focus on the simplest option: UnicodePlots. This package creates plots inside your terminal using symbols from Unicode. It is useful for quick visualizations and has a nice vintage look."/>
 
@@ -69,7 +51,7 @@
   
 
   <header>
-    <div class="bg-black">
+    <div class="bg-mid-gray">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://piever.github.io/simpleblog/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -140,25 +122,25 @@
 <p>Plotting is not implemented in Base Julia and to visualize our results we will need to install an external package. There are many options but, as this is an introductory post, I'll focus on the simplest option: <code>UnicodePlots</code>. This package creates plots inside your terminal using symbols from Unicode. It is useful for quick visualizations and has a nice vintage look.</p>
 
 <p>To install it (it would be the same for most packages) use <code>Pkg.add</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> Pkg<span style="color:#f92672">.</span>add(<span style="color:#e6db74">&#34;UnicodePlots&#34;</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> Pkg<span style="color:#719e07">.</span>add(<span style="color:#2aa198">&#34;UnicodePlots&#34;</span>)</code></pre></div>
 <p>If it is the first time you install a package, this may take a while as Julia as some set up to do. In the meantime you can visit the <a href="https://github.com/Evizero/UnicodePlots.jl">UnicodePlots</a> page and read the documentation (the README file).</p>
 
 <p>Once the installation is complete, to load the package (and make the function it defines available) run</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">using</span> UnicodePlots</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> <span style="color:#719e07">using</span> UnicodePlots</code></pre></div>
 <p>Now we are ready to visualize our data. Let's remember how we produced an <code>Array</code> with the first <code>20</code> Fibonacci numbers:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> v <span style="color:#f92672">=</span> fill(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">20</span>);
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> v <span style="color:#719e07">=</span> fill(<span style="color:#2aa198">0</span>, <span style="color:#2aa198">20</span>);
 
-julia<span style="color:#f92672">&gt;</span> v[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+julia<span style="color:#719e07">&gt;</span> v[<span style="color:#2aa198">1</span>] <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>;
 
-julia<span style="color:#f92672">&gt;</span> v[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+julia<span style="color:#719e07">&gt;</span> v[<span style="color:#2aa198">2</span>] <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>;
 
-julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">:</span><span style="color:#ae81ff">20</span>
-       v[i] <span style="color:#f92672">=</span> v[i<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> v[i<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>]
-       <span style="color:#66d9ef">end</span></code></pre></div>
+julia<span style="color:#719e07">&gt;</span> <span style="color:#719e07">for</span> i <span style="color:#719e07">in</span> <span style="color:#2aa198">3</span><span style="color:#719e07">:</span><span style="color:#2aa198">20</span>
+       v[i] <span style="color:#719e07">=</span> v[i<span style="color:#719e07">-</span><span style="color:#2aa198">1</span>] <span style="color:#719e07">+</span> v[i<span style="color:#719e07">-</span><span style="color:#2aa198">2</span>]
+       <span style="color:#719e07">end</span></code></pre></div>
 <p>We can use <code>lineplot</code> to visualize our vector:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> lineplot(v)
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> lineplot(v)
         ┌──────────────────────────────────────────────────┐
-   <span style="color:#ae81ff">7000</span> │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠│
+   <span style="color:#2aa198">7000</span> │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠│
         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸│
         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇│
         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠁│
@@ -172,13 +154,13 @@ julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">for</sp
         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠇⠀⠀⠀⠀⠀│
         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡔⠁⠀⠀⠀⠀⠀⠀│
         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠔⠊⠀⠀⠀⠀⠀⠀⠀⠀│
-      <span style="color:#ae81ff">0</span> │⠀⠀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡠⠤⠤⠔⠒⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+      <span style="color:#2aa198">0</span> │⠀⠀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡠⠤⠤⠔⠒⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
         └──────────────────────────────────────────────────┘
-        <span style="color:#ae81ff">0</span>                                                <span style="color:#ae81ff">20</span></code></pre></div>
+        <span style="color:#2aa198">0</span>                                                <span style="color:#2aa198">20</span></code></pre></div>
 <p>and there it is! Our vintage plot of the Fibonacci series.</p>
 
 <p>Note that in the REPL when we run a simple <code>lineplot</code> command alone, it will show automatically (just like every value that the REPL outputs is shown without having to say <code>print</code>). If your <code>lineplot</code> is in the middle on some code, you need to use <code>display</code> (the plot equivalent of <code>print</code>) to see it:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> display(lineplot(v))</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> display(lineplot(v))</code></pre></div>
 <h2 id="testing-an-earlier-claim">Testing an earlier claim</h2>
 
 <p>Early on I had mentioned that the Fibonacci sequence grows exponentially (as can be seen from the above plot) and had given an explicit approximate formula:</p>
@@ -190,115 +172,115 @@ julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">for</sp
 <h2 id="computing-a-function-on-a-range-of-values">Computing a function on a range of values</h2>
 
 <p>First let's try to compute our function <span  class="math">\( \frac{\varphi ^ {n}}{\sqrt{5}} \)</span> for all values from <code>1</code> to <code>20</code>. We could use the same strategy as above:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> w <span style="color:#f92672">=</span> fill(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">20</span>);
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> w <span style="color:#719e07">=</span> fill(<span style="color:#2aa198">0</span>, <span style="color:#2aa198">20</span>);
 
-julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">20</span>
-       w[i] <span style="color:#f92672">=</span> φ<span style="color:#f92672">^</span>i<span style="color:#f92672">/</span>sqrt(<span style="color:#ae81ff">5</span>)
-       <span style="color:#66d9ef">end</span>
-ERROR<span style="color:#f92672">:</span> <span style="color:#66d9ef">InexactError</span>()
-Stacktrace<span style="color:#f92672">:</span>
- [<span style="color:#ae81ff">1</span>] convert(<span style="color:#f92672">::</span><span style="color:#66d9ef">Type</span>{<span style="color:#66d9ef">Int64</span>}, <span style="color:#f92672">::</span><span style="color:#66d9ef">Float64</span>) at <span style="color:#f92672">./</span>float<span style="color:#f92672">.</span>jl<span style="color:#f92672">:</span><span style="color:#ae81ff">679</span>
- [<span style="color:#ae81ff">2</span>] setindex!(<span style="color:#f92672">::</span><span style="color:#66d9ef">Array</span>{<span style="color:#66d9ef">Int64</span>,<span style="color:#ae81ff">1</span>}, <span style="color:#f92672">::</span><span style="color:#66d9ef">Float64</span>, <span style="color:#f92672">::</span><span style="color:#66d9ef">Int64</span>) at <span style="color:#f92672">./</span>array<span style="color:#f92672">.</span>jl<span style="color:#f92672">:</span><span style="color:#ae81ff">583</span>
- [<span style="color:#ae81ff">3</span>] <span style="color:#66d9ef">macro</span> expansion at <span style="color:#f92672">./</span>REPL[<span style="color:#ae81ff">54</span>]<span style="color:#f92672">:</span><span style="color:#ae81ff">2</span> [inlined]
- [<span style="color:#ae81ff">4</span>] anonymous at <span style="color:#f92672">./&lt;</span>missing<span style="color:#f92672">&gt;:?</span></code></pre></div>
+julia<span style="color:#719e07">&gt;</span> <span style="color:#719e07">for</span> i <span style="color:#719e07">in</span> <span style="color:#2aa198">1</span><span style="color:#719e07">:</span><span style="color:#2aa198">20</span>
+       w[i] <span style="color:#719e07">=</span> <span style="color:#b58900">φ</span><span style="color:#719e07">^</span>i<span style="color:#719e07">/</span>sqrt(<span style="color:#2aa198">5</span>)
+       <span style="color:#719e07">end</span>
+ERROR<span style="color:#719e07">:</span> <span style="color:#dc322f">InexactError</span>()
+Stacktrace<span style="color:#719e07">:</span>
+ [<span style="color:#2aa198">1</span>] convert(<span style="color:#719e07">::</span><span style="color:#dc322f">Type</span>{<span style="color:#dc322f">Int64</span>}, <span style="color:#719e07">::</span><span style="color:#dc322f">Float64</span>) at <span style="color:#719e07">./</span>float<span style="color:#719e07">.</span>jl<span style="color:#719e07">:</span><span style="color:#2aa198">679</span>
+ [<span style="color:#2aa198">2</span>] setindex!(<span style="color:#719e07">::</span><span style="color:#dc322f">Array</span>{<span style="color:#dc322f">Int64</span>,<span style="color:#2aa198">1</span>}, <span style="color:#719e07">::</span><span style="color:#dc322f">Float64</span>, <span style="color:#719e07">::</span><span style="color:#dc322f">Int64</span>) at <span style="color:#719e07">./</span>array<span style="color:#719e07">.</span>jl<span style="color:#719e07">:</span><span style="color:#2aa198">583</span>
+ [<span style="color:#2aa198">3</span>] <span style="color:#719e07">macro</span> expansion at <span style="color:#719e07">./</span>REPL[<span style="color:#2aa198">54</span>]<span style="color:#719e07">:</span><span style="color:#2aa198">2</span> [inlined]
+ [<span style="color:#2aa198">4</span>] anonymous at <span style="color:#719e07">./&lt;</span>missing<span style="color:#719e07">&gt;:?</span></code></pre></div>
 <p>Ouch! We created a vector of integers and then tried to put in it a floating point number! Julia doesn't like being lied to and gives an error. We should have started with a vector of floating points, for example filling it with <code>0.0</code>, which is the floating point version of zero:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> w <span style="color:#f92672">=</span> fill(<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">20</span>);
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> w <span style="color:#719e07">=</span> fill(<span style="color:#2aa198">0.0</span>, <span style="color:#2aa198">20</span>);
 
-julia<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">20</span>
-       w[i] <span style="color:#f92672">=</span> φ<span style="color:#f92672">^</span>i<span style="color:#f92672">/</span>sqrt(<span style="color:#ae81ff">5</span>)
-       <span style="color:#66d9ef">end</span>
+julia<span style="color:#719e07">&gt;</span> <span style="color:#719e07">for</span> i <span style="color:#719e07">in</span> <span style="color:#2aa198">1</span><span style="color:#719e07">:</span><span style="color:#2aa198">20</span>
+       w[i] <span style="color:#719e07">=</span> <span style="color:#b58900">φ</span><span style="color:#719e07">^</span>i<span style="color:#719e07">/</span>sqrt(<span style="color:#2aa198">5</span>)
+       <span style="color:#719e07">end</span>
 
-julia<span style="color:#f92672">&gt;</span> w
-<span style="color:#ae81ff">20</span><span style="color:#f92672">-</span>element <span style="color:#66d9ef">Array</span>{<span style="color:#66d9ef">Float64</span>,<span style="color:#ae81ff">1</span>}<span style="color:#f92672">:</span>
-    <span style="color:#ae81ff">0.723607</span>
-    <span style="color:#ae81ff">1.17082</span>
-    <span style="color:#ae81ff">1.89443</span>
-    <span style="color:#ae81ff">3.06525</span>
-    <span style="color:#ae81ff">4.95967</span>
-    <span style="color:#ae81ff">8.02492</span>
-   <span style="color:#ae81ff">12.9846</span>  
-   <span style="color:#ae81ff">21.0095</span>  
-   <span style="color:#ae81ff">33.9941</span>  
+julia<span style="color:#719e07">&gt;</span> w
+<span style="color:#2aa198">20</span><span style="color:#719e07">-</span>element <span style="color:#dc322f">Array</span>{<span style="color:#dc322f">Float64</span>,<span style="color:#2aa198">1</span>}<span style="color:#719e07">:</span>
+    <span style="color:#2aa198">0.723607</span>
+    <span style="color:#2aa198">1.17082</span>
+    <span style="color:#2aa198">1.89443</span>
+    <span style="color:#2aa198">3.06525</span>
+    <span style="color:#2aa198">4.95967</span>
+    <span style="color:#2aa198">8.02492</span>
+   <span style="color:#2aa198">12.9846</span>  
+   <span style="color:#2aa198">21.0095</span>  
+   <span style="color:#2aa198">33.9941</span>  
     ⋮       
-  <span style="color:#ae81ff">144.001</span>   
-  <span style="color:#ae81ff">232.999</span>   
-  <span style="color:#ae81ff">377.001</span>   
-  <span style="color:#ae81ff">610.0</span>     
-  <span style="color:#ae81ff">987.0</span>     
- <span style="color:#ae81ff">1597.0</span>     
- <span style="color:#ae81ff">2584.0</span>     
- <span style="color:#ae81ff">4181.0</span>     
- <span style="color:#ae81ff">6765.0</span>     </code></pre></div>
+  <span style="color:#2aa198">144.001</span>   
+  <span style="color:#2aa198">232.999</span>   
+  <span style="color:#2aa198">377.001</span>   
+  <span style="color:#2aa198">610.0</span>     
+  <span style="color:#2aa198">987.0</span>     
+ <span style="color:#2aa198">1597.0</span>     
+ <span style="color:#2aa198">2584.0</span>     
+ <span style="color:#2aa198">4181.0</span>     
+ <span style="color:#2aa198">6765.0</span>     </code></pre></div>
 <p>Much better!</p>
 
 <h3 id="a-smarter-way-array-comprehension">A smarter way: array comprehension</h3>
 
 <p>This <code>for</code> loop was, however, unnecessarily complicated for what we wanted to do. Julia has a much more concise way of saying the same thing:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> [φ<span style="color:#f92672">^</span>i<span style="color:#f92672">/</span>sqrt(<span style="color:#ae81ff">5</span>) <span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">20</span>]
-<span style="color:#ae81ff">20</span><span style="color:#f92672">-</span>element <span style="color:#66d9ef">Array</span>{<span style="color:#66d9ef">Float64</span>,<span style="color:#ae81ff">1</span>}<span style="color:#f92672">:</span>
-    <span style="color:#ae81ff">0.723607</span>
-    <span style="color:#ae81ff">1.17082</span>
-    <span style="color:#ae81ff">1.89443</span>
-    <span style="color:#ae81ff">3.06525</span>
-    <span style="color:#ae81ff">4.95967</span>
-    <span style="color:#ae81ff">8.02492</span>
-   <span style="color:#ae81ff">12.9846</span>  
-   <span style="color:#ae81ff">21.0095</span>  
-   <span style="color:#ae81ff">33.9941</span>  
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> [<span style="color:#b58900">φ</span><span style="color:#719e07">^</span>i<span style="color:#719e07">/</span>sqrt(<span style="color:#2aa198">5</span>) <span style="color:#719e07">for</span> i <span style="color:#719e07">in</span> <span style="color:#2aa198">1</span><span style="color:#719e07">:</span><span style="color:#2aa198">20</span>]
+<span style="color:#2aa198">20</span><span style="color:#719e07">-</span>element <span style="color:#dc322f">Array</span>{<span style="color:#dc322f">Float64</span>,<span style="color:#2aa198">1</span>}<span style="color:#719e07">:</span>
+    <span style="color:#2aa198">0.723607</span>
+    <span style="color:#2aa198">1.17082</span>
+    <span style="color:#2aa198">1.89443</span>
+    <span style="color:#2aa198">3.06525</span>
+    <span style="color:#2aa198">4.95967</span>
+    <span style="color:#2aa198">8.02492</span>
+   <span style="color:#2aa198">12.9846</span>  
+   <span style="color:#2aa198">21.0095</span>  
+   <span style="color:#2aa198">33.9941</span>  
     ⋮       
-  <span style="color:#ae81ff">144.001</span>   
-  <span style="color:#ae81ff">232.999</span>   
-  <span style="color:#ae81ff">377.001</span>   
-  <span style="color:#ae81ff">610.0</span>     
-  <span style="color:#ae81ff">987.0</span>     
- <span style="color:#ae81ff">1597.0</span>     
- <span style="color:#ae81ff">2584.0</span>     
- <span style="color:#ae81ff">4181.0</span>     
- <span style="color:#ae81ff">6765.0</span></code></pre></div>
+  <span style="color:#2aa198">144.001</span>   
+  <span style="color:#2aa198">232.999</span>   
+  <span style="color:#2aa198">377.001</span>   
+  <span style="color:#2aa198">610.0</span>     
+  <span style="color:#2aa198">987.0</span>     
+ <span style="color:#2aa198">1597.0</span>     
+ <span style="color:#2aa198">2584.0</span>     
+ <span style="color:#2aa198">4181.0</span>     
+ <span style="color:#2aa198">6765.0</span></code></pre></div>
 <p>where the first expression is what will be computed where the variable <code>i</code> iterates from <code>1</code> to <code>20</code>.</p>
 
 <h3 id="an-even-smarter-way-read-at-your-own-risk-things-get-a-bit-funky">An even smarter way (read at your own risk: things get a bit funky)</h3>
 
 <p>And it doesn't end here! Julia has a very smart way of broadcasting operations using Just a single dot. For example, let's say we want to exponentiate all integers from <code>1</code> to <code>5</code>. Then simply:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> exp<span style="color:#f92672">.</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">5</span>)
-<span style="color:#ae81ff">5</span><span style="color:#f92672">-</span>element <span style="color:#66d9ef">Array</span>{<span style="color:#66d9ef">Float64</span>,<span style="color:#ae81ff">1</span>}<span style="color:#f92672">:</span>
-   <span style="color:#ae81ff">2.71828</span>
-   <span style="color:#ae81ff">7.38906</span>
-  <span style="color:#ae81ff">20.0855</span>
-  <span style="color:#ae81ff">54.5982</span>
- <span style="color:#ae81ff">148.413</span>  </code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> exp<span style="color:#719e07">.</span>(<span style="color:#2aa198">1</span><span style="color:#719e07">:</span><span style="color:#2aa198">5</span>)
+<span style="color:#2aa198">5</span><span style="color:#719e07">-</span>element <span style="color:#dc322f">Array</span>{<span style="color:#dc322f">Float64</span>,<span style="color:#2aa198">1</span>}<span style="color:#719e07">:</span>
+   <span style="color:#2aa198">2.71828</span>
+   <span style="color:#2aa198">7.38906</span>
+  <span style="color:#2aa198">20.0855</span>
+  <span style="color:#2aa198">54.5982</span>
+ <span style="color:#2aa198">148.413</span>  </code></pre></div>
 <p>In our case is a bit more complicated: we need to add a dot for all operations that are to be applied element-wise, namely the exponentiation and the division.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> φ <span style="color:#f92672">.^</span> (<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">20</span>) <span style="color:#f92672">./</span> sqrt(<span style="color:#ae81ff">5</span>)
-<span style="color:#ae81ff">20</span><span style="color:#f92672">-</span>element <span style="color:#66d9ef">Array</span>{<span style="color:#66d9ef">Float64</span>,<span style="color:#ae81ff">1</span>}<span style="color:#f92672">:</span>
-    <span style="color:#ae81ff">0.723607</span>
-    <span style="color:#ae81ff">1.17082</span>
-    <span style="color:#ae81ff">1.89443</span>
-    <span style="color:#ae81ff">3.06525</span>
-    <span style="color:#ae81ff">4.95967</span>
-    <span style="color:#ae81ff">8.02492</span>
-   <span style="color:#ae81ff">12.9846</span>  
-   <span style="color:#ae81ff">21.0095</span>  
-   <span style="color:#ae81ff">33.9941</span>  
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> <span style="color:#b58900">φ</span> <span style="color:#719e07">.^</span> (<span style="color:#2aa198">1</span><span style="color:#719e07">:</span><span style="color:#2aa198">20</span>) <span style="color:#719e07">./</span> sqrt(<span style="color:#2aa198">5</span>)
+<span style="color:#2aa198">20</span><span style="color:#719e07">-</span>element <span style="color:#dc322f">Array</span>{<span style="color:#dc322f">Float64</span>,<span style="color:#2aa198">1</span>}<span style="color:#719e07">:</span>
+    <span style="color:#2aa198">0.723607</span>
+    <span style="color:#2aa198">1.17082</span>
+    <span style="color:#2aa198">1.89443</span>
+    <span style="color:#2aa198">3.06525</span>
+    <span style="color:#2aa198">4.95967</span>
+    <span style="color:#2aa198">8.02492</span>
+   <span style="color:#2aa198">12.9846</span>  
+   <span style="color:#2aa198">21.0095</span>  
+   <span style="color:#2aa198">33.9941</span>  
     ⋮       
-  <span style="color:#ae81ff">144.001</span>   
-  <span style="color:#ae81ff">232.999</span>   
-  <span style="color:#ae81ff">377.001</span>   
-  <span style="color:#ae81ff">610.0</span>     
-  <span style="color:#ae81ff">987.0</span>     
- <span style="color:#ae81ff">1597.0</span>     
- <span style="color:#ae81ff">2584.0</span>     
- <span style="color:#ae81ff">4181.0</span>     
- <span style="color:#ae81ff">6765.0</span></code></pre></div>
+  <span style="color:#2aa198">144.001</span>   
+  <span style="color:#2aa198">232.999</span>   
+  <span style="color:#2aa198">377.001</span>   
+  <span style="color:#2aa198">610.0</span>     
+  <span style="color:#2aa198">987.0</span>     
+ <span style="color:#2aa198">1597.0</span>     
+ <span style="color:#2aa198">2584.0</span>     
+ <span style="color:#2aa198">4181.0</span>     
+ <span style="color:#2aa198">6765.0</span></code></pre></div>
 <p>To add dots everywhere you can also use the magic <code>@.</code> syntax:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#960050;background-color:#1e0010">@</span><span style="color:#f92672">.</span> φ<span style="color:#f92672">^</span>(<span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">20</span>)<span style="color:#f92672">/</span>sqrt(<span style="color:#ae81ff">5</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> @<span style="color:#719e07">.</span> <span style="color:#b58900">φ</span><span style="color:#719e07">^</span>(<span style="color:#2aa198">1</span><span style="color:#719e07">:</span><span style="color:#2aa198">20</span>)<span style="color:#719e07">/</span>sqrt(<span style="color:#2aa198">5</span>)</code></pre></div>
 <p>If you are curious about what is going on, you can see the <a href="https://julialang.org/blog/2017/01/moredots">blog post</a> announcing this feature.</p>
 
 <h2 id="back-to-plotting">Back to plotting</h2>
 
 <p>Now that we've seen a few ways to compute <code>w</code>, our estimate based on the golden ratio, let's plot it:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> lineplot(w)
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> lineplot(w)
         ┌──────────────────────────────────────────────────┐
-   <span style="color:#ae81ff">7000</span> │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠│
+   <span style="color:#2aa198">7000</span> │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠│
         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸│
         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇│
         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠁│
@@ -312,9 +294,9 @@ julia<span style="color:#f92672">&gt;</span> w
         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠇⠀⠀⠀⠀⠀│
         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡔⠁⠀⠀⠀⠀⠀⠀│
         │⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠔⠊⠀⠀⠀⠀⠀⠀⠀⠀│
-      <span style="color:#ae81ff">0</span> │⠀⠀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡠⠤⠤⠔⠒⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
+      <span style="color:#2aa198">0</span> │⠀⠀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⡠⠤⠤⠔⠒⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀│
         └──────────────────────────────────────────────────┘
-        <span style="color:#ae81ff">0</span>                                                <span style="color:#ae81ff">20</span></code></pre></div>
+        <span style="color:#2aa198">0</span>                                                <span style="color:#2aa198">20</span></code></pre></div>
 <p>and indeed it is very similar to the fibonacci plot.</p>
 
 <h2 id="exercises">Exercises</h2>
@@ -482,7 +464,7 @@ julia<span style="color:#f92672">&gt;</span> w
 
     <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
-    &copy; 2018 Thoughts and things
+    &copy; 2020 Thoughts and things
   </a>
   
 

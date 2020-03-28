@@ -9,7 +9,7 @@
     <meta name="MobileOptimized" content="320">
 
     <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.68.3" />
     
     
       <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
@@ -29,36 +29,18 @@
 Integer and and non integer numbers Julia accepts both integer numbers and non integer numbers (with a decimal point). All basic (and often non basic) mathematical functions are implemented in Julia. Here we will play a bit with the four basic operations (&#43;, -, *, /), the exponentiation operator (^) and the comparison operators (&gt;, ==, &lt;)." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://piever.github.io/simpleblog/post/julia_chapter2/" />
-
-
-
-<meta property="article:published_time" content="2017-11-15T00:17:23&#43;00:00"/>
-
-<meta property="article:modified_time" content="2017-11-15T00:17:23&#43;00:00"/>
-
-
-
-
-
-
-
-
-
-
-
+<meta property="article:published_time" content="2017-11-15T00:17:23+00:00" />
+<meta property="article:modified_time" content="2017-11-15T00:17:23+00:00" />
 <meta itemprop="name" content="Chapter II: Numbers">
 <meta itemprop="description" content="Numbers and math In the previous post we mainly played with strings, but Julia is also very good at math. In this post we will do some math in Julia.
 Integer and and non integer numbers Julia accepts both integer numbers and non integer numbers (with a decimal point). All basic (and often non basic) mathematical functions are implemented in Julia. Here we will play a bit with the four basic operations (&#43;, -, *, /), the exponentiation operator (^) and the comparison operators (&gt;, ==, &lt;).">
-
-
 <meta itemprop="datePublished" content="2017-11-15T00:17:23&#43;00:00" />
 <meta itemprop="dateModified" content="2017-11-15T00:17:23&#43;00:00" />
 <meta itemprop="wordCount" content="571">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Chapter II: Numbers"/>
 <meta name="twitter:description" content="Numbers and math In the previous post we mainly played with strings, but Julia is also very good at math. In this post we will do some math in Julia.
 Integer and and non integer numbers Julia accepts both integer numbers and non integer numbers (with a decimal point). All basic (and often non basic) mathematical functions are implemented in Julia. Here we will play a bit with the four basic operations (&#43;, -, *, /), the exponentiation operator (^) and the comparison operators (&gt;, ==, &lt;)."/>
@@ -72,7 +54,7 @@ Integer and and non integer numbers Julia accepts both integer numbers and non i
   
 
   <header>
-    <div class="bg-black">
+    <div class="bg-mid-gray">
       <nav class="pv3 ph3 ph4-ns" role="navigation">
   <div class="flex-l justify-between items-center center">
     <a href="https://piever.github.io/simpleblog/" class="f3 fw2 hover-white no-underline white-90 dib">
@@ -153,25 +135,24 @@ Integer and and non integer numbers Julia accepts both integer numbers and non i
 <p><span  class="math">\[\varphi = \frac{1}{\varphi-1}\]</span></p>
 
 <p>The above is actually almost valid Julia code (in many cases writing Julia is not much different from writing mathematics). Unicode characters (such as <span  class="math">\(\varphi\)</span>) are valid in Julia, and in this case they represent a built-in constant:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> φ
-φ <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.6180339887498</span><span style="color:#f92672">...</span></code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> <span style="color:#b58900">φ</span>
+<span style="color:#b58900">φ</span> <span style="color:#719e07">=</span> <span style="color:#2aa198">1.6180339887498</span><span style="color:#719e07">...</span></code></pre></div>
 <p>To type <span  class="math">\(\varphi\)</span> simply start typing <code>\varphi</code> and then press <code>Tab</code>. The REPL will autocomplete it for you.</p>
 
-<p><div class="boxBorder"></p>
-
-<p><strong>Important remark</strong></p>
+<p><div class="boxBorder">
+<strong>Important remark</strong></p>
 
 <p>There is one crucial difference between writing Julia and writing mathematics. In mathematics <code>=</code> is used to test equality, whereas in Julia you should use <code>==</code>. The operator <code>=</code> also exists but has a completely different meaning that we will discover in the next blog post.
 </div></p>
 
 <p>We can now run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> φ <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(φ<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)</code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> <span style="color:#b58900">φ</span> <span style="color:#719e07">==</span> <span style="color:#2aa198">1</span><span style="color:#719e07">/</span>(<span style="color:#b58900">φ</span><span style="color:#719e07">-</span><span style="color:#2aa198">1</span>)</code></pre></div>
 <p>to see if the built-in Julia constant <code>φ</code> respects the property we mentioned above. Surprisingly enough, Julia says it's false! Let's look at how big is the difference:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> φ<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(φ<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
-<span style="color:#ae81ff">2.220446049250313e-16</span></code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> <span style="color:#b58900">φ</span><span style="color:#719e07">-</span><span style="color:#2aa198">1</span><span style="color:#719e07">/</span>(<span style="color:#b58900">φ</span><span style="color:#719e07">-</span><span style="color:#2aa198">1</span>)
+<span style="color:#2aa198">2.220446049250313e-16</span></code></pre></div>
 <p>Meaning they differ by more or less <span  class="math">\(2\cdot 10^{-16}\)</span> (so they differ by very very little). The reason is that when working with decimal point numbers, computers approximate the result, in this case a mathematical result comes out false. To remedy, we can ask whether they are approximately equal (use <code>\approx</code>):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> φ ≈ <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span>(φ<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
-<span style="color:#66d9ef">true</span></code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> <span style="color:#b58900">φ</span> ≈ <span style="color:#2aa198">1</span><span style="color:#719e07">/</span>(<span style="color:#b58900">φ</span><span style="color:#719e07">-</span><span style="color:#2aa198">1</span>)
+<span style="color:#cb4b16">true</span></code></pre></div>
 <h2 id="fibonacci-numbers">Fibonacci numbers</h2>
 
 <p>We want to prove that the twelfth Fibonacci number is very close to the twelfth power of <span  class="math">\(\varphi\)</span> divided by the square root of 5 or, in formulas:</p>
@@ -185,38 +166,38 @@ Integer and and non integer numbers Julia accepts both integer numbers and non i
 <p><span  class="math">\[F_n = F_{n-1}+F_{n-2}\]</span></p>
 
 <p>That is to say, to get the next Fibonacci number, you need to add together the previous two. Let's proceed till we get the twelfth:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Julia" data-lang="Julia">julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> <span style="color:#75715e">#gives the third Fibonacci</span>
-<span style="color:#ae81ff">2</span>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Julia" data-lang="Julia">julia<span style="color:#719e07">&gt;</span> <span style="color:#2aa198">1</span><span style="color:#719e07">+</span><span style="color:#2aa198">1</span> <span style="color:#586e75">#gives the third Fibonacci</span>
+<span style="color:#2aa198">2</span>
 
-julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> <span style="color:#75715e">#gives the fourth Fibonacci</span>
-<span style="color:#ae81ff">3</span>
+julia<span style="color:#719e07">&gt;</span> <span style="color:#2aa198">2</span><span style="color:#719e07">+</span><span style="color:#2aa198">1</span> <span style="color:#586e75">#gives the fourth Fibonacci</span>
+<span style="color:#2aa198">3</span>
 
-julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">3</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span> <span style="color:#75715e">#gives the fifth Fibonacci</span>
-<span style="color:#ae81ff">5</span>
+julia<span style="color:#719e07">&gt;</span> <span style="color:#2aa198">3</span><span style="color:#719e07">+</span><span style="color:#2aa198">2</span> <span style="color:#586e75">#gives the fifth Fibonacci</span>
+<span style="color:#2aa198">5</span>
 
-julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">5</span><span style="color:#f92672">+</span><span style="color:#ae81ff">3</span> <span style="color:#75715e">#gives the sixth Fibonacci</span>
-<span style="color:#ae81ff">8</span>
+julia<span style="color:#719e07">&gt;</span> <span style="color:#2aa198">5</span><span style="color:#719e07">+</span><span style="color:#2aa198">3</span> <span style="color:#586e75">#gives the sixth Fibonacci</span>
+<span style="color:#2aa198">8</span>
 
-julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">8</span><span style="color:#f92672">+</span><span style="color:#ae81ff">5</span> <span style="color:#75715e">#gives the seventh Fibonacci</span>
-<span style="color:#ae81ff">13</span>
+julia<span style="color:#719e07">&gt;</span> <span style="color:#2aa198">8</span><span style="color:#719e07">+</span><span style="color:#2aa198">5</span> <span style="color:#586e75">#gives the seventh Fibonacci</span>
+<span style="color:#2aa198">13</span>
 
-julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">13</span><span style="color:#f92672">+</span><span style="color:#ae81ff">8</span> <span style="color:#75715e">#gives the eighth Fibonacci</span>
-<span style="color:#ae81ff">21</span>
+julia<span style="color:#719e07">&gt;</span> <span style="color:#2aa198">13</span><span style="color:#719e07">+</span><span style="color:#2aa198">8</span> <span style="color:#586e75">#gives the eighth Fibonacci</span>
+<span style="color:#2aa198">21</span>
 
-julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">21</span><span style="color:#f92672">+</span><span style="color:#ae81ff">13</span> <span style="color:#75715e">#gives the nineth Fibonacci</span>
-<span style="color:#ae81ff">34</span>
+julia<span style="color:#719e07">&gt;</span> <span style="color:#2aa198">21</span><span style="color:#719e07">+</span><span style="color:#2aa198">13</span> <span style="color:#586e75">#gives the nineth Fibonacci</span>
+<span style="color:#2aa198">34</span>
 
-julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">34</span><span style="color:#f92672">+</span><span style="color:#ae81ff">21</span> <span style="color:#75715e">#gives the tenth Fibonacci</span>
-<span style="color:#ae81ff">55</span>
+julia<span style="color:#719e07">&gt;</span> <span style="color:#2aa198">34</span><span style="color:#719e07">+</span><span style="color:#2aa198">21</span> <span style="color:#586e75">#gives the tenth Fibonacci</span>
+<span style="color:#2aa198">55</span>
 
-julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">55</span><span style="color:#f92672">+</span><span style="color:#ae81ff">34</span> <span style="color:#75715e">#gives the eleventh Fibonacci</span>
-<span style="color:#ae81ff">89</span>
+julia<span style="color:#719e07">&gt;</span> <span style="color:#2aa198">55</span><span style="color:#719e07">+</span><span style="color:#2aa198">34</span> <span style="color:#586e75">#gives the eleventh Fibonacci</span>
+<span style="color:#2aa198">89</span>
 
-julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">89</span><span style="color:#f92672">+</span><span style="color:#ae81ff">55</span> <span style="color:#75715e">#gives the twelfth Fibonacci</span>
-<span style="color:#ae81ff">144</span></code></pre></div>
+julia<span style="color:#719e07">&gt;</span> <span style="color:#2aa198">89</span><span style="color:#719e07">+</span><span style="color:#2aa198">55</span> <span style="color:#586e75">#gives the twelfth Fibonacci</span>
+<span style="color:#2aa198">144</span></code></pre></div>
 <p>And now:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#f92672">&gt;</span> φ<span style="color:#f92672">^</span><span style="color:#ae81ff">12</span><span style="color:#f92672">/</span>sqrt(<span style="color:#ae81ff">5</span>)
-<span style="color:#ae81ff">144.0013888754932</span></code></pre></div>
+<div class="highlight"><pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-julia" data-lang="julia">julia<span style="color:#719e07">&gt;</span> <span style="color:#b58900">φ</span><span style="color:#719e07">^</span><span style="color:#2aa198">12</span><span style="color:#719e07">/</span>sqrt(<span style="color:#2aa198">5</span>)
+<span style="color:#2aa198">144.0013888754932</span></code></pre></div>
 <p>Which is very close to 144.</p>
 
 <h2 id="exercises">Exercises</h2>
@@ -385,7 +366,7 @@ julia<span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">89</spa
 
     <div class="flex justify-between">
   <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://piever.github.io/simpleblog/" >
-    &copy; 2018 Thoughts and things
+    &copy; 2020 Thoughts and things
   </a>
   
 

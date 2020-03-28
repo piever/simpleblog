@@ -91,7 +91,6 @@ julia> fib, next_fib = next_fib, fib+next_fib
 ```
 
  <div class="boxBorder">
-
 **Important remark**
 
 This way is actually much faster to type: if you want to repeat a previous command at the console, simply press `↑` (the UP arrow) and the previous command will reappear, ready for execution. You can press `↑` as many times as you want to recover an old command from your console history.

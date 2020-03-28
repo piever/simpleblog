@@ -28,7 +28,6 @@ julia> φ
 To type $$\varphi$$ simply start typing `\varphi` and then press `Tab`. The REPL will autocomplete it for you.
 
  <div class="boxBorder">
-
 **Important remark**
 
 There is one crucial difference between writing Julia and writing mathematics. In mathematics `=` is used to test equality, whereas in Julia you should use `==`. The operator `=` also exists but has a completely different meaning that we will discover in the next blog post.
